@@ -1,2 +1,2 @@
-# -simplecloud.info
-code for simplecloud.info
+# simplecloud.info
+Code for [simplecloud.info](http://simplecloud.info)

@@ -1,0 +1,2300 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en"><head><title>Draft: Simple Cloud Identity Management: Core
+    Schema 1.0</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="description" content="Simple Cloud Identity Management: Core
+    Schema 1.0">
+    <meta name="generator" content="xml2rfc v1.36 (http://xml.resource.org/)">
+    <style type='text/css'><!--
+    body {
+        font-family: verdana, charcoal, helvetica, arial, sans-serif;
+        font-size: small; color: #000; background-color: #FFF;
+        margin: 2em;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: helvetica, monaco, "MS Sans Serif", arial, sans-serif;
+        font-weight: bold; font-style: normal;
+    }
+    h1 { color: #900; background-color: transparent; text-align: right; }
+    h3 { color: #333; background-color: transparent; }
+
+    td.RFCbug {
+        font-size: x-small; text-decoration: none;
+        width: 30px; height: 30px; padding-top: 2px;
+        text-align: justify; vertical-align: middle;
+        background-color: #000;
+    }
+    td.RFCbug span.RFC {
+        font-family: monaco, charcoal, geneva, "MS Sans Serif", helvetica, verdana, sans-serif;
+        font-weight: bold; color: #666;
+    }
+    td.RFCbug span.hotText {
+        font-family: charcoal, monaco, geneva, "MS Sans Serif", helvetica, verdana, sans-serif;
+        font-weight: normal; text-align: center; color: #FFF;
+    }
+
+    table.TOCbug { width: 30px; height: 15px; }
+    td.TOCbug {
+        text-align: center; width: 30px; height: 15px;
+        color: #FFF; background-color: #900;
+    }
+    td.TOCbug a {
+        font-family: monaco, charcoal, geneva, "MS Sans Serif", helvetica, sans-serif;
+        font-weight: bold; font-size: x-small; text-decoration: none;
+        color: #FFF; background-color: transparent;
+    }
+
+    td.header {
+        font-family: arial, helvetica, sans-serif; font-size: x-small;
+        vertical-align: top; width: 33%;
+        color: #FFF; background-color: #666;
+    }
+    td.author { font-weight: bold; font-size: x-small; margin-left: 4em; }
+    td.author-text { font-size: x-small; }
+
+        /* info code from SantaKlauss at http://www.madaboutstyle.com/tooltip2.html */
+    a.info {
+        /* This is the key. */
+        position: relative;
+        z-index: 24;
+        text-decoration: none;
+    }
+    a.info:hover {
+        z-index: 25;
+        color: #FFF; background-color: #900;
+    }
+    a.info span { display: none; }
+    a.info:hover span.info {
+        /* The span will display just on :hover state. */
+        display: block;
+        position: absolute;
+        font-size: smaller;
+        top: 2em; left: -5em; width: 15em;
+        padding: 2px; border: 1px solid #333;
+        color: #900; background-color: #EEE;
+        text-align: left;
+    }
+
+    a { font-weight: bold; }
+    a:link    { color: #900; background-color: transparent; }
+    a:visited { color: #633; background-color: transparent; }
+    a:active  { color: #633; background-color: transparent; }
+
+    p { margin-left: 2em; margin-right: 2em; }
+    p.copyright { font-size: x-small; }
+    p.toc { font-size: small; font-weight: bold; margin-left: 3em; }
+    table.toc { margin: 0 0 0 3em; padding: 0; border: 0; vertical-align: text-top; }
+    td.toc { font-size: small; font-weight: bold; vertical-align: text-top; }
+
+    ol.text { margin-left: 2em; margin-right: 2em; }
+    ul.text { margin-left: 2em; margin-right: 2em; }
+    li      { margin-left: 3em; }
+
+        /* RFC-2629 <spanx>s and <artwork>s. */
+    em     { font-style: italic; }
+    strong { font-weight: bold; }
+    dfn    { font-weight: bold; font-style: normal; }
+    cite   { font-weight: normal; font-style: normal; }
+    tt     { color: #036; }
+    tt, pre, pre dfn, pre em, pre cite, pre span {
+        font-family: "Courier New", Courier, monospace; font-size: small;
+    }
+    pre {
+        text-align: left; padding: 4px;
+        color: #000; background-color: #CCC;
+    }
+    pre dfn  { color: #900; }
+    pre em   { color: #66F; background-color: #FFC; font-weight: normal; }
+    pre .key { color: #33C; font-weight: bold; }
+    pre .id  { color: #900; }
+    pre .str { color: #000; background-color: #CFF; }
+    pre .val { color: #066; }
+    pre .rep { color: #909; }
+    pre .oth { color: #000; background-color: #FCF; }
+    pre .err { background-color: #FCC; }
+
+        /* RFC-2629 <texttable>s. */
+    table.all, table.full, table.headers, table.none {
+        font-size: small; text-align: center; border-width: 2px;
+        vertical-align: top; border-collapse: collapse;
+    }
+    table.all, table.full { border-style: solid; border-color: black; }
+    table.headers, table.none { border-style: none; }
+    th {
+        font-weight: bold; border-color: black;
+        border-width: 2px 2px 3px 2px;
+    }
+    table.all th, table.full th { border-style: solid; }
+    table.headers th { border-style: none none solid none; }
+    table.none th { border-style: none; }
+    table.all td {
+        border-style: solid; border-color: #333;
+        border-width: 1px 2px;
+    }
+    table.full td, table.headers td, table.none td { border-style: none; }
+
+    hr { height: 1px; }
+    hr.insert {
+        width: 80%; border-style: none; border-width: 0;
+        color: #CCC; background-color: #CCC;
+    }
+    --></style>
+</head>
+<body>
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<table summary="layout" width="66%" border="0" cellpadding="0" cellspacing="0"><tr><td><table summary="layout" width="100%" border="0" cellpadding="2" cellspacing="1">
+    <tr><td class="header">Draft</td><td class="header">C. Mortimore, Ed.</td></tr>
+    <tr><td class="header">&nbsp;</td><td class="header">Salesforce</td></tr>
+    <tr><td class="header">&nbsp;</td><td class="header">P. Harding</td></tr>
+    <tr><td class="header">&nbsp;</td><td class="header">P. Madsen</td></tr>
+    <tr><td class="header">&nbsp;</td><td class="header">Ping</td></tr>
+    <tr><td class="header">&nbsp;</td><td class="header">T. Drake</td></tr>
+    <tr><td class="header">&nbsp;</td><td class="header">UnboundID</td></tr>
+    <tr><td class="header">&nbsp;</td><td class="header">December 16, 2011</td></tr>
+</table></td></tr></table>
+<h1><br />Simple Cloud Identity Management: Core
+    Schema 1.0</h1>
+
+<h3>Abstract</h3>
+
+<p>The Simple Cloud Identity Management (SCIM) specification is designed
+    to make managing user identity in cloud based applications and services
+    easier. The specification suite builds upon experience with
+    existing schemas and deployments, placing specific emphasis on
+    simplicity of development and integration, while applying existing
+    authentication, authorization, and privacy models. Its intent is to
+    reduce the cost and complexity of user management operations by
+    providing a common user schema and extension model, as well as binding
+    documents to provide patterns for exchanging this schema using standard
+    protocols. In essence, make it fast, cheap, and easy to move identity in
+    to, out of, and around the cloud.
+</p>
+<p>This document provides a platform neutral schema and extension model
+    for representing users and groups in JSON and XML formats. This schema is intended for exchange
+    and use with cloud service providers.  Additional binding documents provide a standard REST API,
+    SAML binding, and use cases.
+</p><a name="toc"></a><br /><hr />
+<h3>Table of Contents</h3>
+<p class="toc">
+    <a href="#rnc">1.</a>&nbsp;
+    Requirements Notation and Conventions<br />
+    <a href="#overview">2.</a>&nbsp;
+    Overview<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#defs">2.1.</a>&nbsp;
+    Definitions<br />
+    <a href="#schema_structure">3.</a>&nbsp;
+    SCIM Schema Structure<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#attribute-types">3.1.</a>&nbsp;
+    Attribute Data Types<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#multi-value-types">3.2.</a>&nbsp;
+    Multi-valued Attributes<br />
+    <a href="#anchor1">4.</a>&nbsp;
+    Schema Extension Model<br />
+    <a href="#schema">5.</a>&nbsp;
+    SCIM Core Schema<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor2">5.1.</a>&nbsp;
+    Common Schema Attributes<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#schemas-attribute">5.2.</a>&nbsp;
+    &quot;schemas&quot; Attribute<br />
+    <a href="#user-resource">6.</a>&nbsp;
+    SCIM User Schema<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor3">6.1.</a>&nbsp;
+    Singular Attributes<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor4">6.2.</a>&nbsp;
+    Multi-valued Attributes<br />
+    <a href="#anchor5">7.</a>&nbsp;
+    SCIM Enterprise User Schema Extension<br />
+    <a href="#group-resource">8.</a>&nbsp;
+    SCIM Group Schema<br />
+    <a href="#anchor6">9.</a>&nbsp;
+    Service Provider Configuration Schema<br />
+    <a href="#resource-schema">10.</a>&nbsp;
+    Resource Schema<br />
+    <a href="#json_representation">11.</a>&nbsp;
+    JSON Representation<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor7">11.1.</a>&nbsp;
+    Minimal User Representation<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor8">11.2.</a>&nbsp;
+    Full User Representation<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor9">11.3.</a>&nbsp;
+    Enterprise User Extension Representation<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor10">11.4.</a>&nbsp;
+    Group Representation<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor11">11.5.</a>&nbsp;
+    Service Provider Configuration Representation<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor12">11.6.</a>&nbsp;
+    Resource Schema Representation<br />
+    <a href="#xml_representation">12.</a>&nbsp;
+    XML Representation<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor13">12.1.</a>&nbsp;
+    Minimal Representation<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor14">12.2.</a>&nbsp;
+    Full Representation<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor15">12.3.</a>&nbsp;
+    Enterprise User Extension Representation<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor16">12.4.</a>&nbsp;
+    Group Representation<br />
+    <a href="#Security">13.</a>&nbsp;
+    Security Considerations<br />
+    <a href="#anchor17">Appendix&nbsp;A.</a>&nbsp;
+    Contributors<br />
+    <a href="#rfc.references1">14.</a>&nbsp;
+    Normative References<br />
+    <a href="#rfc.authors">&#167;</a>&nbsp;
+    Authors' Addresses<br />
+</p>
+<br clear="all" />
+
+<a name="rnc"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.1"></a><h3>1.&nbsp;
+    Requirements Notation and Conventions</h3>
+
+<p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+    "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+    document are to be interpreted as described in <a class='info' href='#RFC2119'>[RFC2119]<span> (</span><span class='info'>Bradner, S., &ldquo;Key words for use in RFCs to Indicate Requirement Levels,&rdquo; March&nbsp;1997.</span><span>)</span></a>
+    .
+</p>
+<p>Throughout this document, values are quoted to indicate that they are
+    to be taken literally. When using these values in protocol messages, the
+    quotes MUST NOT be used as part of the value.
+</p>
+<a name="overview"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2"></a><h3>2.&nbsp;
+    Overview</h3>
+
+<p>While there are existing standards for describing and exchanging user
+    information, many of these standards can be difficult to implement
+    and/or use; e.g., their wire protocols do not easily traverse firewalls and/or are not easily
+    layered onto existing web protocols. As a result, many cloud
+    providers implement non-standard APIs for managing users within
+    their services. This increases both the cost and complexity associated
+    with organizations adopting products and services from multiple cloud
+    providers as they must perform redundant integration development.
+    Similarly, cloud services providers seeking to interoperate with
+    multiple application marketplaces or cloud identity providers must be
+    redundantly integrated.
+</p>
+<p>SCIM seeks to simplify this problem through a simple to implement
+    specification suite that provides a common user schema and extension
+    model, as well as binding documents to provide patterns for exchanging
+    this schema via a REST API. It draws inspiration and best
+    practice, building upon existing user APIs and schemas from a wide
+    variety of sources including, but not limited to, existing APIs exposed
+    by cloud providers, PortableContacts, and LDAP directory services.
+</p>
+<p>This document provides a platform neutral schema and extension model
+    for representing users and groups in JSON and XML formats. This schema is intended for exchange
+    and use with cloud service providers.  Additional binding documents provide a standard REST API,
+    SAML binding, and use cases.
+</p>
+<a name="defs"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.1"></a><h3>2.1.&nbsp;
+    Definitions</h3>
+
+<blockquote class="text"><dl>
+    <dt>Service Provider:</dt>
+    <dd>A web application that provides identity information via the SCIM protocol.
+
+    </dd>
+    <dt>Consumer:</dt>
+    <dd>A website or application that uses the SCIM protocol to manage identity data
+        maintained by the Service Provider.
+
+    </dd>
+    <dt>Resource:</dt>
+    <dd>The Service Provider managed artifact containing one or more attributes; e.g., User or Group
+
+    </dd>
+    <dt>Singular Attribute:</dt>
+    <dd>A Resource attribute that contains 0..1 values; e.g., displayName.
+
+    </dd>
+    <dt>Multi-valued Attribute:</dt>
+    <dd>A Resource attribute that contains 0..n values; e.g., emails.
+
+    </dd>
+    <dt>Simple Attribute:</dt>
+    <dd>A Singular or Multi-valued Attribute whose value is a primitive; e.g., String.
+
+    </dd>
+    <dt>Complex Attribute:</dt>
+    <dd>A Singular or Multi-valued Attribute whose value is a composition of one or
+        more Simple Attributes.
+
+    </dd>
+    <dt>Sub-Attribute:</dt>
+    <dd>A Simple Attribute contained within a Complex Attribute.
+
+    </dd>
+</dl></blockquote>
+<a name="schema_structure"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3"></a><h3>3.&nbsp;
+    SCIM Schema Structure</h3>
+
+<p>SCIM schema provides a minimal core schema for representing users and groups (resources), encompassing common
+    attributes found in many existing deployments and schemas.
+
+</p>
+<p>A resource is a collection of attributes identified by one or more schemas.  Minimally, an attribute consists
+    of the attribute name and at least one Simple or Complex value either of which may be Multi-valued.  SCIM schema
+    defines the data type, plurality and other distinguishing features of an attribute.  Unless otherwise specified
+    all attributes are modifiable by Consumers. Immutable (read-only) attributes SHALL be specified as 'READ-ONLY'
+    within the attribute definition.  Additionally, Service Providers MAY choose to make some or all Resource
+    attributes immutable and SHOULD identify those attributes via the associated
+    <a class='info' href='#schemas-attribute'>Resource's schema endpoint<span> (</span><span class='info'>&quot;schemas&quot; Attribute</span><span>)</span></a>.
+
+</p>
+<p>
+    Both XML and JSON formats are defined.  Resource and attribute names MUST conform to
+    <a href='http://www.w3.org/TR/REC-xml/#NT-Names'>XML naming rules</a>;i.e., SCIM names MUST be
+    valid XML names and SHOULD be camelCased.  When marshalling or extending SCIM resources in XML
+    implementors MUST use the normative, SCIM, XML schema (.xsd).  SCIM resources represented in a
+    schema-less format; e.g., JSON, MUST specify schema via the <a class='info' href='#schemas-attribute'>schemas attribute<span> (</span><span class='info'>&quot;schemas&quot; Attribute</span><span>)</span></a>.
+
+</p>
+<a name="attribute-types"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.1"></a><h3>3.1.&nbsp;
+    Attribute Data Types</h3>
+
+<p>
+    Attribute data types are derived from <a href='http://www.w3.org/TR/xmlschema-2/'>XML schema</a>
+    and unless otherwise specified are optional, modifiable by Consumers, and of type
+    <a class='info' href='#type-string'>String<span> (</span><span class='info'>String</span><span>)</span></a>. The JSON format defines a limited set of data types, hence, where
+    appropriate, alternate JSON representations are defined below.  SCIM extensions SHOULD not introduce new data
+    types.
+
+</p>
+<a name="type-string"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.1.1"></a><h3>3.1.1.&nbsp;
+    String</h3>
+
+<p>
+    A sequence of characters as defined in
+    <a href='http://www.w3.org/TR/xmlschema-2/#string'>section 3.2.1</a>
+    of the XML Schema Datatypes Specification.  A String attribute MAY specify a required data format.
+    Additionally, when Canonical Values are specified Service Providers SHOULD conform to those values if
+    appropriate, but MAY provide alternate String values to represent additional values.
+
+</p>
+<a name="type-boolean"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.1.2"></a><h3>3.1.2.&nbsp;
+    Boolean</h3>
+
+<p>
+    The literal "true" or "false" as specified in
+    <a href='http://www.w3.org/TR/xmlschema-2/#boolean'>section 3.2.2</a> of the XML Schema Datatypes
+    Specification.
+
+</p>
+<a name="type-decimal"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.1.3"></a><h3>3.1.3.&nbsp;
+    Decimal</h3>
+
+<p>
+    A real number with at least one digit to the left and right of the period as specified
+    in <a href='http://www.w3.org/TR/xmlschema-2/#decimal'>section 3.2.3</a> of the XML Schema
+    Datatypes Specification.
+
+</p>
+<p>Values represented in JSON MUST conform to the XML constraints above and are represented as a
+    <a href='http://www.json.org/'>JSON Number</a>.
+
+</p>
+<a name="type-integer"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.1.4"></a><h3>3.1.4.&nbsp;
+    Integer</h3>
+
+<p>
+    A Decimal number with no fractional digits as defined in
+    <a href='http://www.w3.org/TR/xmlschema-2/#integer'>section 3.3.13</a> of the XML Schema Datatypes
+    Specification.
+
+</p>
+<p>Values represented in JSON MUST conform to the XML constraints above and are represented as a
+    <a href='http://www.json.org/'>JSON Number</a>.
+
+</p>
+<a name="type-datetime"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.1.5"></a><h3>3.1.5.&nbsp;
+    DateTime</h3>
+
+<p>
+    A dateTime (e.g. 2008-01-23T04:56:22Z) as specified in
+    <a href='http://www.w3.org/TR/xmlschema-2/#dateTime'>section 3.2.7</a> of the XML Schema Datatypes
+    Specification.
+
+</p>
+<p>Values represented in JSON MUST conform to the XML constraints above and are represented as a
+    <a href='http://www.json.org/'>JSON String</a>.
+
+</p>
+<a name="type-binary"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.1.6"></a><h3>3.1.6.&nbsp;
+    Binary</h3>
+
+<p>
+    The attribute value MUST be encoded as a valid xsd:base64Binary value as specified in <a href='http://www.w3.org/TR/xmlschema-2/#base64Binary'>section 3.2.16</a> of the XML Schema
+    Datatypes Specification.
+
+</p>
+<p>Values represented in JSON MUST conform to the XML constraints above and are represented as a
+    <a href='http://www.json.org/'>JSON String</a>.
+
+</p>
+<a name="type-complex"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.1.7"></a><h3>3.1.7.&nbsp;
+    Complex</h3>
+
+<p>
+    A Singular or Multi-valued Attribute whose value is a composition of one or more Simple Attributes as
+    specified in <a href='http://www.w3.org/TR/xmlschema-1/#Complex_Type_Definitions'>section 3.4</a> XML Schema Datatypes
+    Specification.
+
+</p>
+<p>JSON values are represented as <a href='http://www.json.org/'>JSON Objects</a>.
+
+</p>
+<a name="multi-value-types"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.2"></a><h3>3.2.&nbsp;
+    Multi-valued Attributes</h3>
+
+<p>Multi-valued attributes may contain Sub-Attributes and therefore may contain Complex Attributes. The below
+    Sub-Attributes are considered normative and when specified SHOULD be used as defined.
+</p>
+<blockquote class="text"><dl>
+    <dt>type</dt>
+    <dd>A label indicating the attribute's function; e.g., "work" or "home".
+    </dd>
+    <dt>primary</dt>
+    <dd>A Boolean value indicating the 'primary' or preferred
+        attribute value for this attribute, e.g. the preferred mailing address or primary
+        e-mail address. The primary attribute value 'true' MUST appear no more than once.
+    </dd>
+    <dt>display</dt>
+    <dd>A human readable name, primarily used for display purposes.  READ-ONLY.
+    </dd>
+    <dt>operation</dt>
+    <dd>The operation to perform on the multi-valued attribute during a PATCH request. The only
+        valid value is "delete", which signifies that this instance should be removed from the Resource.
+    </dd>
+    <dt>value</dt>
+    <dd>The attribute's significant value; e.g., the e-mail address, phone number, etc. Attributes
+        that define a "value" sub-attribute MAY be alternately represented as a collection of primitive types.  For example:
+    </dd><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+{
+  "emails": [
+    {"value":"bjensen@example.com"},
+    {"value":"babs@example.com"}
+  ]
+}
+</pre></div>
+    <dt></dt>
+    <dd>May also be represented as:
+    </dd><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+{
+  "emails": ["bjensen@example.com","babs@example.com"]
+}
+
+</pre></div>
+</dl></blockquote>
+<p>
+    When returning multi-valued attributes, Service Providers SHOULD
+    canonicalize the value returned, if appropriate (e.g. for e-mail
+    addresses and URLs). Providers MAY return the same value more than once
+    with different types (e.g. the same e-mail address may used for work and
+    home), but SHOULD NOT return the same (type, value) combination more
+    than once per Attribute, as this complicates processing by the Consumer.
+</p>
+<a name="anchor1"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.4"></a><h3>4.&nbsp;
+    Schema Extension Model</h3>
+
+<p>SCIM schema follows an object extension model similar to
+    ObjectClasses used in LDAP. Unlike LDAP there is no inheritance model;
+    all extensions are additive (similar to <a href='http://tools.ietf.org/html/rfc4512'>LDAP Auxiliary Object Classes</a>). Each
+    value indicates additive schema that may exist in a SCIM representation
+    as specified by extensions not defined in this suite.  Schema extensions MUST NOT redefine any attributes defined in this
+    specification and SHOULD follow conventions defined in this specification. Each schema
+    extension must identify a URI used to identify the extension.  XML MUST use XML
+    namespaces and JSON formats MUST use the <a class='info' href='#schemas-attribute'>"schemas" attribute<span> (</span><span class='info'>&quot;schemas&quot; Attribute</span><span>)</span></a>
+    to distinguish extended resources and attributes.
+
+</p>
+<a name="schema"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5"></a><h3>5.&nbsp;
+    SCIM Core Schema</h3>
+
+<a name="anchor2"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5.1"></a><h3>5.1.&nbsp;
+    Common Schema Attributes</h3>
+
+<p>Each SCIM Resource (Users, Groups, etc.) includes the below common attributes. These attributes MUST
+    be included in all Resources, including any extended Resource types. It is not necessary to specify the schemas
+    attribute if the Resource is fully defined in this document as the core schema is implicitly included.
+</p>
+<p>
+</p>
+<blockquote class="text"><dl>
+    <dt>id</dt>
+    <dd>Unique identifier for the SCIM Resource as
+        defined by the Service Provider. Each representation of the
+        Resource MUST include a non-empty id value. This identifier MUST
+        be unique across the Service Provider's entire set of Resources.
+        It MUST be a stable, non-reassignable identifier that does not
+        change when the same Resource is returned in subsequent requests.
+        The value of the id attribute is always issued by the Service
+        Provider and MUST never be specified by the Service Consumer.
+        bulkId: is a reserved keyword and MUST NOT be used in the unique
+        identifier. REQUIRED and READ-ONLY.
+    </dd>
+    <dt>externalId</dt>
+    <dd>Unique identifier for the Resource as defined
+        by the Service Consumer. The externalId may simplify
+        identification of the Resource between Service Consumer and Service
+        provider by allowing the Consumer to refer to the Resource with its
+        own identifier, obviating the need to store a local mapping
+        between the local identifier of the Resource and the identifier used
+        by the Service Provider. Each Resource MAY include a non-empty
+        externalId value. The value of the externalId attribute is always
+        issued be the Service Consumer and can never be specified by the
+        Service Provider. This identifier MUST be unique across the
+        Service Consumer's entire set of Resources. It MUST be a stable,
+        non-reassignable identifier that does not change when the same
+        Resource is returned in subsequent requests. The Service Provider MUST
+        always interpret the externalId as scoped to the Service
+        Consumer's tenant.
+    </dd>
+    <dt>meta</dt>
+    <dd>A complex attribute containing resource metadata.  All sub-attributes are OPTIONAL
+        <blockquote class="text"><dl>
+            <dt>created</dt>
+            <dd>The DateTime the Resource was added to
+                the Service Provider. The attribute MUST be a DateTime.
+                READ-ONLY.
+            </dd>
+            <dt>lastModified</dt>
+            <dd>The most recent DateTime the
+                details of this Resource were updated at the Service Provider. If
+                this Resource has never been modified since its initial creation,
+                the value MUST be the same as the value of created. The
+                attribute MUST be a DateTime. READ-ONLY.
+            </dd>
+            <dt>location</dt>
+            <dd>The URI of the Resource being returned. This value MUST be the same as the
+                Location HTTP response header. READ-ONLY.
+            </dd>
+            <dt>version</dt>
+            <dd>The version of the Resource being returned. This value must be the same as the
+                ETag HTTP response header. READ-ONLY.
+            </dd>
+            <dt>attributes</dt>
+            <dd>The names of the attributes to remove from the Resource during a
+                PATCH operation.
+            </dd>
+        </dl></blockquote>
+    </dd>
+</dl></blockquote><p>
+
+</p>
+<a name="schemas-attribute"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5.2"></a><h3>5.2.&nbsp;
+    &quot;schemas&quot; Attribute</h3>
+
+<p>SCIM supports resources of different types, with extensible
+    schemas. Each resource MUST be indicated using fully qualified URLs.
+</p>
+<p>Where a specific representation has existing support for expressing
+    schema, the traditional convention of that representation MUST be
+    applied. For example, when representing users using XML, XML Namespace
+    should be used.
+</p>
+<p>When a representation does not explicitly provide support for indicating a schema, such as JSON, a schemas
+    attribute is used to indicate the version of SCIM schema as well as any schema extensions.
+</p>
+<p>
+</p>
+<blockquote class="text"><dl>
+    <dt>schemas</dt>
+    <dd>The schemas attribute is an array of Strings
+        which allows introspection of the supported schema version for a
+        SCIM representation as well any schema extensions supported by
+        that representation. Each String value must be a unique URI. This
+        specification defines URIs for User, Group, and a standard "enterprise"
+        extension.  All representations of SCIM schema MUST include a
+        non-zero value array with value(s) of the URIs supported by that
+        representation.  Duplicate values MUST NOT be included.  Value
+        order is not specified and MUST not impact behavior. REQUIRED.
+    </dd>
+</dl></blockquote><p>
+
+</p>
+<a name="user-resource"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.6"></a><h3>6.&nbsp;
+    SCIM User Schema</h3>
+
+<p>SCIM provides a schema for representing Users, identified using the
+    following URI: 'urn:scim:schemas:core:1.0'. The following
+    attributes are defined in addition to those attributes defined in SCIM Core Schema:
+</p>
+<a name="anchor3"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.6.1"></a><h3>6.1.&nbsp;
+    Singular Attributes</h3>
+
+<p>
+</p>
+<blockquote class="text"><dl>
+    <dt>userName</dt>
+    <dd>Unique identifier for the User, typically
+        used by the user to directly authenticate to the service provider.
+        Often displayed to the user as their unique identifier within the
+        system (as opposed to id or externalId, which are generally
+        opaque and not user-friendly identifiers). Each User MUST include
+        a non-empty userName value. This identifier MUST be unique across
+        the Service Consumer's entire set of Users. It MUST be a stable ID
+        that does not change when the same User is returned in subsequent
+        requests. REQUIRED.
+    </dd>
+    <dt>name</dt>
+    <dd>The components of the User's real name.
+        Providers MAY return just the full name as a single string in the
+        formatted sub-attribute, or they MAY return just the individual
+        component attributes using the other sub-attributes, or they MAY
+        return both. If both variants are returned, they SHOULD be
+        describing the same name, with the formatted name indicating how
+        the component attributes should be combined.
+        <blockquote class="text"><dl>
+            <dt>formatted</dt>
+            <dd>The full name, including all middle
+                names, titles, and suffixes as appropriate, formatted for
+                display (e.g. Ms. Barbara Jane Jensen, III.).
+            </dd>
+            <dt>familyName</dt>
+            <dd>The family name of the User, or "Last
+                Name" in most Western languages (e.g. Jensen given the full
+                name Ms. Barbara Jane Jensen, III.).
+            </dd>
+            <dt>givenName</dt>
+            <dd>The given name of the User, or "First
+                Name" in most Western languages (e.g. Barbara given the full
+                name Ms. Barbara Jane Jensen, III.).
+            </dd>
+            <dt>middleName</dt>
+            <dd>The middle name(s) of the User (e.g.
+                Jane given the full name Ms. Barbara Jane Jensen, III.).
+
+            </dd>
+            <dt>honorificPrefix</dt>
+            <dd>The honorific prefix(es) of the
+                User, or "Title" in most Western languages (e.g. Ms. given the
+                full name Ms. Barbara Jane Jensen, III.).
+            </dd>
+            <dt>honorificSuffix</dt>
+            <dd>The honorific suffix(es) of the
+                User, or "Suffix" in most Western languages (e.g. III. given
+                the full name Ms. Barbara Jane Jensen, III.).
+            </dd>
+        </dl></blockquote>
+    </dd>
+    <dt>displayName</dt>
+    <dd>The name of the User, suitable for
+        display to end-users. Each User returned MAY include a non-empty
+        displayName value. The name SHOULD be the full name of the User
+        being described if known (e.g. Babs Jensen or Ms. Barbara J
+        Jensen, III), but MAY be a username or handle, if that is all that
+        is available (e.g. bjensen). The value provided SHOULD be the
+        primary textual label by which this User is normally displayed by
+        the Service Provider when presenting it to end-users.
+    </dd>
+    <dt>nickName</dt>
+    <dd>The casual way to address the user in real
+        life, e.g. "Bob" or "Bobby" instead of "Robert". This attribute
+        SHOULD NOT be used to represent a User's username (e.g. bjensen or
+        mpepperidge).
+    </dd>
+    <dt>profileUrl</dt>
+    <dd>A fully qualified URL to a page representing the User's
+        online profile.
+    </dd>
+    <dt>title</dt>
+    <dd>The user&rsquo;s title, such as &ldquo;Vice
+        President.&rdquo;
+    </dd>
+    <dt>userType</dt>
+    <dd>Used to identify the organization to user
+        relationship. Typical values used might be "Contractor",
+        "Employee", "Intern", "Temp", "External", and "Unknown" but any
+        value may be used.
+    </dd>
+    <dt>preferredLanguage</dt>
+    <dd>Indicates the User's preferred written or spoken language. Generally used
+        for selecting a localized User interface.  Valid values are concatenation of the
+        <a href='http://www.loc.gov/standards/iso639-2/php/code_list.php'>ISO 639-1 two letter language code</a>,
+        an underscore, and the
+        <a href='http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm'>ISO 3166-1 2 letter country code</a>; e.g., 'en_US' specifies the language English and country US.
+
+    </dd>
+    <dt>locale</dt>
+    <dd>Used to indicate the User's default location for purposes of localizing items such
+        as currency, date time format, numerical representations, etc. A locale value is a concatenation of the
+        <a href='http://www.loc.gov/standards/iso639-2/php/code_list.php'>ISO 639-1 two letter language code</a>,
+        an underscore, and the
+        <a href='http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm'>ISO 3166-1 2 letter country code</a>; e.g., 'en_US' specifies the language English and country US.
+
+    </dd>
+    <dt>timezone</dt>
+    <dd>The User's time zone in the
+        <a href='http://www.twinsun.com/tz/tz-link.htm'>"Olson" timezone database format</a>; e.g.,'America/Los_Angeles'.
+
+    </dd>
+    <dt>active</dt>
+    <dd>A Boolean value indicating the User's administrative status. The definitive meaning of
+        this attribute is determined by the Service Provider though a value of true infers the User is, for
+        example, able to login while a value of false implies the User's account has been suspended.
+    </dd>
+    <dt>password</dt>
+    <dd>The User's clear text password.  This attribute is intended to be used as a means to
+        specify an initial password when creating a new User or to reset an existing User's password.  No accepted
+        standards exist to convey password policies, hence Consumers should expect Service Providers to reject
+        password values.  This value MUST never be returned by a Service Provider in any form.
+    </dd>
+</dl></blockquote><p>
+
+</p>
+<a name="anchor4"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.6.2"></a><h3>6.2.&nbsp;
+    Multi-valued Attributes</h3>
+
+<p>The following multi-valued attributes are defined.
+</p>
+<p>
+</p>
+<blockquote class="text"><dl>
+    <dt>emails</dt>
+    <dd>E-mail addresses for the User. The value
+        SHOULD be canonicalized by the Service Provider, e.g.
+        bjensen@example.com instead of bjensen@EXAMPLE.COM. Canonical Type
+        values of work, home, and other.
+    </dd>
+    <dt>phoneNumbers</dt>
+    <dd>Phone numbers for the User. No
+        canonical value is assumed here. Canonical Type values of work,
+        home, mobile, fax, pager and other.
+    </dd>
+    <dt>ims</dt>
+    <dd>Instant messaging address for the User. No
+        official canonicalization rules exist for all instant messaging
+        addresses, but Service Providers SHOULD, when appropriate, remove all whitespace and
+        convert the address to lowercase. Instead of the standard
+        Canonical Values for type, this attribute defines the following
+        Canonical Values to represent currently popular IM services: aim,
+        gtalk, icq, xmpp, msn, skype, qq, and yahoo.
+    </dd>
+    <dt>photos</dt>
+    <dd>URL of a photo of the User. The value SHOULD
+        be a canonicalized URL, and MUST point to an image file
+        (e.g. a GIF, JPEG, or PNG image file) rather than to a web page
+        containing an image. Service Providers MAY return the same image
+        at different sizes, though it is recognized that no standard for
+        describing images of various sizes currently exists. Note that
+        this attribute SHOULD NOT be used to send down arbitrary photos
+        taken by this User, but specifically profile photos of the User
+        suitable for display when describing the User. Instead of the
+        standard Canonical Values for type, this attribute defines the
+        following Canonical Values to represent popular photo sizes:
+        photo, thumbnail.
+    </dd>
+    <dt>addresses</dt>
+    <dd>A physical mailing address for this User. Canonical Type Values of work,
+        home, and other. The value attribute is a complex type with the
+        following sub-attributes.  All Sub-Attributes are OPTIONAL.
+
+        <blockquote class="text"><dl>
+            <dt>formatted</dt>
+            <dd>The full mailing address, formatted
+                for display or use with a mailing label. This attribute MAY
+                contain newlines.
+            </dd>
+            <dt>streetAddress</dt>
+            <dd>The full street address component,
+                which may include house number, street name, P.O. box, and
+                multi-line extended street address information. This attribute
+                MAY contain newlines.
+            </dd>
+            <dt>locality</dt>
+            <dd>The city or locality component.
+            </dd>
+            <dt>region</dt>
+            <dd>The state or region component.
+            </dd>
+            <dt>postalCode</dt>
+            <dd>The zipcode or postal code component.
+            </dd>
+            <dt>country</dt>
+            <dd>The country name component.
+                When specified the value MUST be in
+                <a href='http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm'>ISO 3166-1 alpha 2 "short" code format</a>; e.g., the United States and Sweden are "US" and "SE",
+                respectively.
+
+            </dd>
+        </dl></blockquote>
+
+    </dd>
+    <dt>groups</dt>
+    <dd>A list of groups that the user belongs to, either thorough direct membership, nested
+        groups, or dynamically calculated. The values are meant to enable expression of common group or role based
+        access control models, although no explicit authorization model is defined. It is intended that the
+        semantics of group membership and any behavior or authorization granted as a result of membership are
+        defined by the Service Provider. The Canonical types "direct" and "indirect" are defined to describe how
+        the group membership was derived. Â Direct group membership indicates the User is directly associated with
+        the group and SHOULD indicate that Consumers may modify membership through the Group Resource. Â Indirect
+        membership indicates User membership is transitive or dynamic and implies that Consumers cannot modify
+        indirect group membership through the Group resource but MAY modify direct group membership through the
+        Group resource which MAY influence indirect memberships. Â If the SCIM Service Provider exposes a Group
+        resource, the value MUST be the "id" attribute of the corresponding Group resources to which the user
+        belongs. Since this attribute is read-only, group membership changes MUST be applied via the
+        <a class='info' href='#group-resource'>Group Resource<span> (</span><span class='info'>SCIM Group Schema</span><span>)</span></a>. READ-ONLY.
+
+    </dd>
+    <dt>entitlements</dt>
+    <dd>A list of entitlements for the User that
+        represent a thing the User has. That is, an entitlement is an
+        additional right to a thing, object or service. No vocabulary or
+        syntax is specified and Service Providers/Consumers are expected
+        to encode sufficient information in the value so as to accurately
+        and without ambiguity determine what the User has access to. This
+        value has NO canonical types though type may be useful as a means
+        to scope entitlements.
+
+    </dd>
+    <dt>roles</dt>
+    <dd>A list of roles for the User that collectively
+        represent who the User is; e.g., 'Student', "Faculty". No
+        vocabulary or syntax is specified though it is expected that a
+        role value is a String or label representing a collection of
+        entitlements.  This value has NO canonical types.
+
+    </dd>
+    <dt>x509Certificates</dt>
+    <dd>A list of certificates issued to the User. Values are
+        <a class='info' href='#type-binary'>Binary<span> (</span><span class='info'>Binary</span><span>)</span></a> and DER encoded x509.  This value has NO canonical types.
+
+    </dd>
+</dl></blockquote><p>
+
+</p>
+<a name="anchor5"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.7"></a><h3>7.&nbsp;
+    SCIM Enterprise User Schema Extension</h3>
+
+<p>The following SCIM extension defines attributes commonly used in
+    representing users that belong to, or act on behalf of a business or
+    enterprise. The enterprise user extension is identified using the
+    following URI: 'urn:scim:schemas:extension:enterprise:1.0'.
+</p>
+<p>The following Singular Attributes are defined:
+</p>
+<p>
+</p>
+<blockquote class="text"><dl>
+    <dt>employeeNumber</dt>
+    <dd>Numeric or alphanumeric identifier
+        assigned to a person, typically based on order of hire or
+        association with an organization.
+    </dd>
+    <dt>costCenter</dt>
+    <dd>Identifies the name of a cost center.
+
+    </dd>
+    <dt>organization</dt>
+    <dd>Identifies the name of an organization.
+
+    </dd>
+    <dt>division</dt>
+    <dd>Identifies the name of a division.
+
+    </dd>
+    <dt>department</dt>
+    <dd>Identifies the name of a department.
+
+    </dd>
+    <dt>manager</dt>
+    <dd>The User's manager. A complex type that
+        optionally allows Service Providers to represent organizational
+        hierarchy by referencing the "id" attribute of another User.
+
+        <blockquote class="text"><dl>
+            <dt>managerId</dt>
+            <dd>The id of the SCIM resource representing the User's manager. REQUIRED.
+            </dd>
+            <dt>displayName</dt>
+            <dd>The displayName of the User's manager.  OPTIONAL and READ-ONLY.
+            </dd>
+        </dl></blockquote>
+    </dd>
+</dl></blockquote><p>
+
+</p>
+<a name="group-resource"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.8"></a><h3>8.&nbsp;
+    SCIM Group Schema</h3>
+
+<p>SCIM provides a schema for representing groups, identified using the
+    following URI: 'urn:scim:schemas:core:1.0'.
+</p>
+<p>Group resources are meant to enable expression of common Group or
+    role based access control models, although no explicit authorization
+    model is defined. It is intended that the semantics of group membership
+    and any behavior or authorization granted as a result of membership are
+    defined by the Service Provider are considered out of scope for this
+    specification.
+</p>
+<p>The following Singular Attribute is defined in addition to the common
+    attributes defined in SCIM Core Schema:</p>
+<blockquote class="text"><dl>
+    <dt>displayName</dt>
+    <dd>A human readable name for the Group.
+    </dd>
+</dl></blockquote><p>
+
+</p>
+<p>The following multi-valued attribute is defined in addition to the common
+    attributes defined in SCIM Core Schema:</p>
+<blockquote class="text"><dl>
+    <dt>members</dt>
+    <dd>A list of members of the Group. Canonical Types "User" and "Group" are READ-ONLY. The
+        value must be the "id" of a SCIM resource, either a User, or a Group. The intention of the Group type is
+        to allow the Service Provider to support nested Groups. REQUIRED.
+
+    </dd>
+</dl></blockquote><p>
+
+</p>
+<a name="anchor6"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.9"></a><h3>9.&nbsp;
+    Service Provider Configuration Schema</h3>
+
+<p>SCIM provides a schema for representing the Service Provider's configuration identified using the
+    following URI: 'urn:scim:schemas:core:1.0'
+</p>
+<p>The Service Provider Configuration Resource enables a Service Provider to expose its compliance with the SCIM
+    specification in a standardized form as well as provide additional implementation details to Consumers.
+    All attributes are READ-ONLY.
+
+</p>
+<p>The following Singular Attributes are defined in addition to the common attributes defined in Core Schema:
+</p>
+<blockquote class="text"><dl>
+    <dt>documentationUrl</dt>
+    <dd>An HTTP addressable URL pointing to the Service Provider's human consumable
+        help documentation.
+    </dd>
+    <dt>patch</dt>
+    <dd>A complex type that specifies PATCH configuration options.  REQUIRED.
+
+        <blockquote class="text"><dl>
+            <dt>supported</dt>
+            <dd>Boolean value specifying whether the operation is supported. REQUIRED.
+            </dd>
+        </dl></blockquote>
+
+    </dd>
+    <dt>bulk</dt>
+    <dd>A complex type that specifies BULK configuration options.  REQUIRED
+
+        <blockquote class="text"><dl>
+            <dt>supported</dt>
+            <dd>Boolean value specifying whether the operation is supported. REQUIRED.
+            </dd>
+        </dl></blockquote>
+
+        <blockquote class="text"><dl>
+            <dt>maxOperations</dt>
+            <dd>An integer value specifying the maximum number of operations. REQUIRED.
+            </dd>
+        </dl></blockquote>
+
+        <blockquote class="text"><dl>
+            <dt>maxPayloadSize</dt>
+            <dd>An integer value specifying the maximum payload size in bytes. REQUIRED.
+            </dd>
+        </dl></blockquote>
+
+    </dd>
+    <dt>filter</dt>
+    <dd>A complex type that specifies FILTER options.  REQUIRED.
+
+        <blockquote class="text"><dl>
+            <dt>supported</dt>
+            <dd>Boolean value specifying whether the operation is supported. REQUIRED.
+            </dd>
+            <dt>maxResults</dt>
+            <dd>Integer value specifying the maximum number of Resources returned in a response. REQUIRED.
+            </dd>
+        </dl></blockquote>
+
+    </dd>
+    <dt>changePassword</dt>
+    <dd>A complex type that specifies Change Password configuration options.  REQUIRED.
+
+        <blockquote class="text"><dl>
+            <dt>supported</dt>
+            <dd>Boolean value specifying whether the operation is supported. REQUIRED.
+            </dd>
+        </dl></blockquote>
+
+    </dd>
+    <dt>sort</dt>
+    <dd>A complex type that specifies Sort configuration options.  REQUIRED.
+
+        <blockquote class="text"><dl>
+            <dt>supported</dt>
+            <dd>Boolean value specifying whether sorting is supported. REQUIRED.
+            </dd>
+        </dl></blockquote>
+
+    </dd>
+    <dt>etag</dt>
+    <dd>A complex type that specifies Etag configuration options.  REQUIRED.
+
+        <blockquote class="text"><dl>
+            <dt>supported</dt>
+            <dd>Boolean value specifying whether the operation is supported. REQUIRED.
+            </dd>
+        </dl></blockquote>
+
+    </dd>
+    <dt>xmlDataFormat</dt>
+    <dd>A complex type that specifies whether the XML data format is supported.  REQUIRED.
+
+        <blockquote class="text"><dl>
+            <dt>supported</dt>
+            <dd>Boolean value specifying whether the operation is supported. REQUIRED.
+            </dd>
+        </dl></blockquote>
+
+    </dd>
+</dl></blockquote><p>
+
+</p>
+<p>The following multi-valued attribute is defined in addition to the common attributes defined in Core Schema:
+</p>
+<blockquote class="text"><dl>
+    <dt>authenticationSchemes</dt>
+    <dd>A complex type that specifies supported Authentication Scheme
+        properties.  Instead of the standard Canonical Values for type, this attribute defines the
+        following Canonical Values to represent common schemes: oauth, oauth2, oauthbearertoken, httpbasic, and httpdigest.
+        REQUIRED.
+
+        <blockquote class="text"><dl>
+            <dt>name</dt>
+            <dd>The common authentication scheme name; e.g., HTTP Basic. REQUIRED.
+            </dd>
+            <dt>description</dt>
+            <dd>A description of the Authentication Scheme. REQUIRED.
+            </dd>
+            <dt>specUrl</dt>
+            <dd>A HTTP addressable URL pointing to the Authentication Scheme's
+                specification.  OPTIONAL.
+
+            </dd>
+            <dt>documentationUrl</dt>
+            <dd>A HTTP addressable URL pointing to the Authentication Scheme's
+                usage documentation. OPTIONAL.
+
+            </dd>
+        </dl></blockquote>
+
+    </dd>
+</dl></blockquote><p>
+
+</p>
+<a name="resource-schema"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.10"></a><h3>10.&nbsp;
+    Resource Schema</h3>
+
+<p>The Resource schema specifies the Attribute(s) and meta-data that constitute a Resource. Schema Resources
+    are READ-ONLY and identified using the following URI: 'urn:scim:schemas:core:1.0'.  Unlike other core
+    Resources the schema Resource MAY contain a complex object within a Sub-Attribute and all Attributes are
+    REQUIRED unless other specified.
+
+</p>
+<p>The following Singular Attributes are defined:
+</p>
+<blockquote class="text"><dl>
+    <dt>name</dt>
+    <dd>The Resource name.  When applicable Service Providers MUST specify the name specified in the core schema specification; e.g., "User" or "Group".
+    </dd>
+    <dt>description</dt>
+    <dd>The Resource's human readable description. When applicable Service Providers MUST specify the description specified in the core schema specification.
+    </dd>
+    <dt>schema</dt>
+    <dd>The Resource's associated schema URI; e.g., urn:scim:schemas:core:1.0.
+    </dd>
+    <dt>endpoint</dt>
+    <dd>The Resource's HTTP addressable endpoint relative to the Base URL; e.g., /Users.
+    </dd>
+</dl></blockquote><p>
+
+</p>
+<p>The following multi-valued attribute is defined:
+</p>
+<blockquote class="text"><dl>
+    <dt>attributes</dt>
+    <dd>A complex type that specifies the set of Resource attributes.
+
+        <blockquote class="text"><dl>
+            <dt>name</dt>
+            <dd>The attribute's name.
+            </dd>
+            <dt>type</dt>
+            <dd>The attribute's data type; e.g., String.
+            </dd>
+            <dt>multiValued</dt>
+            <dd>Boolean value indicating the attribute's plurality.
+            </dd>
+            <dt>multiValuedAttributeChildName</dt>
+            <dd>String value specifying the child XML element
+                name; e.g., the 'emails' attribute value is 'email', 'phoneNumbers', is 'phoneNumber'.
+                REQUIRED when the multiValued attribute value is true otherwise this attribute MUST be
+                omitted.
+            </dd>
+            <dt>description</dt>
+            <dd>The attribute's human readable description. When applicable Service
+                Providers MUST specify the description specified in the core schema specification.
+
+            </dd>
+            <dt>schema</dt>
+            <dd>The attribute's associated schema; e.g., urn:scim:schemas:core:1.0.
+
+            </dd>
+            <dt>readOnly</dt>
+            <dd>A Boolean value that specifies if the attribute is mutable.
+
+            </dd>
+            <dt>required</dt>
+            <dd>A Boolean value that specifies if the attribute is required.
+
+            </dd>
+            <dt>caseExact</dt>
+            <dd>A Boolean value that specifies if the String attribute is case sensitive.
+
+            </dd>
+            <dt></dt>
+            <dd>The following multi-valued attributes are defined. There are no canonical type values defined
+                and the primary value serves no useful purpose.
+
+                <blockquote class="text"><dl>
+                    <dt>subAttributes</dt>
+                    <dd>A list specifying the contained attributes. OPTIONAL.
+
+                        <blockquote class="text"><dl>
+                            <dt>name</dt>
+                            <dd>The attribute's name.
+                            </dd>
+                            <dt>type</dt>
+                            <dd>The attribute's data type; e.g., String.
+                            </dd>
+                            <dt>description</dt>
+                            <dd>The attribute's human readable description. When
+                                applicable Service Providers MUST specify the description specified in the core
+                                schema specification.
+
+                            </dd>
+                            <dt>readOnly</dt>
+                            <dd>A Boolean value that specifies if the attribute is mutable.
+
+                            </dd>
+                            <dt>required</dt>
+                            <dd>A Boolean value that specifies if the attribute is required.
+
+                            </dd>
+                            <dt>caseExact</dt>
+                            <dd>A Boolean value that specifies if the String attribute
+                                is case sensitive.
+
+                            </dd>
+                            <dt>canonicalValues</dt>
+                            <dd>A collection of canonical values. When applicable Service
+                                Providers MUST specify the canonical types specified in the core schema
+                                specification; e.g.,"work","home". OPTIONAL.
+
+                            </dd>
+                        </dl></blockquote>
+
+                    </dd>
+                </dl></blockquote>
+
+            </dd>
+        </dl></blockquote>
+
+    </dd>
+</dl></blockquote><p>
+
+</p>
+<a name="json_representation"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.11"></a><h3>11.&nbsp;
+    JSON Representation</h3>
+
+<a name="anchor7"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.11.1"></a><h3>11.1.&nbsp;
+    Minimal User Representation</h3>
+
+<p>The following is a non-normative example of the minimal required
+    SCIM representation in JSON format.
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+{
+  "schemas": ["urn:scim:schemas:core:1.0"],
+  "id": "2819c223-7f76-453a-919d-413861904646",
+  "userName": "bjensen@example.com"
+}
+
+</pre></div>
+<a name="anchor8"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.11.2"></a><h3>11.2.&nbsp;
+    Full User Representation</h3>
+
+<p>The following is a non-normative example of the fully populated
+    SCIM representation in JSON format.
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+
+{
+  "schemas": ["urn:scim:schemas:core:1.0"],
+  "id": "2819c223-7f76-453a-919d-413861904646",
+  "externalId": "701984",
+  "userName": "bjensen@example.com",
+  "name": {
+    "formatted": "Ms. Barbara J Jensen III",
+    "familyName": "Jensen",
+    "givenName": "Barbara",
+    "middleName": "Jane",
+    "honorificPrefix": "Ms.",
+    "honorificSuffix": "III"
+  },
+  "displayName": "Babs Jensen",
+  "nickName": "Babs",
+  "profileUrl": "https://login.example.com/bjensen",
+  "emails": [
+    {
+      "value": "bjensen@example.com",
+      "type": "work",
+      "primary": true
+    },
+    {
+      "value": "babs@jensen.org",
+      "type": "home"
+    }
+  ],
+  "addresses": [
+    {
+      "type": "work",
+      "streetAddress": "100 Universal City Plaza",
+      "locality": "Hollywood",
+      "region": "CA",
+      "postalCode": "91608",
+      "country": "USA",
+      "formatted": "100 Universal City Plaza\nHollywood, CA 91608 USA",
+      "primary": true
+    },
+    {
+      "type": "home",
+      "streetAddress": "456 Hollywood Blvd",
+      "locality": "Hollywood",
+      "region": "CA",
+      "postalCode": "91608",
+      "country": "USA",
+      "formatted": "456 Hollywood Blvd\nHollywood, CA 91608 USA"
+    }
+  ],
+  "phoneNumbers": [
+    {
+      "value": "555-555-5555",
+      "type": "work"
+    },
+    {
+      "value": "555-555-4444",
+      "type": "mobile"
+    }
+  ],
+  "ims": [
+    {
+      "value": "someaimhandle",
+      "type": "aim"
+    }
+  ],
+  "photos": [
+    {
+      "value": "https://photos.example.com/profilephoto/72930000000Ccne/F",
+      "type": "photo"
+    },
+    {
+      "value": "https://photos.example.com/profilephoto/72930000000Ccne/T",
+      "type": "thumbnail"
+    }
+  ],
+  "userType": "Employee",
+  "title": "Tour Guide",
+  "preferredLanguage":"en_US",
+  "locale": "en_US",
+  "timezone": "America/Los_Angeles",
+  "active":true,
+  "password":"t1meMa$heen",
+  "groups": [
+    {
+      "display": "Tour Guides",
+      "value": "00300000005N2Y6AA"
+    },
+    {
+      "display": "Employees",
+      "value": "00300000005N34H78"
+    },
+    {
+      "display": "US Employees",
+      "value": "00300000005N98YT1"
+    }
+  ],
+  "x509Certificates": [
+    {
+      "value": "MIIDQzCCAqygAwIBAgICEAAwDQYJKoZIhvcNAQEFBQAwTjELMAkGA1UEBhMCVVMx
+                EzARBgNVBAgMCkNhbGlmb3JuaWExFDASBgNVBAoMC2V4YW1wbGUuY29tMRQwEgYD
+                VQQDDAtleGFtcGxlLmNvbTAeFw0xMTEwMjIwNjI0MzFaFw0xMjEwMDQwNjI0MzFa
+                MH8xCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRQwEgYDVQQKDAtl
+                eGFtcGxlLmNvbTEhMB8GA1UEAwwYTXMuIEJhcmJhcmEgSiBKZW5zZW4gSUlJMSIw
+                IAYJKoZIhvcNAQkBFhNiamVuc2VuQGV4YW1wbGUuY29tMIIBIjANBgkqhkiG9w0B
+                AQEFAAOCAQ8AMIIBCgKCAQEA7Kr+Dcds/JQ5GwejJFcBIP682X3xpjis56AK02bc
+                1FLgzdLI8auoR+cC9/Vrh5t66HkQIOdA4unHh0AaZ4xL5PhVbXIPMB5vAPKpzz5i
+                PSi8xO8SL7I7SDhcBVJhqVqr3HgllEG6UClDdHO7nkLuwXq8HcISKkbT5WFTVfFZ
+                zidPl8HZ7DhXkZIRtJwBweq4bvm3hM1Os7UQH05ZS6cVDgweKNwdLLrT51ikSQG3
+                DYrl+ft781UQRIqxgwqCfXEuDiinPh0kkvIi5jivVu1Z9QiwlYEdRbLJ4zJQBmDr
+                SGTMYn4lRc2HgHO4DqB/bnMVorHB0CC6AV1QoFK4GPe1LwIDAQABo3sweTAJBgNV
+                HRMEAjAAMCwGCWCGSAGG+EIBDQQfFh1PcGVuU1NMIEdlbmVyYXRlZCBDZXJ0aWZp
+                Y2F0ZTAdBgNVHQ4EFgQU8pD0U0vsZIsaA16lL8En8bx0F/gwHwYDVR0jBBgwFoAU
+                dGeKitcaF7gnzsNwDx708kqaVt0wDQYJKoZIhvcNAQEFBQADgYEAA81SsFnOdYJt
+                Ng5Tcq+/ByEDrBgnusx0jloUhByPMEVkoMZ3J7j1ZgI8rAbOkNngX8+pKfTiDz1R
+                C4+dx8oU6Za+4NJXUjlL5CvV6BEYb1+QAEJwitTVvxB/A67g42/vzgAtoRUeDov1
+                +GFiBZ+GNF/cAYKcMtGcrs2i97ZkJMo="
+    }
+  ],
+  "meta": {
+    "created": "2010-01-23T04:56:22Z",
+    "lastModified": "2011-05-13T04:42:34Z",
+    "version": "W\/\"a330bc54f0671c9\"",
+    "location": "https://example.com/v1/Users/2819c223-7f76-453a-919d-413861904646"
+  }
+}
+</pre></div>
+<a name="anchor9"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.11.3"></a><h3>11.3.&nbsp;
+    Enterprise User Extension Representation</h3>
+
+<p>The following is a non-normative example of the fully populated
+    User using the enterprise User extension in JSON format.
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+
+{
+  "schemas": ["urn:scim:schemas:core:1.0", "urn:scim:schemas:extension:enterprise:1.0"],
+  "id": "2819c223-7f76-453a-919d-413861904646",
+  "externalId": "701984",
+  "userName": "bjensen@example.com",
+  "name": {
+    "formatted": "Ms. Barbara J Jensen III",
+    "familyName": "Jensen",
+    "givenName": "Barbara",
+    "middleName": "Jane",
+    "honorificPrefix": "Ms.",
+    "honorificSuffix": "III"
+  },
+  "displayName": "Babs Jensen",
+  "nickName": "Babs",
+  "profileUrl": "https://login.example.com/bjensen",
+  "emails": [
+    {
+      "value": "bjensen@example.com",
+      "type": "work",
+      "primary": true
+    },
+    {
+      "value": "babs@jensen.org",
+      "type": "home"
+    }
+  ],
+  "addresses": [
+    {
+      "streetAddress": "100 Universal City Plaza",
+      "locality": "Hollywood",
+      "region": "CA",
+      "postalCode": "91608",
+      "country": "USA",
+      "formatted": "100 Universal City Plaza\nHollywood, CA 91608 USA",
+      "type": "work",
+      "primary": true
+    },
+    {
+      "streetAddress": "456 Hollywood Blvd",
+      "locality": "Hollywood",
+      "region": "CA",
+      "postalCode": "91608",
+      "country": "USA",
+      "formatted": "456 Hollywood Blvd\nHollywood, CA 91608 USA",
+      "type": "home"
+     }
+  ],
+  "phoneNumbers": [
+    {
+      "value": "555-555-5555",
+      "type": "work"
+    },
+    {
+      "value": "555-555-4444",
+      "type": "mobile"
+    }
+  ],
+  "ims": [
+    {
+      "value": "someaimhandle",
+      "type": "aim"
+    }
+  ],
+  "photos": [
+    {
+      "value": "https://photos.example.com/profilephoto/72930000000Ccne/F",
+      "type": "photo"
+    },
+    {
+      "value": "https://photos.example.com/profilephoto/72930000000Ccne/T",
+      "type": "thumbnail"
+    }
+  ],
+  "userType": "Employee",
+  "title": "Tour Guide",
+  "preferredLanguage":"en_US",
+  "locale": "en_US",
+  "timezone": "America/Los_Angeles",
+  "active":true,
+  "password":"t1meMa$heen",
+  "groups": [
+    {
+      "value": "e9e30dba-f08f-4109-8486-d5c6a331660a",
+      "display": "Tour Guides"
+    },
+    {
+      "value": "fc348aa8-3835-40eb-a20b-c726e15c55b5",
+      "display": "Employees"
+    },
+    {
+      "value": "71ddacd2-a8e7-49b8-a5db-ae50d0a5bfd7",
+      "display": "US Employees"
+    }
+  ],
+  "x509Certificates": [
+    {
+      "value": "MIIDQzCCAqygAwIBAgICEAAwDQYJKoZIhvcNAQEFBQAwTjELMAkGA1UEBhMCVVMx
+                EzARBgNVBAgMCkNhbGlmb3JuaWExFDASBgNVBAoMC2V4YW1wbGUuY29tMRQwEgYD
+                VQQDDAtleGFtcGxlLmNvbTAeFw0xMTEwMjIwNjI0MzFaFw0xMjEwMDQwNjI0MzFa
+                MH8xCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRQwEgYDVQQKDAtl
+                eGFtcGxlLmNvbTEhMB8GA1UEAwwYTXMuIEJhcmJhcmEgSiBKZW5zZW4gSUlJMSIw
+                IAYJKoZIhvcNAQkBFhNiamVuc2VuQGV4YW1wbGUuY29tMIIBIjANBgkqhkiG9w0B
+                AQEFAAOCAQ8AMIIBCgKCAQEA7Kr+Dcds/JQ5GwejJFcBIP682X3xpjis56AK02bc
+                1FLgzdLI8auoR+cC9/Vrh5t66HkQIOdA4unHh0AaZ4xL5PhVbXIPMB5vAPKpzz5i
+                PSi8xO8SL7I7SDhcBVJhqVqr3HgllEG6UClDdHO7nkLuwXq8HcISKkbT5WFTVfFZ
+                zidPl8HZ7DhXkZIRtJwBweq4bvm3hM1Os7UQH05ZS6cVDgweKNwdLLrT51ikSQG3
+                DYrl+ft781UQRIqxgwqCfXEuDiinPh0kkvIi5jivVu1Z9QiwlYEdRbLJ4zJQBmDr
+                SGTMYn4lRc2HgHO4DqB/bnMVorHB0CC6AV1QoFK4GPe1LwIDAQABo3sweTAJBgNV
+                HRMEAjAAMCwGCWCGSAGG+EIBDQQfFh1PcGVuU1NMIEdlbmVyYXRlZCBDZXJ0aWZp
+                Y2F0ZTAdBgNVHQ4EFgQU8pD0U0vsZIsaA16lL8En8bx0F/gwHwYDVR0jBBgwFoAU
+                dGeKitcaF7gnzsNwDx708kqaVt0wDQYJKoZIhvcNAQEFBQADgYEAA81SsFnOdYJt
+                Ng5Tcq+/ByEDrBgnusx0jloUhByPMEVkoMZ3J7j1ZgI8rAbOkNngX8+pKfTiDz1R
+                C4+dx8oU6Za+4NJXUjlL5CvV6BEYb1+QAEJwitTVvxB/A67g42/vzgAtoRUeDov1
+                +GFiBZ+GNF/cAYKcMtGcrs2i97ZkJMo="
+    }
+  ],
+  "urn:scim:schemas:extension:enterprise:1.0": {
+    "employeeNumber": "701984",
+    "costCenter": "4130",
+    "organization": "Universal Studios",
+    "division": "Theme Park",
+    "department": "Tour Operations",
+    "manager": {
+      "managerId": "26118915-6090-4610-87e4-49d8ca9f808d",
+      "displayName": "John Smith"
+    }
+  },
+  "meta": {
+    "created": "2010-01-23T04:56:22Z",
+    "lastModified": "2011-05-13T04:42:34Z",
+    "version": "W\/\"3694e05e9dff591\"",
+    "location": "https://example.com/v1/Users/2819c223-7f76-453a-919d-413861904646"
+  }
+}
+
+</pre></div>
+<a name="anchor10"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.11.4"></a><h3>11.4.&nbsp;
+    Group Representation</h3>
+
+<p>The following is a non-normative example of SCIM Group
+    representation in JSON format.
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+
+{
+  "schemas": ["urn:scim:schemas:core:1.0"],
+  "id": "e9e30dba-f08f-4109-8486-d5c6a331660a",
+  "displayName": "Tour Guides",
+  "members": [
+    {
+      "value": "2819c223-7f76-453a-919d-413861904646",
+      "display": "Babs Jensen"
+    },
+    {
+      "value": "902c246b-6245-4190-8e05-00816be7344a",
+      "display": "Mandy Pepperidge"
+    }
+  ]
+}
+
+</pre></div>
+<a name="anchor11"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.11.5"></a><h3>11.5.&nbsp;
+    Service Provider Configuration Representation</h3>
+
+<p>The following is a non-normative example of the SCIM Service Provider Configuration
+    representation in JSON format.
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+{
+  "schemas": ["urn:scim:schemas:core:1.0"],
+  "documentationUrl":"http://example.com/help/scim.html",
+  "patch": {
+    "supported":true
+  },
+  "bulk": {
+    "supported":true,
+    "maxOperations":1000,
+    "maxPayloadSize":1048576
+  },
+  "filter": {
+    "supported":true,
+    "maxResults": 200
+  },
+  "changePassword" : {
+    "supported":true
+  },
+  "sort": {
+    "supported":true
+  },
+  "etag": {
+    "supported":true
+  },
+  "xmlDataFormat": {
+    "supported":true
+  },
+  "authenticationSchemes": [
+    {
+      "name": "OAuth Bearer Token",
+      "description": "Authentication Scheme using the OAuth Bearer Token Standard",
+      "specUrl":"http://tools.ietf.org/html/draft-ietf-oauth-v2-bearer-01",
+      "documentationUrl":"http://example.com/help/oauth.html",
+      "type":"oauthbearertoken",
+      "primary": true
+    },
+    {
+      "name": "HTTP Basic",
+      "description": "Authentication Scheme using the Http Basic Standard",
+      "specUrl":"http://www.ietf.org/rfc/rfc2617.txt",
+      "documentationUrl":"http://example.com/help/httpBasic.html",
+      "type":"httpbasic"
+     }
+  ]
+}
+
+</pre></div>
+<a name="anchor12"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.11.6"></a><h3>11.6.&nbsp;
+    Resource Schema Representation</h3>
+
+<p>The following is a normative example of the SCIM Resource Schema
+    representation in JSON format.
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+{
+  "id":"urn:scim:schemas:core:1.0:User",
+  "name":"User",
+  "description":"Core User",
+  "schema":"urn:scim:schemas:core:1.0",
+  "endpoint":"/Users",
+  "attributes":[
+    {
+      "name":"id",
+      "type":"string",
+      "multiValued":false,
+      "description":"Unique identifier for the SCIM resource as defined by the Service Provider. Each representation of the resource MUST include a non-empty id value. This identifier MUST be unique across the Service Provider's entire set of resources. It MUST be a stable, non-reassignable identifier that does not change when the same resource is returned in subsequent requests. The value of the id attribute is always issued by the Service Provider and MUST never be specified by the Service Consumer. REQUIRED.",
+      "schema":"urn:scim:schemas:core:1.0",
+      "readOnly":true,
+      "required":true,
+      "caseExact":false
+    },
+    {
+      "name":"name",
+      "type":"complex",
+      "multiValued":false,
+      "description":"The components of the user's real name. Providers MAY return just the full name as a single string in the formatted sub-attribute, or they MAY return just the individual component attributes using the other sub-attributes, or they MAY return both. If both variants are returned, they SHOULD be describing the same name, with the formatted name indicating how the component attributes should be combined.",
+      "schema":"urn:scim:schemas:core:1.0",
+      "readOnly":false,
+      "required":false,
+      "caseExact":false,
+      "subAttributes":[
+        {
+          "name":"formatted",
+          "type":"string",
+          "multiValued":false,
+          "description":"The full name, including all middle names, titles, and suffixes as appropriate, formatted for display (e.g. Ms. Barbara J Jensen, III.)." ,
+          "readOnly":false,
+          "required":false,
+          "caseExact":false
+        },
+        {
+          "name":"familyName",
+          "type":"string",
+          "multiValued":false,
+          "description":"The family name of the User, or Last Name in most Western languages (e.g. Jensen given the full name Ms. Barbara J Jensen, III.).",
+          "readOnly":false,
+          "required":false,
+          "caseExact":false
+        },
+        {
+          "name":"givenName",
+          "type":"string",
+          "multiValued":false,
+          "description":"The given name of the User, or First Name in most Western languages (e.g. Barbara given the full name Ms. Barbara J Jensen, III.).",
+          "readOnly":false,
+          "required":false,
+          "caseExact":false
+        },
+        {
+          "name":"middleName",
+          "type":"string",
+          "multiValued":false,
+          "description":"The middle name(s) of the User (e.g. Robert given the full name Ms. Barbara J Jensen, III.).",
+          "readOnly":false,
+          "required":false,
+          "caseExact":false
+        },
+        {
+          "name":"honorificPrefix",
+          "type":"string",
+          "multiValued":false,
+          "description":"The honorific prefix(es) of the User, or Title in most Western languages (e.g. Ms. given the full name Ms. Barbara J Jensen, III.).",
+          "readOnly":false,
+          "required":false,
+          "caseExact":false
+        },
+        {
+          "name":"honorificSuffix",
+          "type":"string",
+          "multiValued":false,
+          "description":"The honorific suffix(es) of the User, or Suffix in most Western languages (e.g. III. given the full name Ms. Barbara J Jensen, III.).",
+          "readOnly":false,
+          "required":false,
+          "caseExact":false
+        }
+      ]
+     },
+     {
+       "name":"emails",
+       "type":"complex",
+       "multiValued":true,
+       "multiValuedAttributeChildName":"email",
+       "description":"E-mail addresses for the user. The value SHOULD be canonicalized by the Service Provider, e.g. bjensen@example.com instead of bjensen@EXAMPLE.COM. Canonical Type values of work, home, and other.",
+       "schema":"urn:scim:schemas:core:1.0",
+       "readOnly":false,
+       "required":false,
+       "caseExact":false,
+       "subAttributes":[
+         {
+           "name":"value",
+           "type":"string",
+           "multiValued":false,
+           "description":"E-mail addresses for the user. The value SHOULD be canonicalized by the Service Provider, e.g. bjensen@example.com instead of bjensen@EXAMPLE.COM. Canonical Type values of work, home, and other.",
+           "readOnly":false,
+           "required":false,
+           "caseExact":false
+         },
+         {
+           "name":"display",
+           "type":"string",
+           "multiValued":false,
+           "description":"A human readable name, primarily used for display purposes. READ-ONLY.",
+           "readOnly":true,
+           "required":false,
+           "caseExact":false
+         },
+         {
+           "name":"type",
+           "type":"string",
+           "multiValued":false,
+           "description":"A label indicating the attribute's function; e.g., 'work' or 'home'.",
+           "readOnly":false,
+           "required":false,
+           "caseExact":false,
+           "canonicalValues":["work","home","other"]
+         },
+         {
+           "name":"primary",
+           "type":"boolean",
+           "multiValued:false,
+           "description":"A Boolean value indicating the 'primary' or preferred attribute value for this attribute, e.g. the preferred mailing address or primary e-mail address. The primary attribute value 'true' MUST appear no more than once.",
+           "readOnly":false,
+           "required":false,
+           "caseExact":false
+         }
+     },
+     {
+       "name":"addresses",
+       "type":"complex",
+       "multiValued":true,
+       "multiValuedAttributeChildName":"address",
+       "description":"A physical mailing address for this User, as described in (address Element). Canonical Type Values of work, home, and other. The value attribute is a complex type with the following sub-attributes.",
+       "schema":"urn:scim:schemas:core:1.0",
+       "readOnly":false,
+       "required":false,
+       "caseExact":false,
+       "subAttributes":[
+         {
+           "name":"formatted",
+           "type":"string",
+           "multiValued":false,
+           "description":"The full mailing address, formatted for display or use with a mailing label. This attribute MAY contain newlines.",
+           "readOnly":false,
+           "required":false,
+           "caseExact":false
+         },
+         {
+           "name":"streetAddress",
+           "type":"string",
+           "multiValued":false,
+           "description":"The full street address component, which may include house number, street name, PO BOX, and multi-line extended street address information. This attribute MAY contain newlines.",
+           "readOnly":false,
+           "required":false,
+           "caseExact":false
+         },
+         {
+           "name":"locality",
+           "type":"string",
+           "multiValued":false,
+           "description":"The city or locality component.",
+           "readOnly":false,
+           "required":false,
+           "caseExact":false
+         },
+         {
+           "name":"region",
+           "type":"string",
+           "multiValued":false,
+           "description":"The state or region component.",
+           "readOnly":false,
+           "required":false,
+           "caseExact":false
+         },
+         {
+           "name":"postalCode",
+           "type":"string",
+           "multiValued":false,
+           "description":"The zipcode or postal code component.",
+           "readOnly":false,
+           "required":false,
+           "caseExact":false
+         },
+         {
+           "name":"country",
+           "type":"string",
+           "multiValued":false,
+           "description":"The country name component.",
+           "readOnly":false,
+           "required":false,
+           "caseExact":false
+         },
+         {
+           "name":"type",
+           "type":"string",
+           "multiValued":false,
+           "description":"A label indicating the attribute's function; e.g., 'work' or 'home'.",
+           "readOnly":false,
+           "required":false,
+           "caseExact":false,
+           "canonicalValues":["work","home","other"]
+         },
+       ]
+     },
+     {
+       "name":"employeeNumber",
+       "type":"string",
+       "multiValued":false,
+       "description":"Numeric or alphanumeric identifier assigned to a person, typically based on order of hire or association with an organization.",
+       "schema":"urn:scim:schemas:extension:enterprise:1.0",
+       "readOnly":false,
+       "required":false,
+       "caseExact":false
+     }
+   ]
+}
+
+</pre></div>
+<a name="xml_representation"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.12"></a><h3>12.&nbsp;
+    XML Representation</h3>
+
+<a name="anchor13"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.12.1"></a><h3>12.1.&nbsp;
+    Minimal Representation</h3>
+
+<p>The following is a non-normative example of the minimal required
+    SCIM User representation in XML format.
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+
+&lt;User xmlns="urn:scim:schemas:core:1.0"&gt;
+  &lt;id&gt;2819c223-7f76-453a-919d-413861904646&lt;/id&gt;
+  &lt;userName&gt;bjensen@example.com&lt;/userName&gt;
+&lt;/User&gt;
+
+</pre></div>
+<a name="anchor14"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.12.2"></a><h3>12.2.&nbsp;
+    Full Representation</h3>
+
+<p>The following is a non-normative example of the fully populated
+    SCIM representation in XML format.
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+
+&lt;User xmlns="urn:scim:schemas:core:1.0"&gt;
+  &lt;id&gt;2819c223-7f76-453a-919d-413861904646&lt;/id&gt;
+  &lt;externalId&gt;701984&lt;/externalId&gt;
+  &lt;userName&gt;bjensen@example.com&lt;/userName&gt;
+  &lt;name&gt;
+    &lt;formatted&gt;Ms. Babs J Jensen III&lt;/formatted&gt;
+    &lt;familyName&gt;Jensen&lt;/familyName&gt;
+    &lt;givenName&gt;Barbara&lt;/givenName&gt;
+    &lt;middleName&gt;Jane&lt;/middleName&gt;
+    &lt;honorificPrefix&gt;Ms.&lt;/honorificPrefix&gt;
+    &lt;honorificSuffix&gt;III&lt;/honorificSuffix&gt;
+  &lt;/name&gt;
+  &lt;displayName&gt;Babs Jensen&lt;/displayName&gt;
+  &lt;nickName&gt;Babs&lt;/nickName&gt;
+  &lt;profileUrl&gt;https://login.example.com/bjensen&lt;/profileUrl&gt;
+  &lt;emails&gt;
+    &lt;email&gt;
+      &lt;value&gt;bjensen@example.com&lt;/value&gt;
+      &lt;type&gt;work&lt;/type&gt;
+      &lt;primary&gt;true&lt;/primary&gt;
+    &lt;/email&gt;
+    &lt;email&gt;
+      &lt;value&gt;babs@jensen.com&lt;/value&gt;
+      &lt;type&gt;home&lt;/type&gt;
+    &lt;/email&gt;
+  &lt;/emails&gt;
+  &lt;addresses&gt;
+    &lt;address&gt;
+      &lt;formatted&gt;100 Universal City Plaza\nHollywood, CA 91608 USA&lt;/formatted&gt;
+      &lt;streetAddress&gt;100 Universal City Plaza&lt;/streetAddress&gt;
+      &lt;locality&gt;Hollywood&lt;/locality&gt;
+      &lt;region&gt;CA&lt;/region&gt;
+      &lt;postalCode&gt;91608&lt;/postalCode&gt;
+      &lt;country&gt;USA&lt;/country&gt;
+      &lt;type&gt;work&lt;/type&gt;
+      &lt;primary&gt;true&lt;/primary&gt;
+    &lt;/address&gt;
+    &lt;address&gt;
+      &lt;formatted&gt;456 Hollywood Blvd\nHollywood, CA 91608 USA&lt;/formatted&gt;
+      &lt;streetAddress&gt;456 Hollywood Blvd&lt;/streetAddress&gt;
+      &lt;locality&gt;San Francisco&lt;/locality&gt;
+      &lt;region&gt;CA&lt;/region&gt;
+      &lt;postalCode&gt;91608&lt;/postalCode&gt;
+      &lt;country&gt;USA&lt;/country&gt;
+      &lt;type&gt;home&lt;/type&gt;
+    &lt;/address&gt;
+  &lt;/addresses&gt;
+  &lt;phoneNumbers&gt;
+    &lt;phoneNumber&gt;
+      &lt;value&gt;555-555-5555&lt;/value&gt;
+      &lt;type&gt;work&lt;/type&gt;
+    &lt;/phoneNumber&gt;
+    &lt;phoneNumber&gt;
+      &lt;value&gt;555-555-4444&lt;/value&gt;
+      &lt;type&gt;mobile&lt;/type&gt;
+    &lt;/phoneNumber&gt;
+  &lt;/phoneNumbers&gt;
+  &lt;ims&gt;
+    &lt;im&gt;
+      &lt;value&gt;someaimhandle&lt;/value&gt;
+      &lt;type&gt;aim&lt;/type&gt;
+    &lt;/im&gt;
+  &lt;/ims&gt;
+  &lt;photos&gt;
+    &lt;photo&gt;
+      &lt;value&gt;https://photos.example.com/profilephoto/72930000000Ccne/F&lt;/value&gt;
+      &lt;type&gt;photo&lt;/type&gt;
+    &lt;/photo&gt;
+    &lt;photo&gt;
+      &lt;value&gt;https://photos.example.com/profilephoto/72930000000Ccne/T&lt;/value&gt;
+      &lt;type&gt;thumbnail&lt;/type&gt;
+    &lt;/photo&gt;
+  &lt;/photos&gt;
+  &lt;userType&gt;Employee&lt;/userType&gt;
+  &lt;title&gt;Tour Guide&lt;/title&gt;
+  &lt;preferredLanguage&gt;en_US&lt;/preferredLanguage&gt;
+  &lt;locale&gt;en_US&lt;/locale&gt;
+  &lt;timezone&gt;America/Los_Angeles&lt;/timezone&gt;
+  &lt;active&gt;true&lt;/active&gt;
+  &lt;password&gt;t1meMa$heen&lt;/password&gt;
+  &lt;groups&gt;
+    &lt;group&gt;
+      &lt;value&gt;e9e30dba-f08f-4109-8486-d5c6a331660a&lt;/value&gt;
+      &lt;display&gt;Tour Guides&lt;/display&gt;
+    &lt;/group&gt;
+    &lt;group&gt;
+      &lt;value&gt;6d1a1088-3a56-4371-8e3b-6d48d67493ec&lt;/value&gt;
+      &lt;display&gt;Employees&lt;/display&gt;
+    &lt;/group&gt;
+    &lt;group&gt;
+      &lt;value&gt;5fd998b9-d2bd-479c-991b-6790537608dc&lt;/value&gt;
+      &lt;display&gt;US Employees&lt;/display&gt;
+    &lt;/group&gt;
+  &lt;/groups&gt;
+  &lt;roles&gt;
+    &lt;role&gt;
+      &lt;value&gt;administrator&lt;/value&gt;
+    &lt;/role&gt;
+  &lt;/roles&gt;
+  &lt;entitlements&gt;
+    &lt;entitlement&gt;
+      &lt;value&gt;delete users&lt;/value&gt;
+    &lt;/entitlement&gt;
+  &lt;/entitlements&gt;
+  &lt;x509Certificates&gt;
+    &lt;x509Certificate&gt;
+      &lt;value&gt;
+        MIIDQzCCAqygAwIBAgICEAAwDQYJKoZIhvcNAQEFBQAwTjELMAkGA1UEBhMCVVMx
+        EzARBgNVBAgMCkNhbGlmb3JuaWExFDASBgNVBAoMC2V4YW1wbGUuY29tMRQwEgYD
+        VQQDDAtleGFtcGxlLmNvbTAeFw0xMTEwMjIwNjI0MzFaFw0xMjEwMDQwNjI0MzFa
+        MH8xCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRQwEgYDVQQKDAtl
+        eGFtcGxlLmNvbTEhMB8GA1UEAwwYTXMuIEJhcmJhcmEgSiBKZW5zZW4gSUlJMSIw
+        IAYJKoZIhvcNAQkBFhNiamVuc2VuQGV4YW1wbGUuY29tMIIBIjANBgkqhkiG9w0B
+        AQEFAAOCAQ8AMIIBCgKCAQEA7Kr+Dcds/JQ5GwejJFcBIP682X3xpjis56AK02bc
+        1FLgzdLI8auoR+cC9/Vrh5t66HkQIOdA4unHh0AaZ4xL5PhVbXIPMB5vAPKpzz5i
+        PSi8xO8SL7I7SDhcBVJhqVqr3HgllEG6UClDdHO7nkLuwXq8HcISKkbT5WFTVfFZ
+        zidPl8HZ7DhXkZIRtJwBweq4bvm3hM1Os7UQH05ZS6cVDgweKNwdLLrT51ikSQG3
+        DYrl+ft781UQRIqxgwqCfXEuDiinPh0kkvIi5jivVu1Z9QiwlYEdRbLJ4zJQBmDr
+        SGTMYn4lRc2HgHO4DqB/bnMVorHB0CC6AV1QoFK4GPe1LwIDAQABo3sweTAJBgNV
+        HRMEAjAAMCwGCWCGSAGG+EIBDQQfFh1PcGVuU1NMIEdlbmVyYXRlZCBDZXJ0aWZp
+        Y2F0ZTAdBgNVHQ4EFgQU8pD0U0vsZIsaA16lL8En8bx0F/gwHwYDVR0jBBgwFoAU
+        dGeKitcaF7gnzsNwDx708kqaVt0wDQYJKoZIhvcNAQEFBQADgYEAA81SsFnOdYJt
+        Ng5Tcq+/ByEDrBgnusx0jloUhByPMEVkoMZ3J7j1ZgI8rAbOkNngX8+pKfTiDz1R
+        C4+dx8oU6Za+4NJXUjlL5CvV6BEYb1+QAEJwitTVvxB/A67g42/vzgAtoRUeDov1
+        +GFiBZ+GNF/cAYKcMtGcrs2i97ZkJMo=
+      &lt;/value&gt;
+    &lt;/x509Certificate&gt;
+  &lt;/x509Certificates&gt;
+  &lt;meta&gt;
+    &lt;created&gt;2010-01-23T04:56:22Z&lt;/created&gt;
+    &lt;lastModified&gt;2011-05-13T04:42:34Z&lt;/lastModified&gt;
+    &lt;version&gt;W/"a330bc54f0671c9"&lt;/version&gt;
+    &lt;location&gt;https://example.com/v1/Users/2819c223-7f76-453a-919d-413861904646&lt;/location&gt;
+  &lt;/meta&gt;
+&lt;/User&gt;
+
+</pre></div>
+<a name="anchor15"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.12.3"></a><h3>12.3.&nbsp;
+    Enterprise User Extension Representation</h3>
+
+<p>The following is a non-normative example of the fully populated
+    User using the enterprise User extension in XML format.
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+
+&lt;User xmlns="urn:scim:schemas:core:1.0" xmlns:enterprise="urn:scim:schemas:extension:enterprise:1.0"&gt;
+  &lt;id&gt;2819c223-7f76-453a-919d-413861904646&lt;/id&gt;
+  &lt;externalId&gt;701984&lt;/externalId&gt;
+  &lt;userName&gt;bjensen@example.com&lt;/userName&gt;
+  &lt;name&gt;
+    &lt;formatted&gt;Ms. Babs J Jensen III&lt;/formatted&gt;
+    &lt;familyName&gt;Jensen&lt;/familyName&gt;
+    &lt;givenName&gt;Barbara&lt;/givenName&gt;
+    &lt;middleName&gt;Jane&lt;/middleName&gt;
+    &lt;honorificPrefix&gt;Ms.&lt;/honorificPrefix&gt;
+    &lt;honorificSuffix&gt;III&lt;/honorificSuffix&gt;
+  &lt;/name&gt;
+  &lt;displayName&gt;Babs Jensen&lt;/displayName&gt;
+  &lt;nickName&gt;Babs&lt;/nickName&gt;
+  &lt;profileUrl&gt;https://login.example.com/bjensen&lt;/profileUrl&gt;
+  &lt;title&gt;Tour Guide&lt;/title&gt;
+  &lt;userType&gt;Employee&lt;/userType&gt;
+  &lt;preferredLanguage&gt;en_US&lt;/preferredLanguage&gt;
+  &lt;locale&gt;en_US&lt;/locale&gt;
+  &lt;timezone&gt;America/Los_Angeles&lt;/timezone&gt;
+  &lt;active&gt;true&lt;/active&gt;
+  &lt;password&gt;t1meMa$heen&lt;/password&gt;
+  &lt;emails&gt;
+    &lt;email&gt;
+      &lt;value&gt;bjensen@example.com&lt;/value&gt;
+      &lt;type&gt;work&lt;/type&gt;
+      &lt;primary&gt;true&lt;/primary&gt;
+    &lt;/email&gt;
+    &lt;email&gt;
+      &lt;value&gt;babs@jensen.com/value&gt;
+      &lt;type&gt;home&lt;/type&gt;
+    &lt;/email&gt;
+  &lt;/emails&gt;
+  &lt;addresses&gt;
+    &lt;address&gt;
+      &lt;formatted&gt;100 Universal City Plaza\nHollywood, CA 91608 USA&lt;/formatted&gt;
+      &lt;streetAddress&gt;100 Universal City Plaza&lt;/streetAddress&gt;
+      &lt;locality&gt;Hollywood&lt;/locality&gt;
+      &lt;region&gt;CA&lt;/region&gt;
+      &lt;postalCode&gt;91608&lt;/postalCode&gt;
+      &lt;country&gt;USA&lt;/country&gt;
+      &lt;type&gt;work&lt;/type&gt;
+      &lt;primary&gt;true&lt;/primary&gt;
+    &lt;/address&gt;
+    &lt;address&gt;
+      &lt;formatted&gt;456 Hollywood Blvd\nHollywood, CA 91608 USA&lt;/formatted&gt;
+      &lt;streetAddress&gt;456 Hollywood Blvd&lt;/streetAddress&gt;
+      &lt;locality&gt;San Francisco&lt;/locality&gt;
+      &lt;region&gt;CA&lt;/region&gt;
+      &lt;postalCode&gt;91608&lt;/postalCode&gt;
+      &lt;country&gt;USA&lt;/country&gt;
+      &lt;type="home"&gt;
+    &lt;/address&gt;
+  &lt;/addresses&gt;
+  &lt;phoneNumbers&gt;
+    &lt;phoneNumber&gt;
+      &lt;value&gt;555-555-5555&lt;/value&gt;
+      &lt;type&gt;work&lt;/type&gt;
+    &lt;/phoneNumber&gt;
+    &lt;phoneNumber&gt;
+      &lt;value&gt;555-555-4444&lt;/value&gt;
+      &lt;type&gt;mobile&lt;/type&gt;
+    &lt;/phoneNumber&gt;
+  &lt;/phoneNumbers&gt;
+  &lt;ims&gt;
+    &lt;im&gt;
+      &lt;value&gt;someaimhandle&lt;/value&gt;
+      &lt;type&gt;aim&lt;/type&gt;
+    &lt;/im&gt;
+  &lt;/ims&gt;
+  &lt;photos&gt;
+    &lt;photo&gt;
+     &lt;value&gt;https://photos.example.com/profilephoto/72930000000Ccne/F&lt;/value&gt;
+     &lt;type&gt;photo&gt;&lt;/type&gt;
+    &lt;/photo&gt;
+    &lt;photo&gt;
+     &lt;value&gt;https://photos.example.com/profilephoto/72930000000Ccne/T&lt;/value&gt;
+     &lt;type&gt;thumbnail&gt;&lt;/type&gt;
+    &lt;/photo&gt;
+  &lt;/photos&gt;
+  &lt;groups&gt;
+    &lt;group&gt;
+      &lt;display&gt;Tour Guides&lt;/display&gt;
+      &lt;value&gt;00300000005N2Y6AA&lt;/value&gt;
+    &lt;/group&gt;
+    &lt;group&gt;
+      &lt;display&gt;Employees&lt;/display&gt;
+      &lt;value&gt;00300000005N34H78&lt;/value&gt;
+    &lt;/group&gt;
+    &lt;group&gt;
+      &lt;display&gt;US Employees&lt;/display&gt;
+      &lt;value&gt;00300000005N98YT1&lt;/value&gt;
+    &lt;/group&gt;
+  &lt;/groups&gt;
+  &lt;roles&gt;
+    &lt;role&gt;
+      &lt;value&gt;administrator&lt;/value&gt;
+    &lt;/role&gt;
+  &lt;/roles&gt;
+  &lt;entitlements&gt;
+    &lt;entitlement&gt;
+      &lt;value&gt;delete users&lt;/value&gt;
+    &lt;/entitlement&gt;
+  &lt;/entitlements&gt;
+  &lt;x509Certificates&gt;
+    &lt;x509Certificate&gt;
+      &lt;value&gt;
+        MIIDQzCCAqygAwIBAgICEAAwDQYJKoZIhvcNAQEFBQAwTjELMAkGA1UEBhMCVVMx
+        EzARBgNVBAgMCkNhbGlmb3JuaWExFDASBgNVBAoMC2V4YW1wbGUuY29tMRQwEgYD
+        VQQDDAtleGFtcGxlLmNvbTAeFw0xMTEwMjIwNjI0MzFaFw0xMjEwMDQwNjI0MzFa
+        MH8xCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRQwEgYDVQQKDAtl
+        eGFtcGxlLmNvbTEhMB8GA1UEAwwYTXMuIEJhcmJhcmEgSiBKZW5zZW4gSUlJMSIw
+        IAYJKoZIhvcNAQkBFhNiamVuc2VuQGV4YW1wbGUuY29tMIIBIjANBgkqhkiG9w0B
+        AQEFAAOCAQ8AMIIBCgKCAQEA7Kr+Dcds/JQ5GwejJFcBIP682X3xpjis56AK02bc
+        1FLgzdLI8auoR+cC9/Vrh5t66HkQIOdA4unHh0AaZ4xL5PhVbXIPMB5vAPKpzz5i
+        PSi8xO8SL7I7SDhcBVJhqVqr3HgllEG6UClDdHO7nkLuwXq8HcISKkbT5WFTVfFZ
+        zidPl8HZ7DhXkZIRtJwBweq4bvm3hM1Os7UQH05ZS6cVDgweKNwdLLrT51ikSQG3
+        DYrl+ft781UQRIqxgwqCfXEuDiinPh0kkvIi5jivVu1Z9QiwlYEdRbLJ4zJQBmDr
+        SGTMYn4lRc2HgHO4DqB/bnMVorHB0CC6AV1QoFK4GPe1LwIDAQABo3sweTAJBgNV
+        HRMEAjAAMCwGCWCGSAGG+EIBDQQfFh1PcGVuU1NMIEdlbmVyYXRlZCBDZXJ0aWZp
+        Y2F0ZTAdBgNVHQ4EFgQU8pD0U0vsZIsaA16lL8En8bx0F/gwHwYDVR0jBBgwFoAU
+        dGeKitcaF7gnzsNwDx708kqaVt0wDQYJKoZIhvcNAQEFBQADgYEAA81SsFnOdYJt
+        Ng5Tcq+/ByEDrBgnusx0jloUhByPMEVkoMZ3J7j1ZgI8rAbOkNngX8+pKfTiDz1R
+        C4+dx8oU6Za+4NJXUjlL5CvV6BEYb1+QAEJwitTVvxB/A67g42/vzgAtoRUeDov1
+        +GFiBZ+GNF/cAYKcMtGcrs2i97ZkJMo=
+      &lt;/value&gt;
+    &lt;/x509Certificate&gt;
+  &lt;/x509Certificates&gt;
+  &lt;enterprise:employeeNumber&gt;701984&lt;/enterprise:employeeNumber&gt;
+  &lt;enterprise:manager&gt;
+   &lt;enterprise:managerId&gt;902c246b-6245-4190-8e05-00816be7344a&lt;/enterprise:managerId&gt;
+   &lt;enterprise:displayName&gt;Mandy Pepperidge&lt;/enterprise:displayName&gt;
+  &lt;/enterprise:manager&gt;
+  &lt;enterprise:costCenter&gt;4130&lt;/enterprise:costCenter&gt;
+  &lt;enterprise:organization&gt;Universal Studios&lt;/enterprise:organization&gt;
+  &lt;enterprise:division&gt;Theme Park&lt;/enterprise:division&gt;
+  &lt;enterprise:department&gt;Tour Operations&lt;/enterprise:department&gt;
+  &lt;meta&gt;
+    &lt;created&gt;2010-01-23T04:56:22Z&lt;/created&gt;
+    &lt;lastModified&gt;2011-05-13T04:42:34Z&lt;/lastModified&gt;
+    &lt;version&gt;W/"3694e05e9dff591"&lt;/version&gt;
+    &lt;location&gt;https://example.com/v1/Users/2819c223-7f76-453a-919d-413861904646&lt;/location&gt;
+  &lt;/meta&gt;
+&lt;/User&gt;
+
+</pre></div>
+<a name="anchor16"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.12.4"></a><h3>12.4.&nbsp;
+    Group Representation</h3>
+
+<p>The following is a non-normative example of a SCIM Group
+    representation in XML format.
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+
+&lt;Group xmlns="urn:scim:schemas:core:1.0"&gt;
+  &lt;id&gt;2819c223-7f76-453a-919d-413861904646&lt;/id&gt;
+  &lt;displayName&gt;Tour Guides&lt;/displayName&gt;
+  &lt;members&gt;
+    &lt;member&gt;
+     &lt;value&gt;902c246b-6245-4190-8e05-00816be7344a&lt;/value&gt;
+     &lt;display&gt;Babs Jensen&lt;/display&gt;
+    &lt;/member&gt;
+    &lt;member&gt;
+      &lt;value&gt;902c246b-6245-4190-8e05-00816be7344a&lt;/value&gt;
+      &lt;display&gt;Mandy Pepperidge&lt;/display&gt;
+    &lt;/member&gt;
+  &lt;/members&gt;
+&lt;/Group&gt;
+
+</pre></div>
+<a name="Security"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.13"></a><h3>13.&nbsp;
+    Security Considerations</h3>
+
+<p>
+    The SCIM Core schema contains personally identifiable information as well as other sensitive data.  Aside from
+    prohibiting password values in a SCIM response this specification does not provide any means or guarantee of
+    confidentiality.
+
+</p>
+<a name="anchor17"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.A"></a><h3>Appendix A.&nbsp;
+    Contributors</h3>
+
+<p>The SCIM Community would like to thank the following people for the
+    work they've done in the research, formulation, drafting, editing, and
+    support of this specification.
+</p>
+<p>
+</p>
+<blockquote class="text">
+    <p>Morteza Ansari (morteza.ansari@cisco.com)
+    </p>
+    <p>Sidharth Choudhury (schoudhury@salesforce.com)
+    </p>
+    <p>Samuel Erdtman (samuel@erdtman.se)
+    </p>
+    <p>Kelly Grizzle (kelly.grizzle@sailpoint.com)
+    </p>
+    <p>Chris Phillips (cjphillips@gmail.com)
+    </p>
+    <p>Erik Wahlstr&ouml;m (erik.wahlstrom@nexussafe.com)
+    </p>
+</blockquote><p>
+
+</p>
+<p>Special thanks to Joeseph Smarr, who's excellent work on the Portable Contacts Specification
+    <a class='info' href='#PortableContacts'>[PortableContacts]<span> (</span><span class='info'>Smarr, J., &ldquo;Portable Contacts 1.0 Draft C - Schema Only,&rdquo; August&nbsp;2008.</span><span>)</span></a> provided a basis for the SCIM schema structure and text.
+
+</p>
+<a name="rfc.references1"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<h3>14.&nbsp;Normative References</h3>
+<table width="99%" border="0">
+    <tr><td class="author-text" valign="top"><a name="PortableContacts">[PortableContacts]</a></td>
+        <td class="author-text">Smarr, J., &ldquo;<a href="http://www.portablecontacts.net/draft-schema.html">Portable Contacts 1.0 Draft C - Schema Only</a>,&rdquo; August&nbsp;2008.</td></tr>
+    <tr><td class="author-text" valign="top"><a name="RFC2119">[RFC2119]</a></td>
+        <td class="author-text"><a href="mailto:sob@harvard.edu">Bradner, S.</a>, &ldquo;<a href="http://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>,&rdquo; BCP&nbsp;14, RFC&nbsp;2119, March&nbsp;1997 (<a href="http://www.rfc-editor.org/rfc/rfc2119.txt">TXT</a>, <a href="http://xml.resource.org/public/rfc/html/rfc2119.html">HTML</a>, <a href="http://xml.resource.org/public/rfc/xml/rfc2119.xml">XML</a>).</td></tr>
+</table>
+
+<a name="rfc.authors"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<h3>Authors' Addresses</h3>
+<table width="99%" border="0" cellpadding="0" cellspacing="0">
+    <tr><td class="author-text">&nbsp;</td>
+        <td class="author-text">Chuck Mortimore (editor)</td></tr>
+    <tr><td class="author-text">&nbsp;</td>
+        <td class="author-text">Salesforce.com</td></tr>
+    <tr><td class="author" align="right">Email:&nbsp;</td>
+        <td class="author-text"><a href="mailto:cmortimore@salesforce.com">cmortimore@salesforce.com</a></td></tr>
+    <tr cellpadding="3"><td>&nbsp;</td><td>&nbsp;</td></tr>
+    <tr><td class="author-text">&nbsp;</td>
+        <td class="author-text">Patrick Harding</td></tr>
+    <tr><td class="author-text">&nbsp;</td>
+        <td class="author-text">Ping Identity</td></tr>
+    <tr><td class="author" align="right">Email:&nbsp;</td>
+        <td class="author-text"><a href="mailto:pharding@pingidentity.com">pharding@pingidentity.com</a></td></tr>
+    <tr cellpadding="3"><td>&nbsp;</td><td>&nbsp;</td></tr>
+    <tr><td class="author-text">&nbsp;</td>
+        <td class="author-text">Paul Madsen</td></tr>
+    <tr><td class="author-text">&nbsp;</td>
+        <td class="author-text">Ping Identity</td></tr>
+    <tr><td class="author" align="right">Email:&nbsp;</td>
+        <td class="author-text"><a href="mailto:pmadsen@pingidentity.com">pmadsen@pingidentity.com</a></td></tr>
+    <tr cellpadding="3"><td>&nbsp;</td><td>&nbsp;</td></tr>
+    <tr><td class="author-text">&nbsp;</td>
+        <td class="author-text">Trey Drake</td></tr>
+    <tr><td class="author-text">&nbsp;</td>
+        <td class="author-text">UnboundID</td></tr>
+    <tr><td class="author" align="right">Email:&nbsp;</td>
+        <td class="author-text"><a href="mailto:trey.drake@unboundid.com">trey.drake@unboundid.com</a></td></tr>
+</table>
+</body></html>

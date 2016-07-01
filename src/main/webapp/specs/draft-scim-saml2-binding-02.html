@@ -1,0 +1,760 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en"><head><title>SAML 2.0 Binding for SCIM</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="SAML 2.0 Binding for SCIM">
+<meta name="keywords" content="SCIM, SAML">
+<meta name="generator" content="xml2rfc v1.36 (http://xml.resource.org/)">
+<style type='text/css'><!--
+        body {
+                font-family: verdana, charcoal, helvetica, arial, sans-serif;
+                font-size: small; color: #000; background-color: #FFF;
+                margin: 2em;
+        }
+        h1, h2, h3, h4, h5, h6 {
+                font-family: helvetica, monaco, "MS Sans Serif", arial, sans-serif;
+                font-weight: bold; font-style: normal;
+        }
+        h1 { color: #900; background-color: transparent; text-align: right; }
+        h3 { color: #333; background-color: transparent; }
+
+        td.RFCbug {
+                font-size: x-small; text-decoration: none;
+                width: 30px; height: 30px; padding-top: 2px;
+                text-align: justify; vertical-align: middle;
+                background-color: #000;
+        }
+        td.RFCbug span.RFC {
+                font-family: monaco, charcoal, geneva, "MS Sans Serif", helvetica, verdana, sans-serif;
+                font-weight: bold; color: #666;
+        }
+        td.RFCbug span.hotText {
+                font-family: charcoal, monaco, geneva, "MS Sans Serif", helvetica, verdana, sans-serif;
+                font-weight: normal; text-align: center; color: #FFF;
+        }
+
+        table.TOCbug { width: 30px; height: 15px; }
+        td.TOCbug {
+                text-align: center; width: 30px; height: 15px;
+                color: #FFF; background-color: #900;
+        }
+        td.TOCbug a {
+                font-family: monaco, charcoal, geneva, "MS Sans Serif", helvetica, sans-serif;
+                font-weight: bold; font-size: x-small; text-decoration: none;
+                color: #FFF; background-color: transparent;
+        }
+
+        td.header {
+                font-family: arial, helvetica, sans-serif; font-size: x-small;
+                vertical-align: top; width: 33%;
+                color: #FFF; background-color: #666;
+        }
+        td.author { font-weight: bold; font-size: x-small; margin-left: 4em; }
+        td.author-text { font-size: x-small; }
+
+        /* info code from SantaKlauss at http://www.madaboutstyle.com/tooltip2.html */
+        a.info {
+                /* This is the key. */
+                position: relative;
+                z-index: 24;
+                text-decoration: none;
+        }
+        a.info:hover {
+                z-index: 25;
+                color: #FFF; background-color: #900;
+        }
+        a.info span { display: none; }
+        a.info:hover span.info {
+                /* The span will display just on :hover state. */
+                display: block;
+                position: absolute;
+                font-size: smaller;
+                top: 2em; left: -5em; width: 15em;
+                padding: 2px; border: 1px solid #333;
+                color: #900; background-color: #EEE;
+                text-align: left;
+        }
+
+        a { font-weight: bold; }
+        a:link    { color: #900; background-color: transparent; }
+        a:visited { color: #633; background-color: transparent; }
+        a:active  { color: #633; background-color: transparent; }
+
+        p { margin-left: 2em; margin-right: 2em; }
+        p.copyright { font-size: x-small; }
+        p.toc { font-size: small; font-weight: bold; margin-left: 3em; }
+        table.toc { margin: 0 0 0 3em; padding: 0; border: 0; vertical-align: text-top; }
+        td.toc { font-size: small; font-weight: bold; vertical-align: text-top; }
+
+        ol.text { margin-left: 2em; margin-right: 2em; }
+        ul.text { margin-left: 2em; margin-right: 2em; }
+        li      { margin-left: 3em; }
+
+        /* RFC-2629 <spanx>s and <artwork>s. */
+        em     { font-style: italic; }
+        strong { font-weight: bold; }
+        dfn    { font-weight: bold; font-style: normal; }
+        cite   { font-weight: normal; font-style: normal; }
+        tt     { color: #036; }
+        tt, pre, pre dfn, pre em, pre cite, pre span {
+                font-family: "Courier New", Courier, monospace; font-size: small;
+        }
+        pre {
+                text-align: left; padding: 4px;
+                color: #000; background-color: #CCC;
+        }
+        pre dfn  { color: #900; }
+        pre em   { color: #66F; background-color: #FFC; font-weight: normal; }
+        pre .key { color: #33C; font-weight: bold; }
+        pre .id  { color: #900; }
+        pre .str { color: #000; background-color: #CFF; }
+        pre .val { color: #066; }
+        pre .rep { color: #909; }
+        pre .oth { color: #000; background-color: #FCF; }
+        pre .err { background-color: #FCC; }
+
+        /* RFC-2629 <texttable>s. */
+        table.all, table.full, table.headers, table.none {
+                font-size: small; text-align: center; border-width: 2px;
+                vertical-align: top; border-collapse: collapse;
+        }
+        table.all, table.full { border-style: solid; border-color: black; }
+        table.headers, table.none { border-style: none; }
+        th {
+                font-weight: bold; border-color: black;
+                border-width: 2px 2px 3px 2px;
+        }
+        table.all th, table.full th { border-style: solid; }
+        table.headers th { border-style: none none solid none; }
+        table.none th { border-style: none; }
+        table.all td {
+                border-style: solid; border-color: #333;
+                border-width: 1px 2px;
+        }
+        table.full td, table.headers td, table.none td { border-style: none; }
+
+        hr { height: 1px; }
+        hr.insert {
+                width: 80%; border-style: none; border-width: 0;
+                color: #CCC; background-color: #CCC;
+        }
+--></style>
+</head>
+<body>
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<table summary="layout" width="66%" border="0" cellpadding="0" cellspacing="0"><tr><td><table summary="layout" width="100%" border="0" cellpadding="2" cellspacing="1">
+<tr><td class="header">&nbsp;</td><td class="header">P. Madsen, Ed.</td></tr>
+<tr><td class="header">Internet-Draft</td><td class="header">Ping Identity Corp.</td></tr>
+<tr><td class="header">Intended status: Standards Track</td><td class="header">April 2011</td></tr>
+<tr><td class="header">Expires: October 3, 2011</td><td class="header">&nbsp;</td></tr>
+</table></td></tr></table>
+<h1><br />SAML 2.0 Binding for SCIM<br />draft-scim-saml2-binding-01</h1>
+
+<h3>Abstract</h3>
+
+<p>This specification defines a binding of the Simple Cloud Identity Management (SCIM) schema to the Security Assertion Markup Language (SAML).
+
+</p>
+<h3>Status of this Memo</h3>
+<p>
+This document is an Internet-Draft and is subject to all provisions
+of Section&nbsp;3 of RFC&nbsp;3667.
+By submitting this Internet-Draft,
+each author represents that any applicable patent or other IPR claims of which
+he or she is aware have been or will be disclosed,
+and any of which he or she become aware will be disclosed,
+in accordance with RFC&nbsp;3668.</p>
+<p>
+Internet-Drafts are working documents of the Internet Engineering
+Task Force (IETF).  Note that other groups may also distribute
+working documents as Internet-Drafts.  The list of current
+Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
+<p>
+Internet-Drafts are draft documents valid for a maximum of six months
+and may be updated, replaced, or obsoleted by other documents at any time.
+It is inappropriate to use Internet-Drafts as reference material or to cite
+them other than as &ldquo;work in progress.&rdquo;</p>
+<p>
+This Internet-Draft will expire on October 3, 2011.</p>
+<a name="toc"></a><br /><hr />
+<h3>Table of Contents</h3>
+<p class="toc">
+<a href="#anchor1">1.</a>&nbsp;
+Introduction<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor2">1.1.</a>&nbsp;
+Notational Conventions<br />
+<a href="#anchor3">2.</a>&nbsp;
+Binding to SAML<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor4">2.1.</a>&nbsp;
+Mapping SCIM user attributes into SAML attributes<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor5">2.1.1.</a>&nbsp;
+Supporting multi-value SCIM elements<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor6">2.2.</a>&nbsp;
+Using SAML SSO Assertion attributes to carry SCIM user attributes<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor7">2.3.</a>&nbsp;
+Using SAML AttributeQuery to retrieve SCIM user attributes<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor8">2.4.</a>&nbsp;
+Using SAML metadata to advertise supported/desired SCIM attributes<br />
+<a href="#Security">3.</a>&nbsp;
+Security Considerations<br />
+<a href="#anchor9">Appendix&nbsp;A.</a>&nbsp;
+Document History<br />
+<a href="#rfc.references1">4.</a>&nbsp;
+Normative References<br />
+<a href="#rfc.authors">&#167;</a>&nbsp;
+Author's Address<br />
+<a href="#rfc.copyright">&#167;</a>&nbsp;
+Intellectual Property and Copyright Statements<br />
+</p>
+<br clear="all" />
+
+<a name="anchor1"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.1"></a><h3>1.&nbsp;
+Introduction</h3>
+
+<p>The <a class='info' href='#scim-core'>Simple Cloud Identity Management (SCIM) core schema<span> (</span><span class='info'>Mortimore, C., Ed., &ldquo;Simple Cloud Identity Management: Core Schema 1.0 - draft 1,&rdquo; April&nbsp;2011.</span><span>)</span></a> [scim&#8209;core] defines a platform neutral data and extension model for 
+representing users of cloud services. SCIM core also defines XML &amp; JSON serializations of the abstract schema. This specification 
+defines a binding of SCIM schema to <a class='info' href='#OASIS.saml-core-2.0-os'>SAML<span> (</span><span class='info'>Cantor, S., Kemp, J., Philpott, R., and E. Maler, &ldquo;Assertions and Protocol for the OASIS Security Assertion Markup Language             (SAML) V2.0,&rdquo; March&nbsp;2005.</span><span>)</span></a> [OASIS.saml&#8209;core&#8209;2.0&#8209;os] messages and assertions - allowing SCIM instances to be carried on SAML SSO - as defined 
+in the <a class='info' href='#OASIS.saml-profiles-2.0-os'>SAML Web SSO profile<span> (</span><span class='info'>Hughes, J., Cantor, S., Hodges, J., Hirsch, F., Mishra, P., Philpott, R., and E. Maler, &ldquo;Profiles for the OASIS Security Assertion Markup Language             (SAML) V2.0,&rdquo; March&nbsp;2005.</span><span>)</span></a> [OASIS.saml&#8209;profiles&#8209;2.0&#8209;os].
+
+</p>
+<p>Carrying user attributes on SSO messages enables a just-in-time provisioning model, whereby a user's attributes are provided to 
+the cloud service only at time of first access - rather than a priori. This can greatly simplify the integration work required in 
+scenarios where users need to be dynamically provisioned, by combining the account creation and single sign-on processes into a single message.
+
+</p>
+<a name="anchor2"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.1.1"></a><h3>1.1.&nbsp;
+Notational Conventions</h3>
+
+<p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+                    "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+                    document are to be interpreted as described in <a class='info' href='#RFC2119'>RFC 2119<span> (</span><span class='info'>Bradner, S., &ldquo;Key words for use in RFCs to Indicate Requirement Levels,&rdquo; March&nbsp;1997.</span><span>)</span></a> [RFC2119].
+                
+</p>
+<p>
+                    Unless otherwise noted, all the protocol parameter names and values are case sensitive.
+                
+</p>
+<a name="anchor3"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2"></a><h3>2.&nbsp;
+Binding to SAML</h3>
+
+<p>Binding SCIM to SAML SSO involves the following aspects:
+
+</p>
+<p>
+              </p>
+<ul class="text">
+<li>Mapping SCIM user attributes into SAML attributes
+</li>
+<li>Using SAML SSO Assertion attributes to carry SCIM user attributes
+</li>
+<li>Using SAML AttributeQuery to retrieve SCIM user attributes
+</li>
+<li>Using SAML metadata to advertise supported/desired SCIM attributes
+</li>
+</ul><p>
+
+</p>
+<a name="anchor4"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.1"></a><h3>2.1.&nbsp;
+Mapping SCIM user attributes into SAML attributes</h3>
+
+<p>This section defines a a mapping between SCIM schema elements (and associated attributes) and SAML attributes - the value of the SCIM
+		schema element becoming the value of the SAML attribute.
+</p>
+<p>All SCIM-derived SAML attributes are of type 'xs:string'.
+</p>
+<p>To do: explore defning an actual SAML attribute profile
+</p>
+<p>
+
+<br /><hr class="insert" />
+<a name="table_ex"></a>
+<table class="full" align="center" border="0" cellpadding="2" cellspacing="2">
+<col align="center"><col align="center"><col align="center">
+<tr><th align="center">SCIM</th><th align="center">SAML</th><th align="center">Notes</th></tr>
+<tr>
+<td align="center">id</td>
+<td align="center">SCIM.id</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center">externalId</td>
+<td align="center">SCIM.externalId</td>
+<td align="center">Can't update, insert only</td>
+</tr>
+<tr>
+<td align="center">userName</td>
+<td align="center">SCIM.userName</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center">name/formatted</td>
+<td align="center">SCIM.name.formatted</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center">name/familyName</td>
+<td align="center">SCIM.name.familyName</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center">name/givenName</td>
+<td align="center">SCIM.name.givenName</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center">name/middleName</td>
+<td align="center">SCIM.name.middleName</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center">name/honorificPrefix</td>
+<td align="center">SCIM.name.honorificPrefix</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center">name/honorificSuffix</td>
+<td align="center">SCIM.name.honorificSuffix</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center">displayName</td>
+<td align="center">SCIM.displayName</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center">nickName</td>
+<td align="center">SCIM.nickName</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center">profileUrl</td>
+<td align="center">SCIM.profileUrl</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center">employeeNumber</td>
+<td align="center">SCIM.employeeNumber</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center">userType</td>
+<td align="center">SCIM.userType</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center">title</td>
+<td align="center">SCIM.title</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center">manager</td>
+<td align="center">SCIM.manager</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center">preferredLanguage</td>
+<td align="center">SCIM.preferredLanguage</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center">locale</td>
+<td align="center">SCIM.locale</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center">utcOffset</td>
+<td align="center">SCIM.utcOffset</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center">costCenter</td>
+<td align="center">SCIM.costCenter</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center">organization</td>
+<td align="center">SCIM.organization</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center">division</td>
+<td align="center">SCIM.division</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center">department</td>
+<td align="center">SCIM.department</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center">email</td>
+<td align="center">SCIM.email</td>
+<td align="center">multi</td>
+</tr>
+<tr>
+<td align="center">phoneNumber</td>
+<td align="center">SCIM.phoneNumber</td>
+<td align="center">multi</td>
+</tr>
+<tr>
+<td align="center">im</td>
+<td align="center">SCIM.im</td>
+<td align="center">multi</td>
+</tr>
+<tr>
+<td align="center">photo</td>
+<td align="center">SCIM.photo</td>
+<td align="center">multi</td>
+</tr>
+<tr>
+<td align="center">address</td>
+<td align="center">SCIM.address</td>
+<td align="center">multi</td>
+</tr>
+<tr>
+<td align="center">address/formatted</td>
+<td align="center">SCIM.address.formatted</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center">address/streetAddress</td>
+<td align="center">SCIM.address.streetAddress</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center">address/locality</td>
+<td align="center">SCIM.address.locality</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center">address/region</td>
+<td align="center">SCIM.address.region</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center">address/postalCode</td>
+<td align="center">SCIM.address.postalCode</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center">address/country</td>
+<td align="center">SCIM.address.country</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center">group</td>
+<td align="center">SCIM.group</td>
+<td align="center">multi</td>
+</tr>
+</table>
+<br clear="all" />
+<table border="0" cellpadding="0" cellspacing="2" align="center"><tr><td align="center"><font face="monaco, MS Sans Serif" size="1"><b>&nbsp;Table 1: SCIM to SAML Mapping&nbsp;</b></font><br /></td></tr></table><hr class="insert" />
+
+
+		
+</p>
+<a name="anchor5"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.1.1"></a><h3>2.1.1.&nbsp;
+Supporting multi-value SCIM elements</h3>
+
+<p>The SCIM core schema supports multi-value elements for emails, addresses etc. SCIM allows individual occurrences of such elements to be categorized by 'type' 
+		and 'primary'. 
+</p>
+<p>In order to express 'type' and 'primary' on SAML attributes - the corresponding SAML attributes MAY be extended with corresponding XML attributes in a SCIM XML namespace qualified with 
+		"http://placeholder.scim.org/2011/schema/extension"  
+		
+</p>
+<p>For example:
+</p>
+<p>
+			<br /><hr class="insert" />
+<a name="extension"></a>
+</p>
+<div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>&lt;saml:Attribute NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified" Name="SCIM.email"&gt;
+	&lt;saml:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string" scim:type="home" scim:primary="true"&gt;
+	babsjensen@gmail.com
+	&lt;/saml:AttributeValue&gt;
+&lt;/saml:Attribute&gt;
+</pre></div><p>
+<table border="0" cellpadding="0" cellspacing="2" align="center"><tr><td align="center"><font face="monaco, MS Sans Serif" size="1"><b>&nbsp;Figure&nbsp;1: Example extension&nbsp;</b></font><br /></td></tr></table><hr class="insert" />
+
+                
+                
+</p>
+<p>When a multi-valued SCIM element has child-elements (e.g. address has streetAddress, postalCode, etc), if the 
+                'type' and 'primary' are set on the parent, the 'type' and 'primary' XML attributes MUST be added to each SAML 
+                attribute corresponding to the children. 
+</p>
+<p>Follows is an example of  a set of SCIM attributes expressed in SAML
+</p>
+<p>
+
+    			<br /><hr class="insert" />
+<a name="assertion"></a>
+</p>
+<div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>&lt;saml:AttributeStatement
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+	xmlns:scim="http://placeholder.scim.org/2011/schema/extension"&gt;
+	&lt;saml:Attribute NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified" Name="SCIM.userName"&gt;
+		&lt;saml:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string"&gt;bjensen@example.com&lt;/saml:AttributeValue&gt;
+	&lt;/saml:Attribute&gt;
+
+	&lt;saml:Attribute NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified" Name="SCIM.name.formatted"&gt;
+		&lt;saml:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string"&gt;Ms. Babs J Jensen III&lt;/saml:AttributeValue&gt;
+	&lt;/saml:Attribute&gt;
+
+	&lt;saml:Attribute NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified" Name="SCIM.photo"&gt;
+		&lt;saml:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string" scim:type="work" scim:primary="true"&gt;
+		https://photos.example.com/profilephoto/72930000000Ccne/F&lt;/saml:AttributeValue&gt;
+	&lt;/saml:Attribute&gt;
+
+	&lt;saml:Attribute NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified" Name="SCIM.address.formatted"&gt;
+		&lt;saml:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string" scim:type="work" scim:primary="true"&gt;
+		100 Universal City Plaza\nHollywood, CA 91608 USA
+		&lt;/saml:AttributeValue&gt;
+	&lt;/saml:Attribute&gt;
+
+	&lt;saml:Attribute NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified" Name="SCIM.address.streetAddress"&gt;
+		&lt;saml:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string" scim:type="work" scim:primary="true"&gt;
+		100 Universal City Plaza
+		&lt;/saml:AttributeValue&gt;
+	&lt;/saml:Attribute&gt;
+
+	&lt;saml:Attribute NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified" Name="SCIM.address.formatted"&gt;
+		&lt;saml:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string" scim:type="home"&gt;
+		456 Hollywood Blvd\nHollywood, CA 91608 USA
+		&lt;/saml:AttributeValue&gt;
+	&lt;/saml:Attribute&gt;
+
+	&lt;saml:Attribute NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified" Name="SCIM.address.streetAddress"&gt;
+		&lt;saml:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string" scim:type="home"&gt;
+		456 Hollywood Blvd
+		&lt;/saml:AttributeValue&gt;
+	&lt;/saml:Attribute&gt;
+&lt;/saml:AttributeStatement&gt;
+</pre></div><p>
+<table border="0" cellpadding="0" cellspacing="2" align="center"><tr><td align="center"><font face="monaco, MS Sans Serif" size="1"><b>&nbsp;Figure&nbsp;2: Example of SAML Attributes carrying SCIM info&nbsp;</b></font><br /></td></tr></table><hr class="insert" />
+
+
+</p>
+<a name="anchor6"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.2"></a><h3>2.2.&nbsp;
+Using SAML SSO Assertion attributes to carry SCIM user attributes</h3>
+
+<p>An IdP MAY embed SCIM attributes in SAML Attributes within a SAML SSO Assertion - as per the above mapping.
+</p>
+<p>The SAML SSO Assertion binding can be used to both create a new account at the Service Provider (in which case the Service Provider will not have previously seen the 
+	SCIM externalId or userName), or to update an existing account (in which case an account for the corresponding user will already exist.
+</p>
+<p>If the Service Provider determines that it already has an account for a user identified by the SCIM.id attribute, it MUST update all associated SCIM elements with the values of the
+	corresponding SAML attributes. For those SAML attributes in the SSO Assertion for which the Service Provider does not have a corresponding SCIM element, it MUST create a new SCIM element with the value of the 
+	SAML Attribute.
+</p>
+<a name="anchor7"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.3"></a><h3>2.3.&nbsp;
+Using SAML AttributeQuery to retrieve SCIM user attributes</h3>
+
+<p>An SP can use the SAML AttributeQuery to retrieve SCIM user attributes from the IdP, rather than having them delivered directly in the SAML SSO Assertion.
+</p>
+<p>If the AttributeQuery is initiated by reception of an SSO assertion, the SP MUST use the value of the NameId within that assertion as the value of the NameID within the AttributeQuery to the IdP. 
+</p>
+<p>If not initiated by an SSO assertion, the SP SHOULD use the SCIM.id attribute, or the SCIM.externalId attribute if present, as the value of the NameID.
+</p>
+<p>The SP MAY specify desired attributes in the AttributeQuery.
+</p>
+<p>Shown below is an example SAML AttributeQuery
+</p>
+<p>
+			<br /><hr class="insert" />
+<a name="attributequery"></a>
+</p>
+<div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>&lt;samlp:AttributeQuery
+	xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+	xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+	ID="aaf23196-1773-2113-474a-fe114412ab72"
+	Version="2.0"
+	IssueInstant="2006-07-17T20:31:40Z"&gt;
+	&lt;saml:Issuer&gt;
+	serviceconsumer.com
+	&lt;/saml:Issuer&gt;
+	&lt;saml:Subject&gt;
+		&lt;saml:NameID
+		NameQualifier="idp.com"
+		Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"&gt;
+		701984
+		&lt;/saml:NameID&gt;
+	&lt;/saml:Subject&gt;
+	&lt;saml:Attribute
+	NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+	Name="SCIM.address.streetAddress"&gt;
+	&lt;/saml:Attribute&gt;
+ &lt;/samlp:AttributeQuery&gt;
+</pre></div><p>
+<table border="0" cellpadding="0" cellspacing="2" align="center"><tr><td align="center"><font face="monaco, MS Sans Serif" size="1"><b>&nbsp;Figure&nbsp;3: Example AttributeQuery&nbsp;</b></font><br /></td></tr></table><hr class="insert" />
+
+                
+                
+</p>
+<a name="anchor8"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.4"></a><h3>2.4.&nbsp;
+Using SAML metadata to advertise supported/desired SCIM attributes</h3>
+
+<p>The SAML Metadata specification [SAMLMeta] defines a means for information about SAML entities to be represented and communicated 
+			securely. This section defines how the SCIM attributes an cloud provider requrires/supports can be expressed in a SAML metadata instance so 
+			that enterprises can know to supply them. 
+			
+</p>
+<p>A SCIM Service Provider MAY indicate to a Service Consumers the SCIM elements it expects
+			in SAML SSO assertions using the RequestedAttribute element in the AssertionConsumingService element of its SAML metadata SPSSODescriptor.
+</p>
+<p>Shown below is an example SAML SPSSODescriptor.
+</p>
+<p>
+			<br /><hr class="insert" />
+<a name="metadata"></a>
+</p>
+<div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>&lt;md:SPSSODescriptor&gt;
+	&lt;md:AttributeConsumingService index="1" isDefault="true"&gt;
+		&lt;md:ServiceName xml:lang="en"&gt;
+        Cloudz 'R' Us
+		&lt;/md:ServiceName&gt;
+		&lt;md:RequestedAttribute name="SCIM.email" isRequired="true"&gt;&lt;/md:RequestedAttribute&gt;
+		&lt;md:RequestedAttribute name="SCIM.address" isRequired="true"&gt;&lt;/md:RequestedAttribute&gt;
+	&lt;/md:AttributeConsumingService&gt;
+&lt;/md:SPSSODescriptor&gt;
+</pre></div><p>
+<table border="0" cellpadding="0" cellspacing="2" align="center"><tr><td align="center"><font face="monaco, MS Sans Serif" size="1"><b>&nbsp;Figure&nbsp;4: Example metadata&nbsp;</b></font><br /></td></tr></table><hr class="insert" />
+
+                
+                
+</p>
+<a name="Security"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3"></a><h3>3.&nbsp;
+Security Considerations</h3>
+
+<p>TBD
+</p>
+<a name="anchor9"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.A"></a><h3>Appendix A.&nbsp;
+Document History</h3>
+
+<p>
+             draft-scim-saml2-binding-01
+              </p>
+<ul class="text">
+<li>
+                  Updated to reflect list feedback
+                
+</li>
+<li>Fixed missing SAML namespace in examples
+</li>
+<li>
+                  Clarified terminology
+                
+</li>
+<li>
+                  Clarified identifier used in attributeQuery
+                
+</li>
+</ul><p>
+        
+</p>
+<p>
+              draft-scim-saml2-binding-01
+              </p>
+<ul class="text">
+<li>
+                 initial draft
+                
+</li>
+</ul><p>
+        
+</p>
+<a name="rfc.references1"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<h3>4.&nbsp;Normative References</h3>
+<table width="99%" border="0">
+<tr><td class="author-text" valign="top"><a name="OASIS.saml-core-2.0-os">[OASIS.saml-core-2.0-os]</a></td>
+<td class="author-text"><a href="mailto:cantor.2@osu.edu">Cantor, S.</a>, <a href="mailto:John.Kemp@nokia.com">Kemp, J.</a>, <a href="mailto:rphilpott@rsasecurity.com">Philpott, R.</a>, and <a href="mailto:eve.maler@sun.com">E. Maler</a>, &ldquo;<a href="http://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf">Assertions and Protocol for the OASIS Security Assertion Markup Language
+            (SAML) V2.0</a>,&rdquo; OASIS Standard&nbsp;saml-core-2.0-os, March&nbsp;2005.</td></tr>
+<tr><td class="author-text" valign="top"><a name="OASIS.saml-profiles-2.0-os">[OASIS.saml-profiles-2.0-os]</a></td>
+<td class="author-text"><a href="mailto:">Hughes, J.</a>, <a href="mailto:cantor.2@osu.edu">Cantor, S.</a>, <a href="mailto:Jeff.Hodges@neustar.biz">Hodges, J.</a>, <a href="mailto:Frederick.Hirsch@nokia.com">Hirsch, F.</a>, <a href="mailto:pmishra@principalidentity.com">Mishra, P.</a>, <a href="mailto:rphilpott@rsasecurity.com">Philpott, R.</a>, and <a href="mailto:eve.maler@sun.com">E. Maler</a>, &ldquo;<a href="http://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf">Profiles for the OASIS Security Assertion Markup Language
+            (SAML) V2.0</a>,&rdquo; OASIS Standard&nbsp;OASIS.saml-profiles-2.0-os, March&nbsp;2005.</td></tr>
+<tr><td class="author-text" valign="top"><a name="RFC2119">[RFC2119]</a></td>
+<td class="author-text"><a href="mailto:sob@harvard.edu">Bradner, S.</a>, &ldquo;<a href="http://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>,&rdquo; BCP&nbsp;14, RFC&nbsp;2119, March&nbsp;1997 (<a href="http://www.rfc-editor.org/rfc/rfc2119.txt">TXT</a>, <a href="http://xml.resource.org/public/rfc/html/rfc2119.html">HTML</a>, <a href="http://xml.resource.org/public/rfc/xml/rfc2119.xml">XML</a>).</td></tr>
+<tr><td class="author-text" valign="top"><a name="scim-core">[scim-core]</a></td>
+<td class="author-text">Mortimore, C., Ed., &ldquo;<a href="https://sites.google.com/site/clouddir/draft1">Simple Cloud Identity Management: Core Schema 1.0 - draft 1</a>,&rdquo; April&nbsp;2011.</td></tr>
+</table>
+
+<a name="rfc.authors"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<h3>Author's Address</h3>
+<table width="99%" border="0" cellpadding="0" cellspacing="0">
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Paul Madsen (editor)</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Ping Identity Corp.</td></tr>
+<tr><td class="author" align="right">Email:&nbsp;</td>
+<td class="author-text"><a href="mailto:pmadsen@pingidentity.com">pmadsen@pingidentity.com</a></td></tr>
+</table>
+<a name="rfc.copyright"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<h3>Full Copyright Statement</h3>
+<p class='copyright'>
+Copyright &copy; The IETF Trust (2011).</p>
+<p class='copyright'>
+This document is subject to the rights,
+licenses and restrictions contained in BCP&nbsp;78,
+and except as set forth therein,
+the authors retain all their rights.</p>
+<p class='copyright'>
+This document and the information contained herein are provided
+on an &ldquo;AS IS&rdquo; basis and THE CONTRIBUTOR,
+THE ORGANIZATION HE/SHE REPRESENTS
+OR IS SPONSORED BY (IF ANY), THE INTERNET SOCIETY, THE IETF TRUST
+AND THE INTERNET ENGINEERING TASK FORCE DISCLAIM ALL WARRANTIES,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT
+THE USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY
+IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR
+PURPOSE.</p>
+<h3>Intellectual Property</h3>
+<p class='copyright'>
+The IETF takes no position regarding the validity or scope of any
+Intellectual Property Rights or other rights that might be claimed
+to pertain to the implementation or use of the technology
+described in this document or the extent to which any license
+under such rights might or might not be available; nor does it
+represent that it has made any independent effort to identify any
+such rights.
+Information on the procedures with respect to
+rights in RFC documents can be found in BCP&nbsp;78 and BCP&nbsp;79.</p>
+<p class='copyright'>
+Copies of IPR disclosures made to the IETF Secretariat and any
+assurances of licenses to be made available,
+or the result of an attempt made to obtain a general license or
+permission for the use of such proprietary rights by implementers or
+users of this specification can be obtained from the IETF on-line IPR
+repository at <a href='http://www.ietf.org/ipr'>http://www.ietf.org/ipr</a>.</p>
+<p class='copyright'>
+The IETF invites any interested party to bring to its attention
+any copyrights,
+patents or patent applications,
+or other
+proprietary rights that may cover technology that may be required
+to implement this standard.
+Please address the information to the IETF at <a href='mailto:ietf-ipr@ietf.org'>ietf-ipr@ietf.org</a>.</p>
+</body></html>

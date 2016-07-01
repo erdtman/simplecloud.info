@@ -1,0 +1,987 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en"><head><title>SCIM scenarios</title>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="description" content="SCIM scenarios">
+<meta name="keywords" content="SCIM, Cloud, Provisioning, Identity">
+<meta name="generator" content="xml2rfc v1.36 (http://xml.resource.org/)">
+<style type="text/css"><!--
+        body {
+                font-family: verdana, charcoal, helvetica, arial, sans-serif;
+                font-size: small; color: #000; background-color: #FFF;
+                margin: 2em;
+        }
+        h1, h2, h3, h4, h5, h6 {
+                font-family: helvetica, monaco, "MS Sans Serif", arial, sans-serif;
+                font-weight: bold; font-style: normal;
+        }
+        h1 { color: #900; background-color: transparent; text-align: right; }
+        h3 { color: #333; background-color: transparent; }
+
+        td.RFCbug {
+                font-size: x-small; text-decoration: none;
+                width: 30px; height: 30px; padding-top: 2px;
+                text-align: justify; vertical-align: middle;
+                background-color: #000;
+        }
+        td.RFCbug span.RFC {
+                font-family: monaco, charcoal, geneva, "MS Sans Serif", helvetica, verdana, sans-serif;
+                font-weight: bold; color: #666;
+        }
+        td.RFCbug span.hotText {
+                font-family: charcoal, monaco, geneva, "MS Sans Serif", helvetica, verdana, sans-serif;
+                font-weight: normal; text-align: center; color: #FFF;
+        }
+
+        table.TOCbug { width: 30px; height: 15px; }
+        td.TOCbug {
+                text-align: center; width: 30px; height: 15px;
+                color: #FFF; background-color: #900;
+        }
+        td.TOCbug a {
+                font-family: monaco, charcoal, geneva, "MS Sans Serif", helvetica, sans-serif;
+                font-weight: bold; font-size: x-small; text-decoration: none;
+                color: #FFF; background-color: transparent;
+        }
+
+        td.header {
+                font-family: arial, helvetica, sans-serif; font-size: x-small;
+                vertical-align: top; width: 33%;
+                color: #FFF; background-color: #666;
+        }
+        td.author { font-weight: bold; font-size: x-small; margin-left: 4em; }
+        td.author-text { font-size: x-small; }
+
+        /* info code from SantaKlauss at http://www.madaboutstyle.com/tooltip2.html */
+        a.info {
+                /* This is the key. */
+                position: relative;
+                z-index: 24;
+                text-decoration: none;
+        }
+        a.info:hover {
+                z-index: 25;
+                color: #FFF; background-color: #900;
+        }
+        a.info span { display: none; }
+        a.info:hover span.info {
+                /* The span will display just on :hover state. */
+                display: block;
+                position: absolute;
+                font-size: smaller;
+                top: 2em; left: -5em; width: 15em;
+                padding: 2px; border: 1px solid #333;
+                color: #900; background-color: #EEE;
+                text-align: left;
+        }
+
+        a { font-weight: bold; }
+        a:link    { color: #900; background-color: transparent; }
+        a:visited { color: #633; background-color: transparent; }
+        a:active  { color: #633; background-color: transparent; }
+
+        p { margin-left: 2em; margin-right: 2em; }
+        p.copyright { font-size: x-small; }
+        p.toc { font-size: small; font-weight: bold; margin-left: 3em; }
+        table.toc { margin: 0 0 0 3em; padding: 0; border: 0; vertical-align: text-top; }
+        td.toc { font-size: small; font-weight: bold; vertical-align: text-top; }
+
+        ol.text { margin-left: 2em; margin-right: 2em; }
+        ul.text { margin-left: 2em; margin-right: 2em; }
+        li      { margin-left: 3em; }
+
+        /* RFC-2629 <spanx>s and <artwork>s. */
+        em     { font-style: italic; }
+        strong { font-weight: bold; }
+        dfn    { font-weight: bold; font-style: normal; }
+        cite   { font-weight: normal; font-style: normal; }
+        tt     { color: #036; }
+        tt, pre, pre dfn, pre em, pre cite, pre span {
+                font-family: "Courier New", Courier, monospace; font-size: small;
+        }
+        pre {
+                text-align: left; padding: 4px;
+                color: #000; background-color: #CCC;
+        }
+        pre dfn  { color: #900; }
+        pre em   { color: #66F; background-color: #FFC; font-weight: normal; }
+        pre .key { color: #33C; font-weight: bold; }
+        pre .id  { color: #900; }
+        pre .str { color: #000; background-color: #CFF; }
+        pre .val { color: #066; }
+        pre .rep { color: #909; }
+        pre .oth { color: #000; background-color: #FCF; }
+        pre .err { background-color: #FCC; }
+
+        /* RFC-2629 <texttable>s. */
+        table.all, table.full, table.headers, table.none {
+                font-size: small; text-align: center; border-width: 2px;
+                vertical-align: top; border-collapse: collapse;
+        }
+        table.all, table.full { border-style: solid; border-color: black; }
+        table.headers, table.none { border-style: none; }
+        th {
+                font-weight: bold; border-color: black;
+                border-width: 2px 2px 3px 2px;
+        }
+        table.all th, table.full th { border-style: solid; }
+        table.headers th { border-style: none none solid none; }
+        table.none th { border-style: none; }
+        table.all td {
+                border-style: solid; border-color: #333;
+                border-width: 1px 2px;
+        }
+        table.full td, table.headers td, table.none td { border-style: none; }
+
+        hr { height: 1px; }
+        hr.insert {
+                width: 80%; border-style: none; border-width: 0;
+                color: #CCC; background-color: #CCC;
+        }
+--></style></head><body>
+<table summary="layout" class="TOCbug" align="right" cellpadding="0" cellspacing="2"><tbody><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></tbody></table>
+<table summary="layout" border="0" cellpadding="0" cellspacing="0" width="66%"><tbody><tr><td><table summary="layout" border="0" cellpadding="2" cellspacing="1" width="100%">
+<tbody><tr><td class="header">&nbsp;</td><td class="header">D. Rolls, Ed.</td></tr>
+<tr><td class="header">Internet-Draft</td><td class="header">Sailpoint</td></tr>
+<tr><td class="header">Intended status: Standards Track</td><td class="header">P. Harding, Ed.</td></tr>
+<tr><td class="header">Expires: November 25, 2011</td><td class="header">Ping Identity Corp.</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">June 28, 2011</td></tr>
+</tbody></table></td></tr></tbody></table>
+<h1><br>SCIM scenarios<br>draft-scim-scenarios-04</h1>
+
+<h3>Abstract</h3>
+
+<p>The Simple Cloud Identity Management (SCIM) specification is designed
+ to make managing user identity in cloud based applications and services
+ easier. 
+The specification suite seeks to build upon experience with existing 
+schemas and deployments, placing specific emphasis on simplicity of 
+development and integration, 
+while applying existing authentication, authorization, and privacy 
+models. It's intent is to reduce the cost and complexity of user 
+management operations by providing a 
+common user schema and extension model, as well as binding documents to 
+provide patterns for exchanging this schema using standard protocols. 
+In essence, make it fast, cheap, and easy to move users in to, out of, 
+and around the cloud.
+
+</p>
+<p>The SCIM scenarios are overview user stories designed to help clarify
+ the intended scope of the SCIM effort.  They are part use case, part 
+user story and part overall positioning document.  
+
+</p>
+<h3>Status of this Memo</h3>
+<p>
+This document is an Internet-Draft and is subject to all provisions
+of Section&nbsp;3 of RFC&nbsp;3667.
+By submitting this Internet-Draft,
+each author represents that any applicable patent or other IPR claims of which
+he or she is aware have been or will be disclosed,
+and any of which he or she become aware will be disclosed,
+in accordance with RFC&nbsp;3668.</p>
+<p>
+Internet-Drafts are working documents of the Internet Engineering
+Task Force (IETF).  Note that other groups may also distribute
+working documents as Internet-Drafts.  The list of current
+Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
+<p>
+Internet-Drafts are draft documents valid for a maximum of six months
+and may be updated, replaced, or obsoleted by other documents at any time.
+It is inappropriate to use Internet-Drafts as reference material or to cite
+them other than as &#8220;work in progress.&#8221;</p>
+<p>
+This Internet-Draft will expire on November 25, 2011.</p>
+<a name="toc"></a><br><hr>
+<h3>Table of Contents</h3>
+<p class="toc">
+<a href="#anchor1">1.</a>&nbsp;
+SCIM User Scenarios<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor2">1.1.</a>&nbsp;
+Background &amp; Context<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor3">1.2.</a>&nbsp;
+Model Concepts<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor4">1.2.1.</a>&nbsp;
+Triggers<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor5">1.2.2.</a>&nbsp;
+Actors<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor6">1.2.3.</a>&nbsp;
+Modes &amp; Flows<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor7">1.2.4.</a>&nbsp;
+Bulk &amp; Batch Operational Semantics<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor8">1.3.</a>&nbsp;
+Cloud Service Provider to Cloud Service Provider Flows (CSP-&gt;CSP)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor9">1.3.1.</a>&nbsp;
+CSP-&gt;CSP - Create Identity (Push)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor10">1.3.2.</a>&nbsp;
+CSP-&gt;CSP - Update Identity (Push)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor11">1.3.3.</a>&nbsp;
+CSP-&gt;CSP - Delete Identity (Push)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor12">1.3.4.</a>&nbsp;
+CSP-&gt;CSP - Sync Identity (Push &amp; Pull)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor14">1.3.5.</a>&nbsp;
+CSP-&gt;CSP - SSO Trigger (Push)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor15">1.3.6.</a>&nbsp;
+CSP-&gt;CSP - SSO Trigger (Pull)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor23">1.3.7.</a>&nbsp;
+CSP-&gt;CSP - Password Reset (Push)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor15">1.4.</a>&nbsp;
+Enterprise Cloud Subscriber to Cloud Service Provider Flows (ECS-&gt;CSP)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor16">1.4.1.</a>&nbsp;
+ECS-&gt;CSP - Create Identity (Push)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor17">1.4.2.</a>&nbsp;
+ECS -&gt;CSP - Update Identity (Push)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor18">1.4.3.</a>&nbsp;
+ECS -&gt;CSP - Delete Identity (Push)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor19">1.4.4.</a>&nbsp;
+ECS -&gt;CSP - SSO Pull<br>
+<a href="#anchor23">Appendix&nbsp;A.</a>&nbsp;
+Document History<br>
+<a href="#rfc.authors">§</a>&nbsp;
+Authors' Addresses<br>
+<a href="#rfc.copyright">§</a>&nbsp;
+Intellectual Property and Copyright Statements<br>
+</p>
+
+<br clear="all">
+
+<a name="anchor1"></a><br><hr>
+<table summary="layout" class="TOCbug" align="right" cellpadding="0" cellspacing="2"><tbody><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></tbody></table>
+<a name="rfc.section.1"></a><h3>1.&nbsp;
+SCIM User Scenarios</h3>
+
+<a name="anchor2"></a><br><hr>
+<table summary="layout" class="TOCbug" align="right" cellpadding="0" cellspacing="2"><tbody><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></tbody></table>
+<a name="rfc.section.1.1"></a><h3>1.1.&nbsp;
+Background &amp; Context</h3>
+
+<p>The Simple Cloud Identity Management (SCIM) specification is designed
+ to make managing user identity in cloud based applications and services
+ easier. 
+The specification suite seeks to build upon experience with existing 
+schemas and deployments, placing specific emphasis on simplicity of 
+development and integration, 
+while applying existing authentication, authorization, and privacy 
+models. It's intent is to reduce the cost and complexity of user 
+management operations by 
+providing a common user schema and extension model, as well as binding 
+documents to provide patterns for exchanging this schema using standard 
+protocols. 
+In essence, make it fast, cheap, and easy to move users in to, out of, 
+and around the cloud.
+</p>
+<p>The SCIM scenarios are overview user stories designed to help clarify
+ the intended scope and general operation of the SCIM effort.  They are part use case, part 
+user story and 
+    part overall positioning document. For consistency, they are based on and relate back to the<span style="text-decoration: underline;"><span style="font-weight: bold;"></span></span> <a href="http://www.simplecloud.info/specs/draft-scim-core-schema-01.html">latest protocol specification (REST API)</a> and the <a href="http://www.simplecloud.info/specs/draft-scim-core-schema-01.html">latest core schema</a>.  
+
+</p>
+
+<p>To aid reading, understanding and commenting on the SCIM scenarios, 
+this document makes consistent use of the three key model concepts 
+called <a href="#rfc.section.1.2.1">Triggers</a>, 
+    <a href="#rfc.section.1.2.2">Actors</a> and <a href="#rfc.section.1.2.3">Modes</a>.  Each of these concepts is discussed in more 
+detail in the Model Concepts section of this document.&nbsp; In summary, Triggers are 
+things that 
+    start SCIM flows, Actors are the operating parities participating in
+ the flow, and Modes represent the overall intent of the action (push or
+ pull). There is nothing normative or overly definitive about these model 
+terms.  They are only relevant to SCIM to the extent in which they help 
+frame 
+    the discussion and create a common language for the ongoing 
+discussion. 
+
+</p>
+<a name="anchor3"></a><br><hr>
+<table summary="layout" class="TOCbug" align="right" cellpadding="0" cellspacing="2"><tbody><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></tbody></table>
+<a name="rfc.section.1.2"></a><h3>1.2.&nbsp;
+Model Concepts</h3>
+
+<a name="anchor4"></a><br><hr>
+<table summary="layout" class="TOCbug" align="right" cellpadding="0" cellspacing="2"><tbody><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></tbody></table>
+<a name="rfc.section.1.2.1"></a><h3>1.2.1.&nbsp;
+Triggers</h3>
+
+<p>Quite simply, triggers are actions or activities that start SCIM 
+flows.  Triggers may not be relevant at the protocol or the schema, 
+they 
+	    really serve to help identity the type or activity that resulted in
+ a SCIM protocol exchange.  
+        Triggers make use of the traditional provisioning C.R.U.D 
+(Create Read Update &amp; Delete) operations but add additional use case
+ contexts like 
+        "Sync" and "SSO" as they are designed to capture a 
+class of use case that makes sense to the actor requesting it rather 
+than to describe a 
+        protocol operation. 
+</p>
+<p>
+</p>
+<ul class="text">
+<li><span style="font-weight: bold;">Create SCIM </span><span style="font-weight: bold;">Identity </span><span style="font-weight: bold;">Resource - Service On-boarding Trigger</span><br>
+A create SCIM resource trigger is a service on-boarding activity in
+which a business action such as a new hire or new service subscription
+is initiated by one of the SCIM Actors. In the protocol itself, service
+on-boarding may well be implemented via the same resource PUT method as
+a service change.&nbsp; This is particular to the implementation not to
+the use cases that drive that implementation. <br>
+    <br>
+
+
+</li>
+
+  <li><span style="font-weight: bold;">Update SCIM </span><span style="font-weight: bold;">Identity </span><span style="font-weight: bold;">Resource&nbsp; </span>- <span style="font-weight: bold;">Service Change Trigger</span><br>
+An Update SCIM resource trigger is a service change activity as a
+result of an identity moving or changing its service level. An Update
+Identity trigger might be the result of a change in a service
+subscription level or a change to key identity data used to denote a
+service subscription level. Password changes are specifically called
+out from other more general identity attribute changes as they are
+considered to have specific use case diffrerneces.<br>
+    <br>
+
+
+  </li>
+<li><span style="font-weight: bold;">Delete SCIM </span><span style="font-weight: bold;">Identity </span><span style="font-weight: bold;">Resource</span> <span style="font-weight: bold;">- Service Termination Trigger</span><br>
+A delete SCIM resource trigger represents a specific and deliberate
+action to remove an identity from a given SCIM service point. At this
+stage its unclear if the SCIM protocol needs to identify separate
+protocol exchange for a service suspension actions. This may be
+relevant as target services usually differentiate between these result
+and may require seperate resource representations as a result.<br>
+    <br>
+
+
+</li>
+<li><span style="font-weight: bold;">Sync SCIM Identity Resource - Identity/Group Synchronization Trigger</span><br>
+A Sync SCIM resource Trigger represents the request to synchronize two
+or more SCIM resources.&nbsp; A sync triggers tells the service that
+one or more identity records need to be synchronized between SCIM
+service points.&nbsp; In implementation, operational use cases like
+sync result in issuing the same basic RESTful POST/PUT operations with
+enhanced meta-data<br>
+    <br>
+
+</li>
+<li><span style="font-weight: bold;">Single-Sign On (SSO) - Real-time Service Access Request Trigger</span><br>
+
+    A SSO trigger is a special class of activity in which a 
+Create or Update trigger is initiated during an SSO operational flow. The 
+implication here 
+    is that as the result of a real-time service access request by the 
+end user (SSO), defined SCIM protocol exchanges can be used to initiate SCIM resource CRUD somewhere in the service cloud.  
+
+</li>
+</ul><p>
+
+</p>
+<a name="anchor5"></a><br><hr>
+<table summary="layout" class="TOCbug" align="right" cellpadding="0" cellspacing="2"><tbody><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></tbody></table>
+<a name="rfc.section.1.2.2"></a><h3>1.2.2.&nbsp;
+Actors</h3>
+
+<p>Actors are the operating parties that take part in both sides of a 
+SCIM protocol exchange, and help identify the source of a given Trigger.
+ 
+    So far, we have identified the following SCIM Actors:
+</p>
+<p>
+</p>
+<ul class="text">
+<li><span style="font-weight: bold;">Cloud Service Provider (CSP)</span><br>
+A CSP is the entity operating a given
+ cloud service.  In a SaaS scenario this is simply the application 
+provider.  
+    In an IaaS or PaaS scenario, the CSP may be the underlying IaaS/PaaS
+ infrastructure provider or the owner of the application running on that
+    platform.  In all cases, the CSP is the thing that holds the 
+identity information being operated upon.  Put another way, the CSP really 
+is the 
+    service that the end-end user interacts with.<br>
+    <br>
+    <br>
+
+
+</li>
+<li><span style="font-weight: bold;">Enterprise Cloud Subscriber (ECS)</span><br>
+A ECS represents a middle-tier of aggregation for related identity
+records. In one of our sample enterprise SaaS scenarios, the ECS is
+"FooBar.Inc" that subscribes to a cloud based CRM service service
+"SaaS-CRM.Inc" (the CSP) for all of its sales staff. The actual Cloud
+Service User (CSU)'s are the FooBar.Inc. sales staff. The ECS actor is
+identified to help capture use cases in which a single entitle is given
+administrative responsibility for other identity accounts. SCIM may not
+address the configuration and setup of an ECS within the CSP, but it
+does address use cases in which SCIM identity resources are grouped
+together and administers as part of some broader agreement or
+operational exchange.<br>
+    <br>
+
+</li>
+<li><span style="font-weight: bold;">Cloud Service User (CSU)</span><br>
+A CSU represents the real cloud service 
+end-end user - the "person logging into and using the cloud service".  As described above,
+ 
+    and ECS will typically own or manage multiple CSU identities where 
+as the CSU represents the FooBar.Inc. employee using the cloud service to 
+manage
+    their CRM process.</li>
+</ul>&nbsp;&nbsp;&nbsp; <br>
+<br>
+<div style="text-align: center;"><img style="width: 775px; height: 345px;" alt="SCIM Actors" src="images/Figure_1.2.2-1_SCIM_Actors.png"><br>
+<a name="Figure_1.2.2-1_SCIM_Actors"></a>Figure 1.2.2-1 SCIM Actors<br>
+</div>
+<p>
+
+</p>
+<a name="anchor6"></a><br><hr>
+<table summary="layout" class="TOCbug" align="right" cellpadding="0" cellspacing="2"><tbody><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></tbody></table>
+<a name="rfc.section.1.2.3"></a><h3>1.2.3.&nbsp;
+Modes &amp; Flows</h3>
+
+<p>Modes identify the functional intent of a data-flow initiated in a 
+SCIM protocol exchange.  The two modes identified so far are 'push' and 'pull' 
+referring to the fact of pushing data to, or pulling data from an 
+authoritative identity data store. <br>
+
+</p>
+<p>In the SCIM scenarios, Modes are often used in the context of a flow 
+between two Actors. For example, one might refer to a Cloud-to-Cloud 
+Pull exchange.  Here one Cloud Service Provider (CSP) is pulling identity 
+information from another CSP. Commonly referenced flows are:
+</p>
+<p>
+</p>
+<ul class="text">
+<li>Cloud Service Provider to Cloud Service Provider (CSP-&gt;CSP)
+</li>
+<li>Enterprise Cloud Subscriber to Cloud Service Provider (ECS-CSP)
+</li>
+</ul><p>
+
+</p>
+<p>Modes &amp; flows simply help us understand what is taking place; 
+they are likely to be technically meaningless at the protocol level, but
+ again they help the reader follow the SCIM scenario's and apply them to
+ real world use cases.
+</p>
+<a name="anchor7"></a><br><hr>
+<table summary="layout" class="TOCbug" align="right" cellpadding="0" cellspacing="2"><tbody><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></tbody></table>
+<a name="rfc.section.1.2.4"></a><h3>1.2.4.&nbsp;
+Bulk &amp; Batch Operational Semantics</h3>
+
+<p>
+It is assumed that each of the triggers action outlined in this document
+ may be part of the larger bulk or batch operation.  Individual SCIM 
+actions should be able to be collected together to create single 
+protocol exchanges.  
+</p>
+<p>This draft of the SCIM scenarios document however, does not 
+specifically address the complexity and behavioral semantics of bulk and
+ batch (things such as rollback, one-fail-stop etc.). Our initial focus 
+is on identifying base flows and single operations.  The specific 
+complexity of full bulk and batch operations is left to a later version 
+of the scenarios or to the main specification if addressed there.  
+
+</p>
+<a name="anchor8"></a><br><hr>
+<table summary="layout" class="TOCbug" align="right" cellpadding="0" cellspacing="2"><tbody><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></tbody></table>
+<a name="rfc.section.1.3"></a><h3>1.3.&nbsp;
+Cloud Service Provider to Cloud Service Provider Flows (CSP-&gt;CSP)</h3>
+
+<p>
+These scenarios represent flows between two Cloud Service Providers 
+(CSP's).  It is assumed that each CSP maintains an Identity Data Store 
+for its Cloud Service Users (CSU's).  These scenarios address various 
+joiner, mover, leaver and JIT triggers, resulting in push and pull data 
+exchanges between the CSP's.<br>
+<br>
+</p>
+<p style="text-align: center;"><img style="width: 487px; height: 87px;" alt="CSP to CSP Flows" src="images/Figure_1.3-1.png"><br>
+</p>
+<p style="text-align: center;"><a name="Figure_1.3-1"></a>Figure 1.3-1 CSP -&gt; CSP Flows<br>
+ 
+
+</p>
+
+<a name="anchor9"></a><br><hr>
+<table summary="layout" class="TOCbug" align="right" cellpadding="0" cellspacing="2"><tbody><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></tbody></table>
+<a name="rfc.section.1.3.1"></a><h3>1.3.1.&nbsp;
+CSP-&gt;CSP - Create Identity (Push)</h3>
+
+<p>
+In this scenario two CSP's (CSP-1 &amp; CSP-2) have a shared service 
+agreement in place that requires the exchange of Cloud Service User 
+(CSU) accounts.  
+CSP-1 receives a Create Identity trigger action from its Enterprise 
+Cloud Subscriber (ECS-1).  CSP-1 creates a local user account for the new 
+CSU.  
+CSP-1 then pushes the new CSU joiner push request down-stream to CSU-2 
+and gets confirmation that the account was successfully created.  
+After receiving the confirmation from CSP-2, CSP-1 sends an 
+acknowledgement to the requesting ECS.<br>
+<br>
+</p>
+<p style="text-align: center;"><img style="width: 514px; height: 304px;" alt="CSP-&gt;CSP Create Identity Push" src="images/Figure_1.3.1-1.png"><br>
+<a name="Figure_1.3.1-1"></a>Figure 1.3.1-1 CSP-&gt;CSP Create Identity (Push)<br>
+<br>
+</p>
+
+<a name="anchor10"></a><br>
+<hr>
+<table summary="layout" class="TOCbug" align="right" cellpadding="0" cellspacing="2"><tbody><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></tbody></table>
+<a name="rfc.section.1.3.2"></a><h3>1.3.2.&nbsp;
+CSP-&gt;CSP - Update Identity (Push)</h3>
+
+<p>
+In this scenario two CSP's (CSP-1 &amp; CSP-2) have a shared service 
+agreement in place that requires the exchange of Cloud Service User 
+(CSU) accounts.  
+The Enterprise Cloud Subscriber (ECS-1) has already created an account 
+with CSP-1 and supplied a critical attribute "department" that is used 
+by CSP-1 
+to drive service options.  CSP-1 then receives an Update Identity 
+trigger action from its Enterprise Cloud Subscriber (ECS).  CSP-1 
+updates its local 
+directory account with the new department value.  CSP-1 then initiates a seperate SCIM protocol exchange to push the 
+mover change request down-stream to CSP-2.&nbsp; After receiving the confirmation from CSP-2, 
+CSP-1 sends an acknowledgment to ECS-1.<br>
+<br>
+</p>
+<div style="text-align: center;"><img style="width: 512px; height: 307px;" alt="CSP-&gt;CSP Update Identity Push" src="images/Figure_1.3.2-1.png"><br>
+
+<a name="Figure_1.3.2-1"></a>Figure 1.3.2-1 CSP-&gt;CSP Update Identity (Push)<br>
+ 
+
+</div>
+
+<a name="anchor11"></a><br><hr>
+<table summary="layout" class="TOCbug" align="right" cellpadding="0" cellspacing="2"><tbody><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></tbody></table>
+<a name="rfc.section.1.3.3"></a><h3>1.3.3.&nbsp;
+CSP-&gt;CSP - Delete Identity (Push)</h3>
+
+<p>
+In this scenario two CSP's (CSP-1 &amp; CSP-2) have a shared service 
+agreement in place that requires the exchange of Cloud Service User 
+(CSU) accounts.  
+CSP-1 receives a Delete Identity trigger action from its Enterprise 
+Cloud Subscriber (ECS-1).  CSP-1 suspends the local directory account for 
+the specified 
+CSU account.  CSP-1 then pushes a termination request for the specified 
+CSU account down-stream to CSP-2 and gets confirmation that the account 
+was 
+successfully removed.  After receiving the confirmation from CSP-2, 
+CSP-1 sends an acknowledgment to the requesting ECS.<br>
+</p>
+<p>This use case highlights how different CSP's may implement different
+operational semantics behind the same SCIM operation.&nbsp; Note CSP-1
+suspends the account representation for its service where as CPS-2
+implements a true delete operation.&nbsp; <br>
+
+
+</p>
+<div style="text-align: center;"><img style="width: 515px; height: 304px;" alt="CSP-&gt;CSP Delete Identity Push" src="images/Figure_1.3.3-1.png"><br>
+
+<a name="Figure_1.3.3-1"></a>Figure 1.3.3-1 CSP-&gt;CSP Delete Identity (Push)<br>
+ 
+
+</div>
+
+
+<p> 
+
+</p>
+
+<a name="anchor12"></a><br><hr>
+<table summary="layout" class="TOCbug" align="right" cellpadding="0" cellspacing="2"><tbody><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></tbody></table>
+<a name="rfc.section.1.3.4"></a><h3>1.3.4.&nbsp;
+CSP-&gt;CSP - Sync Identity(s) (Push &amp; Pull)</h3>
+
+<p>In this scenario two CSP's (CSP-1 &amp; CSP-2) have a shared service
+agreement in place that requires the synchronization of Cloud Service
+User (CSU) accounts. On a periodic basis, either CSP is able to respond
+to or initiate synchronization request for a sub-set of its managed
+accounts. In the Push scenario, CSP-1 has the option to push a
+change-delta data set to CSP-1.&nbsp; The key to the Push scenario is
+its initiation by CSP-1.&nbsp; In the Pull scenario, CSP-2 initiates
+the sync requests and CSP-1 responds with the resulting data set. In
+either case, CSP-2 receives the data set and successfully carries out
+any required additions, updates or deletes.<br>
+</p>
+<p>In Figure 1.3.4-1 we see a flow initiated by CSP-1 posting of the
+sync data set to CSP-2.&nbsp; To fulfill this use case, it is
+acceptable that CSP-1 be required to send a simple "primer" request to
+CSP-2, without a data set, that prompts CSP-2 to Pull the data as shown
+in 1.3.4-2.&nbsp; The crux of the use case is the fact that CSP-1 is
+initiating the resulting sync data flow.<br>
+<br>
+
+
+
+
+</p>
+<div style="text-align: center;"><img style="width: 508px; height: 134px;" alt="CSP-&gt;CSP Sync Identity Push" src="images/Figure_1.3.4-1.png"><br>
+
+<a name="Figure_1.3.4-1"></a>Figure 1.3.4-1 CSP-&gt;CSP Sync Identity(s) - Push<br>
+<br>
+<br>
+<br>
+<img style="width: 510px; height: 181px;" alt="CSP-&gt;CSP Sync Identity Pull" src="images/Figure_1.3.4-2.png"><br>
+
+
+<a name="Figure_1.3.4-2"></a>Figure 1.3.4-2 CSP-&gt;CSP Sync Identity(s) - Pull<br>
+<br>
+ 
+
+</div>
+
+
+
+
+<p> 
+
+</p>
+
+
+
+<a name="anchor13"></a><br><hr>
+<table summary="layout" class="TOCbug" align="right" cellpadding="0" cellspacing="2"><tbody><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></tbody></table>
+<a name="rfc.section.1.3.5"></a><h3>1.3.5.&nbsp;
+CSP-&gt;CSP - SSO Trigger (Push)</h3>
+
+<p>
+In this scenario two CSP's (CSP-1 &amp; CSP-2) have a shared service 
+agreement in place that requires the exchange of Cloud Service User 
+(CSU) accounts.  However, 
+rather than pre-provisioning accounts from CSP-1 to CSP-2, CSP-1 waits 
+for a service access request from the end Cloud Service User (CSU-1) before 
+issuing account 
+creation details to CSP-2. When the CSU completes a SSO transaction from
+ CSP-1 to CSP-2, CSP-2 then creates an account for the CSU based on 
+information pushed 
+to it from CSP-1.<br>
+</p>
+<p>At the protocol level, this class of scenarios may result in the use
+of common protocol exchange patters between CSP-1 &amp; CSP-2.<br>
+<br>
+</p>
+<p style="text-align: center;"><img style="width: 508px; height: 305px;" alt="Figure 1.3.5-1 CSP-&gt;CSP SSO Trigger - Push" src="images/Figure_1.3.5-1.png"><br>
+<a name="Figure_1.3.5-1"></a>Figure 1.3.5-1 CSP-&gt;CSP SSO Trigger - Push<br>
+
+
+</p>
+
+<a name="anchor14"></a><br><hr>
+<table summary="layout" class="TOCbug" align="right" cellpadding="0" cellspacing="2"><tbody><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></tbody></table>
+<a name="rfc.section.1.3.6"></a><h3>1.3.6.&nbsp;
+CSP-&gt;CSP - SSO Trigger (Pull)</h3>
+
+<p>In this scenario two CSP's (CSP-1 &amp; CSP-2) have a shared service
+agreement in place that requires the exchange of Cloud Service User
+(CSU) accounts. However, rather than pre-provisioning accounts from
+CSP-1 to CSP-2, CSP-2 waits for a service access request from the Cloud
+Service User (CSU-1) before initiating a Pull request to gather
+information about the CSU sufficient to create a local account. <br>
+</p>
+<p>At the protocol level, this class of scenarios may result in the use of
+common protocol exchange patters between CSP-2 &amp; CSP-1.<br>
+<br>
+</p>
+<p style="text-align: center;"><img style="width: 518px; height: 306px;" alt="Figure 1.3.6-1 CSP-&gt;CSP SSO Trigger - Pull" src="images/Figure_1.3.6-1.png"><br>
+
+<a name="Figure_1.3.6-1"></a>Figure 1.3.6-1 CSP-&gt;CSP SSO Trigger - Pull
+
+</p>
+
+<a name="anchor15"></a><br>
+<br><hr>
+<table summary="layout" class="TOCbug" align="right" cellpadding="0" cellspacing="2"><tbody><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></tbody></table>
+<br>
+<a name="rfc.section.1.3.7"></a>
+<h3>1.3.7.&nbsp;
+CSU -&gt;CSP - Password Reset (Push)</h3>
+
+
+<p>
+            
+In this scenario two CSP's (CSP-1 &amp; CSP-2) have a shared service 
+agreement in place that requires the exchange of Cloud Service User 
+(CSU) accounts.&nbsp; CSP-1
+wants to change the password for a specific Cloud Service User
+(CSU-1).&nbsp; CSP-1 sends a request to CSP-2 to reset the password
+value for CSU-1. <br>
+</p>
+<p>At the protocol level, this scenarios may result in the same protocol exchange as any other 
+            attribute change request.<br>
+</p>
+<p style="text-align: center;"><img style="width: 508px; height: 139px;" alt="Figure 1.3.7-1 CSP-&gt;CSP Password Reset - Push" src="images/Figure_1.3.7-1.png"><br>
+
+
+<a name="Figure_1.3.7-1"></a>Figure 1.3.7-1 CSP-&gt;CSP Password Reset - Push
+        
+</p>
+
+<a name="anchor23"></a><br>
+<br>
+<hr>
+<table summary="layout" class="TOCbug" align="right" cellpadding="0" cellspacing="2">
+<tbody><tr><td class="TOCbug"><a href="draft-scim-scenarios-03.html#toc">&nbsp;TOC&nbsp;</a></td></tr></tbody>
+</table>
+
+<br>
+<a name="rfc.section.1.4"></a><h3>1.4.&nbsp;
+Enterprise Cloud Subscriber to Cloud Service Provider Flows (ECS-&gt;CSP)</h3>
+
+<p>
+These scenarios represent flows between an Enterprise Cloud Subscriber 
+(ECS) and a Cloud Service Providers (CSP).  It is assumed that both the 
+ECS and the CSP 
+maintains an LDAP service for the relevant Cloud Service Users (CSU's). 
+ These scenarios address various joiner, mover, leaver and JIT triggers,
+ resulting in 
+push and pull data exchanges between the ECS and the CSP. 
+
+</p>
+<p>Many of these scenarios are very similar to those defined in the
+Cloud Service Provider to Cloud Service Provider section above. There
+are captured here to help explore potential differences that might
+emerge.<br>
+</p>
+<p style="text-align: center;"><img style="width: 512px; height: 90px;" alt="Figure 1.4.-1 ECS-&gt;CSP Flows" src="images/Figure_1.4-1.png"><br>
+
+
+<a name="Figure_1.4-1"></a>Figure 1.4.-1 ECS-&gt;CSP Flows
+ 
+
+</p>
+
+<a name="anchor16"></a><br><hr>
+<table summary="layout" class="TOCbug" align="right" cellpadding="0" cellspacing="2"><tbody><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></tbody></table>
+<a name="rfc.section.1.4.1"></a><h3>1.4.1.&nbsp;
+ECS-&gt;CSP - Create Identity (Push)</h3>
+
+<p>
+In this scenario an Enterprise Cloud Subscriber (ECS-1) maintains a 
+service with a Cloud Service Provider (CSP-1) that requires the sharing 
+of various 
+Cloud Service User (CSU) accounts.  A new user joins ECS-1 and so ECS-1 
+pushes an account creation request to CSP-1, supplying all required base
+ SCIM 
+schema attribute values and additional extended SCIM schema values as 
+required.<br>
+<br>
+</p>
+<p style="text-align: center;"><img style="width: 511px; height: 136px;" alt="Figure 1.4.1-1 ECS-&gt;CSP Creaet Identity - Push" src="images/Figure_1.4.1-1.png"><br>
+
+
+<a name="Figure_1.4.1-1"></a>Figure 1.4.1-1 ECS-&gt;CSP Creaet Identity - Push  
+
+</p>
+
+<a name="anchor17"></a><br><hr>
+<table summary="layout" class="TOCbug" align="right" cellpadding="0" cellspacing="2"><tbody><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></tbody></table>
+<a name="rfc.section.1.4.2"></a><h3>1.4.2.&nbsp;
+ECS -&gt;CSP - Update Identity (Push)</h3>
+
+<p>
+In this scenario an Enterprise Cloud Subscriber (ECS-1) maintains a 
+service with Cloud Service Provider (CSP-1) that drives service 
+definition from a 
+key account schema attribute called Department.  ECS-1 wishes to move a 
+given CSU from Department A to Department B and so it pushes an 
+attribute update 
+request to the CSP.<br>
+<br>
+</p>
+<p style="text-align: center;"><img style="width: 509px; height: 140px;" alt="Figure 1.4.2-1 ECS-&gt;CSP Update Identity - Push" src="images/Figure_1.4.2-1.png"><br>
+
+
+
+<a name="Figure_1.4.2-1"></a>Figure 1.4.2-1 ECS-&gt;CSP Update Identity - Push
+
+</p>
+
+<a name="anchor18"></a><br><hr>
+<table summary="layout" class="TOCbug" align="right" cellpadding="0" cellspacing="2"><tbody><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></tbody></table>
+<a name="rfc.section.1.4.3"></a><h3>1.4.3.&nbsp;
+ECS -&gt;CSP - Delete Identity (Push)</h3>
+
+<p>
+In this scenario an Enterprise Cloud Subscriber (ECS-1) maintains a 
+service with a Cloud Service Provider (CSP-1).  Upon termination of one 
+of its employees, 
+ECS-1 sends a suspend account request to CSP-1 (Figure 1.4.3-1).  One week later the ECS 
+wishes to complete the process by fully removing the Cloud Service User 
+(CSU) account 
+and so it sends a terminate account request to CSP-1 (Figure 1.4.3-2).<br>
+<br>
+</p>
+<div style="text-align: center;"><img style="width: 512px; height: 123px;" alt="Figure 1.4.3-1 ECS-&gt;CSP suspend Identity - Push" src="images/Figure_1.4.3-1.png"><br>
+
+
+
+
+<a name="Figure_1.4.3-1"></a>Figure 1.4.3-1 ECS-&gt;CSP suspend Identity - Push<br>
+</div>
+<p style="text-align: center;"><br>
+</p>
+<p style="text-align: center;"><img style="width: 510px; height: 120px;" alt="Figure 1.4.3-2 ECS-&gt;CSP Delete Identity - Push" src="images/Figure_1.4.3-2.png"><br>
+
+
+
+
+<a name="Figure_1.4.3-2"></a>Figure 1.4.3-2 ECS-&gt;CSP Delete Identity - Push<br>
+
+
+</p>
+
+<a name="anchor19"></a><br><hr>
+<table summary="layout" class="TOCbug" align="right" cellpadding="0" cellspacing="2"><tbody><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></tbody></table>
+<a name="rfc.section.1.4.4"></a><h3>1.4.4.&nbsp;
+ECS -&gt;CSP - SSO Pull</h3>
+
+<p>In this scenario an Enterprise Cloud Subscriber (ECS-1) maintains a
+service with a Cloud Service Provider (CSP-1). No accounts are created
+or exchange in advance. However, rather than pre-provisioning accounts
+from ECS-1 to CSP-1, CSP-1 waits for a service access request from the
+Cloud Service User (CSU-1) under the control domain of ECS-1, before
+issuing an account Pull request to CSP-1. <br>
+<br>
+</p>
+<p></p>
+<div style="text-align: center;"><img style="width: 527px; height: 307px;" alt="Figure 1.4.4-1 ECS-&gt;CSP SSO Pull" src="images/Figure_1.4.4-1.png"><br>
+
+
+
+
+
+<a name="Figure_1.4.4-1"></a>Figure 1.4.4-1 ECS-&gt;CSP SSO Pull<br>
+</div>
+<p><a name="anchor20"></a><br>
+</p>
+<hr>
+<table summary="layout" class="TOCbug" align="right" cellpadding="0" cellspacing="2"><tbody><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></tbody></table>
+<a name="rfc.section.A"></a><h3>Appendix A.&nbsp;
+Document History</h3>
+
+<p>
+        draft-scim-scenarios-01
+        </p>
+<ul class="text">
+<li>
+                initial draft
+            
+</li>
+</ul><p>
+    
+</p>
+<p>
+        draft-scim-scenarios-02
+        </p>
+<ul class="text">
+<li>
+                Updated trigger terms
+            
+</li>
+<li>
+                Added password use cases
+            
+</li>
+<li>
+                Added descriptions for actors</li>
+</ul>
+<p>
+        draft-scim-scenarios-03
+        </p>
+
+<ul class="text">
+<li>
+                Updated terms and general wordsmith</li>
+  <li>Added images</li>
+  <li>Started enhancing the scnearios to add protocol exchange samples</li>
+</ul>
+<p>
+        draft-scim-scenarios-04
+        </p>
+
+
+<ul class="text">
+<li>
+                Updated terms and general wordsmith</li><li>Added images for the rest of the scenarios<br>
+</li><li>Removed scenario 1.4.5 and merged it with 1.4.4</li>
+  <li>Moved the password reset use case to be a CSP-&gt;CSP flow (1.3.7)</li>
+  <li>Removed section 1.5 (CSU-CSP use cases) - password operations moved to 1.3.7 and no other use cases exist to date<br>
+  </li>
+</ul>
+
+<p>
+    
+</p>
+<a name="rfc.authors"></a><br><hr>
+<table summary="layout" class="TOCbug" align="right" cellpadding="0" cellspacing="2"><tbody><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></tbody></table>
+<h3>Authors' Addresses</h3>
+<table border="0" cellpadding="0" cellspacing="0" width="99%">
+<tbody><tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Darran Rolls (editor)</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Sailpoint</td></tr>
+<tr><td class="author" align="right">Email:&nbsp;</td>
+<td class="author-text"><a href="mailto:darranrolls@sailpoint.com">darranrolls@sailpoint.com</a></td></tr>
+<tr cellpadding="3"><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Patrick Harding (editor)</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Ping Identity Corp.</td></tr>
+<tr><td class="author" align="right">Email:&nbsp;</td>
+<td class="author-text"><a href="mailto:pharding@pingidentity.com">pharding@pingidentity.com</a></td></tr>
+</tbody></table>
+<a name="rfc.copyright"></a><br><hr>
+<table summary="layout" class="TOCbug" align="right" cellpadding="0" cellspacing="2"><tbody><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></tbody></table>
+<h3>Full Copyright Statement</h3>
+<p class="copyright">
+Copyright © The IETF Trust (2011).</p>
+<p class="copyright">
+This document is subject to the rights,
+licenses and restrictions contained in BCP&nbsp;78,
+and except as set forth therein,
+the authors retain all their rights.</p>
+<p class="copyright">
+This document and the information contained herein are provided
+on an &#8220;AS IS&#8221; basis and THE CONTRIBUTOR,
+THE ORGANIZATION HE/SHE REPRESENTS
+OR IS SPONSORED BY (IF ANY), THE INTERNET SOCIETY, THE IETF TRUST
+AND THE INTERNET ENGINEERING TASK FORCE DISCLAIM ALL WARRANTIES,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT
+THE USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY
+IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR
+PURPOSE.</p>
+<h3>Intellectual Property</h3>
+<p class="copyright">
+The IETF takes no position regarding the validity or scope of any
+Intellectual Property Rights or other rights that might be claimed
+to pertain to the implementation or use of the technology
+described in this document or the extent to which any license
+under such rights might or might not be available; nor does it
+represent that it has made any independent effort to identify any
+such rights.
+Information on the procedures with respect to
+rights in RFC documents can be found in BCP&nbsp;78 and BCP&nbsp;79.</p>
+<p class="copyright">
+Copies of IPR disclosures made to the IETF Secretariat and any
+assurances of licenses to be made available,
+or the result of an attempt made to obtain a general license or
+permission for the use of such proprietary rights by implementers or
+users of this specification can be obtained from the IETF on-line IPR
+repository at <a href="http://www.ietf.org/ipr">http://www.ietf.org/ipr</a>.</p>
+<p class="copyright">
+The IETF invites any interested party to bring to its attention
+any copyrights,
+patents or patent applications,
+or other
+proprietary rights that may cover technology that may be required
+to implement this standard.
+Please address the information to the IETF at <a href="mailto:ietf-ipr@ietf.org">ietf-ipr@ietf.org</a>.</p>
+</body></html>
