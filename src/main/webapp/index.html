@@ -1,1904 +1,1821 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
-  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.css" />
-  <link rel="stylesheet" type="text/css" href="css/prettify.css" />
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
-  <title>SCIM: System for Cross-domain Identity Management</title>
-</head>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<body>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
 
-  <div class="container">
-    <div class="navbar">
-      <div class="navbar-inner">
+    <title>SCIM: System for Cross-domain Identity Management</title>
+  </head>
+  <body data-spy="scroll" data-target=".navbar" data-offset="50">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container">
-			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</a>
-			<a class="brand" href="/"><img src="img/logo/SCIM_Box_Version_B-and-W_68x24.png" /></a>
-			<div class="nav-collapse">
-	          	<ul class="nav">
-    	        	<li><a href="#overview" data-toggle="tab">Overview</a></li>
-            		<li><a href="#specifications" data-toggle="tab">Specification</a></li>
-            		<li><a href="#resources" data-toggle="tab">Resources</a></li>
-            		<li><a href="#implementations" data-toggle="tab">Implementations</a></li>
-            		<li><a href="#complianceTest" data-toggle="tab">Compliance Test</a></li>
-          		</ul>
-      		</div>
-        </div>
+        <a class="navbar-brand" href="/">
+          <img src="/img/logo/SCIM_B-and-W_72x24.png" height="30" alt="">
+        </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#Overview">Overview<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#Specification">Specification</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#Resources">Resources</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Implementations
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#Implementations2">SCIM 2.0</a>
+              <a class="dropdown-item" href="#Implementations1">SCIM 1.1</a>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
-    <div class="tabbable">
-      <div class="tab-content">
-        <div class="tab-pane active">
-          <div class="hero-unit">
-				<img src="img/logo/SCIM_B-and-W_792x270.png" width="400" />
-	            <h3>System for Cross-domain Identity Management</h3>
-	            <p>
-                 SCIM 2, the open API for managing identities is now complete and published under the IETF.
-	            </p>
-	            <p>
-		            <a class="btn btn-primary btn-large" href="#overview" data-toggle="tab">
-		                Learn more
-		            </a>
-	            </p>
-          </div>
-          <div class="row">
-            <div class="span4">
-              <h2>Overview</h2>
-               <p>The SCIM standard was created to simplify user management in the cloud by defining a schema for representing users and groups and a REST API for all the necessary CRUD operations.</p>
-              <p><a class="btn" href="#overview" data-toggle="tab">See Overview &raquo;</a></p>
-            </div>
-            <div class="span4">
-              <h2>Specifications</h2>
-               <p>For a complete view of RFC7643 and RFC7644, please refer to the specification section.</p>
-              <p><a class="btn" href="#specifications" data-toggle="tab">Read Specifications &raquo;</a></p>
-           </div>
-            <div class="span4">
-              <h2>Implementations</h2>
-              <p>List of implementations</p>
-              <p><a class="btn" href="#implementations" data-toggle="tab">Implementations &raquo;</a></p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="span4">
-              <h2>Compliance</h2>
-              <p>Test your SCIM 1.1 implementation using the online compliance test.</p>
-              <p><a class="btn" href="#complianceTest" data-toggle="tab">Run Tests &raquo;</a></p>
-            </div>
-          </div>
+    </nav>
+    <div class="container">
+      <div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
+        <div class="jumbotron">
+          <img src="img/logo/SCIM_B-and-W_400x136.png" class="img-fluid">
+          <h3>System for Cross-domain Identity Management</h3>
+          <p>
+             SCIM 2, the open API for managing identities is now complete and
+             published under the IETF.
+          </p>
         </div>
-        <div class="tab-pane" id="overview">
-            <h1>Overview</h1>
-            <p class="text">
-              The System for Cross-domain Identity Management (SCIM) specification
-              is designed to make managing user identities in cloud-based applications
-              and services easier. The specification suite seeks to build upon
-              experience with existing schemas and deployments, placing specific
-              emphasis on simplicity of development and integration, while applying
-              existing authentication, authorization, and privacy models. Its
-              intent is to reduce the cost and complexity of user management operations
-              by providing a common user schema and extension model, as well as binding
-              documents to provide patterns for exchanging this schema using standard
-              protocols. In essence: make it fast, cheap, and easy to move users
-              in to, out of, and around the cloud.
-            </p>
-            <p class="text">
-              Information on this overview page is not normative.
-            </p>
 
-            <h2>Model</h2>
-            <p class="text">
-              SCIM 2.0 is built on a object model where a Resource is
-              the common denominator and all SCIM objects are derived from it.
-              It has id, externalId and meta as attribute and RFC7643 defines User, Group and EnterpriseUser that extends the common attributes.
-            </p>
-            <img src="img/model.png" />
 
-            <h2>Example User</h2>
-            <p class="text">
-              This is an example of how user data can be encoded as a SCIM object in JSON.
-            </p>
-            <p class="text">
-              While this example does not contain the full set of attributes available, notice the different types of data that can
-              be used to create SCIM objects. Simple types like strings for <i>id</i>,
-              <i>username</i>, etc. Complex types, i.e. attributes that have sub-attributes,
-			  for <i>name</i> and <i>address</i>. Multivalued types for <i>e-mail</i>,
-              <i>phonenumber</i>, <i>address</i>, etc.
-            </p>
-            <pre class="prettyprint">
-{
-  "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
-  "id":"2819c223-7f76-453a-919d-413861904646",
-  "externalId":"bjensen",
-  "meta":{
-    "resourceType": "User",
-    "created":"2011-08-01T18:29:49.793Z",
-    "lastModified":"2011-08-01T18:29:49.793Z",
-    "location":"https://example.com/v2/Users/2819c223...",
-    "version":"W\/\"f250dd84f0671c3\""
+
+
+      <section id="Overview">
+      <div class="card">
+        <div class="card-header">
+          <h4>Overview</h4>
+        </div>
+        <div class="card-body">
+          <p class="card-text">
+            The System for Cross-domain Identity Management
+            (SCIM) specification is designed to make managing user identities in
+            cloud-based applications and services easier. The specification suite
+            seeks to build upon experience with existing schemas and deployments,
+            placing specific emphasis on simplicity of development and integration,
+            while applying existing authentication, authorization, and privacy
+            models. Its intent is to reduce the cost and complexity of user
+            management operations by providing a common user schema and extension
+            model, as well as binding documents to provide patterns for exchanging
+            this schema using standard protocols. In essence: make it fast, cheap,
+            and easy to move users in to, out of, and around the cloud.
+          </p>
+          <p class="card-text">
+            Information on this overview page is not normative.
+          </p>
+          <h5>Model</h5>
+          <p class="card-text">
+            SCIM 2.0 is built on a object model where a Resource is the
+            common denominator and all SCIM objects are derived from it. It has
+             id, externalId and meta as attribute and RFC7643 defines User,
+             Group and EnterpriseUser that extends the common attributes.
+          </p>
+          <img src="img/model.png" class="img-fluid" >
+          <h5>Example User</h5>
+          <p class="card-text">
+            This is an example of how user data can be encoded as a SCIM
+            object in JSON.
+          </p>
+          <p class="card-text">
+            While this example does not contain the full set of attributes
+            available, notice the different types of data that can be used to
+            create SCIM objects. Simple types like strings for id, username,
+            etc. Complex types, i.e. attributes that have sub-attributes, for
+            name and address. Multivalued types for e-mail, phonenumber,
+            address, etc.
+          </p>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">{
+  <span style="color: #007700">&quot;schemas&quot;</span>: [<span style="background-color: #fff0f0">&quot;urn:ietf:params:scim:schemas:core:2.0:User&quot;</span>],
+  <span style="color: #007700">&quot;id&quot;</span>:<span style="background-color: #fff0f0">&quot;2819c223-7f76-453a-919d-413861904646&quot;</span>,
+  <span style="color: #007700">&quot;externalId&quot;</span>:<span style="background-color: #fff0f0">&quot;bjensen&quot;</span>,
+  <span style="color: #007700">&quot;meta&quot;</span>:{
+    <span style="color: #007700">&quot;resourceType&quot;</span>: <span style="background-color: #fff0f0">&quot;User&quot;</span>,
+    <span style="color: #007700">&quot;created&quot;</span>:<span style="background-color: #fff0f0">&quot;2011-08-01T18:29:49.793Z&quot;</span>,
+    <span style="color: #007700">&quot;lastModified&quot;</span>:<span style="background-color: #fff0f0">&quot;2011-08-01T18:29:49.793Z&quot;</span>,
+    <span style="color: #007700">&quot;location&quot;</span>:<span style="background-color: #fff0f0">&quot;https://example.com/v2/Users/2819c223...&quot;</span>,
+    <span style="color: #007700">&quot;version&quot;</span>:<span style="background-color: #fff0f0">&quot;W\/\&quot;f250dd84f0671c3\&quot;&quot;</span>
   },
-  "name":{
-    "formatted": "Ms. Barbara J Jensen, III",
-    "familyName": "Jensen",
-    "givenName": "Barbara",
-    "middleName": "Jane",
-    "honorificPrefix": "Ms.",
-    "honorificSuffix": "III"
+  <span style="color: #007700">&quot;name&quot;</span>:{
+    <span style="color: #007700">&quot;formatted&quot;</span>: <span style="background-color: #fff0f0">&quot;Ms. Barbara J Jensen, III&quot;</span>,
+    <span style="color: #007700">&quot;familyName&quot;</span>: <span style="background-color: #fff0f0">&quot;Jensen&quot;</span>,
+    <span style="color: #007700">&quot;givenName&quot;</span>: <span style="background-color: #fff0f0">&quot;Barbara&quot;</span>,
+    <span style="color: #007700">&quot;middleName&quot;</span>: <span style="background-color: #fff0f0">&quot;Jane&quot;</span>,
+    <span style="color: #007700">&quot;honorificPrefix&quot;</span>: <span style="background-color: #fff0f0">&quot;Ms.&quot;</span>,
+    <span style="color: #007700">&quot;honorificSuffix&quot;</span>: <span style="background-color: #fff0f0">&quot;III&quot;</span>
   },
-  "userName":"bjensen",
-  "phoneNumbers":[
+  <span style="color: #007700">&quot;userName&quot;</span>:<span style="background-color: #fff0f0">&quot;bjensen&quot;</span>,
+  <span style="color: #007700">&quot;phoneNumbers&quot;</span>:[
     {
-      "value":"555-555-8377",
-      "type":"work"
+      <span style="color: #007700">&quot;value&quot;</span>:<span style="background-color: #fff0f0">&quot;555-555-8377&quot;</span>,
+      <span style="color: #007700">&quot;type&quot;</span>:<span style="background-color: #fff0f0">&quot;work&quot;</span>
     }
   ],
-  "emails":[
+  <span style="color: #007700">&quot;emails&quot;</span>:[
     {
-      "value":"bjensen@example.com",
-      "type":"work",
-      "primary": true
+      <span style="color: #007700">&quot;value&quot;</span>:<span style="background-color: #fff0f0">&quot;bjensen@example.com&quot;</span>,
+      <span style="color: #007700">&quot;type&quot;</span>:<span style="background-color: #fff0f0">&quot;work&quot;</span>,
+      <span style="color: #007700">&quot;primary&quot;</span>: <span style="color: #008800; font-weight: bold">true</span>
     }
   ]
-}</pre>
-
-            <h2>Example Group</h2>
-            <p class="text">
-              In addition to users, SCIM includes the defintions of groups.
-              Groups are used to model the organizationational structure of provisioned
-              resources. Groups can contain users or other groups.
+}
+</pre></div>
+<br/>
+          <h5>Example Group</h5>
+            <p class="card-text">
+              In addition to users, SCIM includes the defintions of groups. Groups are used to model the organizationational structure of provisioned resources. Groups can contain users or other groups.
             </p>
-            <pre class="prettyprint">
-{
-  "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group"],
-  "id":"e9e30dba-f08f-4109-8486-d5c6a331660a",
-  "displayName": "Tour Guides",
-  "members":[
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">{
+  <span style="color: #007700">&quot;schemas&quot;</span>: [<span style="background-color: #fff0f0">&quot;urn:ietf:params:scim:schemas:core:2.0:Group&quot;</span>],
+  <span style="color: #007700">&quot;id&quot;</span>:<span style="background-color: #fff0f0">&quot;e9e30dba-f08f-4109-8486-d5c6a331660a&quot;</span>,
+  <span style="color: #007700">&quot;displayName&quot;</span>: <span style="background-color: #fff0f0">&quot;Tour Guides&quot;</span>,
+  <span style="color: #007700">&quot;members&quot;</span>:[
     {
-      "value": "2819c223-7f76-453a-919d-413861904646",
-      "$ref":
-"https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646",
-      "display": "Babs Jensen"
+      <span style="color: #007700">&quot;value&quot;</span>: <span style="background-color: #fff0f0">&quot;2819c223-7f76-453a-919d-413861904646&quot;</span>,
+      <span style="color: #007700">&quot;$ref&quot;</span>: <span style="background-color: #fff0f0">&quot;https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646&quot;</span>,
+      <span style="color: #007700">&quot;display&quot;</span>: <span style="background-color: #fff0f0">&quot;Babs Jensen&quot;</span>
     },
     {
-      "value": "902c246b-6245-4190-8e05-00816be7344a",
-      "$ref":
-"https://example.com/v2/Users/902c246b-6245-4190-8e05-00816be7344a",
-      "display": "Mandy Pepperidge"
+      <span style="color: #007700">&quot;value&quot;</span>: <span style="background-color: #fff0f0">&quot;902c246b-6245-4190-8e05-00816be7344a&quot;</span>,
+      <span style="color: #007700">&quot;$ref&quot;</span>: <span style="background-color: #fff0f0">&quot;https://example.com/v2/Users/902c246b-6245-4190-8e05-00816be7344a&quot;</span>,
+      <span style="color: #007700">&quot;display&quot;</span>: <span style="background-color: #fff0f0">&quot;Mandy Pepperidge&quot;</span>
     }
   ],
-  "meta": {
-    "resourceType": "Group",
-    "created": "2010-01-23T04:56:22Z",
-    "lastModified": "2011-05-13T04:42:34Z",
-    "version": "W\/\"3694e05e9dff592\"",
-    "location":
-"https://example.com/v2/Groups/e9e30dba-f08f-4109-8486-d5c6a331660a"
+  <span style="color: #007700">&quot;meta&quot;</span>: {
+    <span style="color: #007700">&quot;resourceType&quot;</span>: <span style="background-color: #fff0f0">&quot;Group&quot;</span>,
+    <span style="color: #007700">&quot;created&quot;</span>: <span style="background-color: #fff0f0">&quot;2010-01-23T04:56:22Z&quot;</span>,
+    <span style="color: #007700">&quot;lastModified&quot;</span>: <span style="background-color: #fff0f0">&quot;2011-05-13T04:42:34Z&quot;</span>,
+    <span style="color: #007700">&quot;version&quot;</span>: <span style="background-color: #fff0f0">&quot;W\/\&quot;3694e05e9dff592\&quot;&quot;</span>,
+    <span style="color: #007700">&quot;location&quot;</span>: <span style="background-color: #fff0f0">&quot;https://example.com/v2/Groups/e9e30dba-f08f-4109-8486-d5c6a331660a&quot;</span>
   }
-}</pre>
-
-
-            <h2>Operations</h2>
-            <p class="text">
-              For manipulation of resources, SCIM provides a REST API with a
-              rich but simple set of operations, which support everything from patching a specific
-              attribute on a specific user to doing massive bulk updates:
-            </p>
-            <ul>
-              <li>Create = POST https://example.com/{v}/{resource}</li>
-              <li>Read = GET https://example.com/{v}/{resource}/{id}</li>
-              <li>Replace = PUT https://example.com/{v}/{resource}/{id}</li>
-              <li>Delete = DELETE https://example.com/{v}/{resource}/{id}</li>
-              <li>Update = PATCH https://example.com/{v}/{resource}/{id}</li>
-              <li>Search = GET https://example.com/{v}/{resource}?ﬁlter={attribute}{op}{value}&sortBy={attributeName}&sortOrder={ascending|descending}</li>
-              <li>Bulk = POST https://example.com/{v}/Bulk</li>
-            </ul>
-
-            <h2>Discovery</h2>
-            <p class="text">
-              To simplify interoperability, SCIM provides three end points to discover
-              supported features and specific attribute details:
-            </p>
-            <ul>
-              <li>GET /ServiceProviderConfigs<p>Specification compliance, authentication schemes, data models.</p></li>
-              <li>GET /ResourceTypes<p>An endpoint used to discover the types of resources available.</p></li>
-              <li>GET /Schemas<p>Introspect resources and attribute extensions.</p></li>
-            </ul>
-
-            <h2>Create Request</h2>
-            <p class="text">
-              To create a resource, send an HTTP POST request to the resource's respective end
-              point. In the example below we see the creation of a User.
-            </p>
-            <p class="text">
-              As can be seen in this and later examples the URL contains a version number
-              so that different versions of the SCIM API can co-exist. Available versions can be dynamically
-              discovered via the ServiceProviderConﬁg end point.
-            </p>
-            <pre class="prettyprint">
-POST /v2/Users  HTTP/1.1
-Accept: application/json
-Authorization: Bearer h480djs93hd8
-Host: example.com
-Content-Length: ...
-Content-Type: application/json
+}
+</pre></div>
+          <br/>
+          <h5>Operations</h5>
+          <p>
+            For manipulation of resources, SCIM provides a REST API with a rich
+            but simple set of operations, which support everything from patching
+            a specific attribute on a specific user to doing massive bulk updates:
+          </p>
+          <ul>
+            <li><b>Create:</b> POST https://example.com/{v}/{resource}</li>
+            <li><b>Read:</b> GET https://example.com/{v}/{resource}/{id}</li>
+            <li><b>Replace:</b> PUT https://example.com/{v}/{resource}/{id}</li>
+            <li><b>Delete:</b> DELETE https://example.com/{v}/{resource}/{id}</li>
+            <li><b>Update:</b> PATCH https://example.com/{v}/{resource}/{id}</li>
+            <li><b>Search:</b> GET https://example.com/{v}/{resource}?ﬁlter={attribute}{op}{value}&amp;sortBy={attributeName}&amp;sortOrder={ascending|descending}</li>
+            <li><b>Bulk:</b> POST https://example.com/{v}/Bulk</li>
+          </ul>
+          <h5>Discovery</h5>
+          <p>
+             To simplify interoperability, SCIM provides three end points to
+             discover supported features and specific attribute details:
+          </p>
+          <ul>
+            <li><b>GET /ServiceProviderConfigs</b><p>Specification compliance, authentication schemes, data models.</p></li>
+            <li><b>GET /ResourceTypes</b><p>An endpoint used to discover the types of resources available.</p></li>
+            <li><b>GET /Schemas</b><p>Introspect resources and attribute extensions.</p></li>
+          </ul>
+          <h5>Create Request</h5>
+          <p>
+             To create a resource, send an HTTP POST request to the resource's
+             respective end point. In the example below we see the creation
+             of a User.
+          </p>
+          <p>
+             As can be seen in this and later examples the URL contains a
+             version number so that different versions of the SCIM API can
+             co-exist. Available versions can be dynamically discovered via
+             the ServiceProviderConﬁg end point.
+          </p>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #0066BB; font-weight: bold">POST</span> <span style="color: #0e84b5; font-weight: bold">/v2/Users</span>  <span style="color: #008800; font-weight: bold">HTTP</span><span style="color: #333333">/</span><span style="color: #6600EE; font-weight: bold">1.1</span>
+<span style="color: #0000CC">Accept</span><span style="color: #333333">:</span> application/json
+<span style="color: #0000CC">Authorization</span><span style="color: #333333">:</span> Bearer h480djs93hd8
+<span style="color: #0000CC">Host</span><span style="color: #333333">:</span> example.com
+<span style="color: #0000CC">Content-Length</span><span style="color: #333333">:</span> ...
+<span style="color: #0000CC">Content-Type</span><span style="color: #333333">:</span> application/json
 
 {
-  "schemas":["urn:ietf:params:scim:schemas:core:2.0:User"],
-  "externalId":"bjensen",
-  "userName":"bjensen",
-  "name":{
-    "familyName":"Jensen",
-    "givenName":"Barbara"
+  <span style="color: #007700">&quot;schemas&quot;</span>:[<span style="background-color: #fff0f0">&quot;urn:ietf:params:scim:schemas:core:2.0:User&quot;</span>],
+  <span style="color: #007700">&quot;externalId&quot;</span>:<span style="background-color: #fff0f0">&quot;bjensen&quot;</span>,
+  <span style="color: #007700">&quot;userName&quot;</span>:<span style="background-color: #fff0f0">&quot;bjensen&quot;</span>,
+  <span style="color: #007700">&quot;name&quot;</span>:{
+    <span style="color: #007700">&quot;familyName&quot;</span>:<span style="background-color: #fff0f0">&quot;Jensen&quot;</span>,
+    <span style="color: #007700">&quot;givenName&quot;</span>:<span style="background-color: #fff0f0">&quot;Barbara&quot;</span>
   }
-}</pre>
-            <h2>Create Response</h2>
-            <p class="text">
-              A response contains the created Resource and HTTP code 201 to indicate that the
-              Resource has been created successfully. Note that the returned user contains more
-              data then was posted, <i>id</i> and <i>meta</i> data have been added
-              by the service provider to make a complete User resource. A location header indicates where the resource can be fetched
-              in subsequent requests.
-            </p>
-            <pre class="prettyprint">
-HTTP/1.1 201 Created
-Content-Type: application/scim+json
-Location: https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646
-ETag: W/"e180ee84f0671b1"
+}
+</pre></div>
+
+        <h5>Create Response</h5>
+        <p>
+           A response contains the created Resource and HTTP code 201 to
+           indicate that the Resource has been created successfully. Note that
+           the returned user contains more data then was posted, id and meta
+           data have been added by the service provider to make a complete
+           User resource. A location header indicates where the resource can
+           be fetched in subsequent requests.
+        </p>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">HTTP</span><span style="color: #333333">/</span><span style="color: #6600EE; font-weight: bold">1.1</span> <span style="color: #6600EE; font-weight: bold">201</span> <span style="color: #FF0000; font-weight: bold">Created</span>
+<span style="color: #0000CC">Content-Type</span><span style="color: #333333">:</span> application/scim+json
+<span style="color: #0000CC">Location</span><span style="color: #333333">:</span> https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646
+<span style="color: #0000CC">ETag</span><span style="color: #333333">:</span> W/&quot;e180ee84f0671b1&quot;
 
 {
-  "schemas":["urn:ietf:params:scim:schemas:core:2.0:User"],
-  "id":"2819c223-7f76-453a-919d-413861904646",
-  "externalId":"bjensen",
-  "meta":{
-    "resourceType":"User",
-    "created":"2011-08-01T21:32:44.882Z",
-    "lastModified":"2011-08-01T21:32:44.882Z",
-    "location":
-"https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646",
-    "version":"W\/\"e180ee84f0671b1\""
+  <span style="color: #007700">&quot;schemas&quot;</span>:[<span style="background-color: #fff0f0">&quot;urn:ietf:params:scim:schemas:core:2.0:User&quot;</span>],
+  <span style="color: #007700">&quot;id&quot;</span>:<span style="background-color: #fff0f0">&quot;2819c223-7f76-453a-919d-413861904646&quot;</span>,
+  <span style="color: #007700">&quot;externalId&quot;</span>:<span style="background-color: #fff0f0">&quot;bjensen&quot;</span>,
+  <span style="color: #007700">&quot;meta&quot;</span>:{
+    <span style="color: #007700">&quot;resourceType&quot;</span>:<span style="background-color: #fff0f0">&quot;User&quot;</span>,
+    <span style="color: #007700">&quot;created&quot;</span>:<span style="background-color: #fff0f0">&quot;2011-08-01T21:32:44.882Z&quot;</span>,
+    <span style="color: #007700">&quot;lastModified&quot;</span>:<span style="background-color: #fff0f0">&quot;2011-08-01T21:32:44.882Z&quot;</span>,
+    <span style="color: #007700">&quot;location&quot;</span>: <span style="background-color: #fff0f0">&quot;https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646&quot;</span>,
+    <span style="color: #007700">&quot;version&quot;</span>:<span style="background-color: #fff0f0">&quot;W\/\&quot;e180ee84f0671b1\&quot;&quot;</span>
   },
-  "name":{
-    "familyName":"Jensen",
-    "givenName":"Barbara"
+  <span style="color: #007700">&quot;name&quot;</span>:{
+    <span style="color: #007700">&quot;familyName&quot;</span>:<span style="background-color: #fff0f0">&quot;Jensen&quot;</span>,
+    <span style="color: #007700">&quot;givenName&quot;</span>:<span style="background-color: #fff0f0">&quot;Barbara&quot;</span>
   },
-  "userName":"bjensen"
-}</pre>
+  <span style="color: #007700">&quot;userName&quot;</span>:<span style="background-color: #fff0f0">&quot;bjensen&quot;</span>
+}
+</pre></div>
 
-            <h2>Get Request</h2>
-            <p class="text">
-              Fetching resources is done by sending HTTP GET requests to the desired Resource
-              end point, as in this example.
-            </p>
-            <pre class="prettyprint">
-GET /v2/Users/2819c223-7f76-453a-919d-413861904646
-Host: example.com
-Accept: application/scim+json
-Authorization: Bearer h480djs93hd8</pre>
-
-            <h2>Get Response</h2>
-            <p class="text">
-              The response to a GET contains the Resource. The Etag header can, in subsequent requests, be
-              used to prevent concurrent modifications of Resources.
-            </p>
-            <pre class="prettyprint">
-HTTP/1.1 200 OK
-Content-Type: application/json
-Location: https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646
-Etag: W/"e180ee84f0671b1"
+        <h5>Get Request</h5>
+        <p>
+           Fetching resources is done by sending HTTP GET requests to the
+           desired Resource end point, as in this example.
+        </p>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #0066BB; font-weight: bold">GET</span> <span style="color: #0e84b5; font-weight: bold">/v2/Users/2819c223-7f76-453a-919d-413861904646</span> <span style="color: #008800; font-weight: bold">HTTP</span><span style="color: #333333">/</span><span style="color: #6600EE; font-weight: bold">1.1</span>
+<span style="color: #0000CC">Host</span><span style="color: #333333">:</span> example.com
+<span style="color: #0000CC">Accept</span><span style="color: #333333">:</span> application/scim+json
+<span style="color: #0000CC">Authorization</span><span style="color: #333333">:</span> Bearer h480djs93hd8
+</pre></div>
+        <h5>Create Response</h5>
+        <p>
+          The response to a GET contains the Resource. The Etag header can, in
+          subsequent requests, be used to prevent concurrent modifications
+          of Resources.
+        </p>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">HTTP</span><span style="color: #333333">/</span><span style="color: #6600EE; font-weight: bold">1.1</span> <span style="color: #6600EE; font-weight: bold">201</span> <span style="color: #FF0000; font-weight: bold">Created HTTP/1.1</span>
+<span style="color: #0000CC">Content-Type</span><span style="color: #333333">:</span> application/scim+json
+<span style="color: #0000CC">Location</span><span style="color: #333333">:</span> https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646
+<span style="color: #0000CC">ETag</span><span style="color: #333333">:</span> W/&quot;e180ee84f0671b1&quot;
 
 {
-  "schemas":["urn:ietf:params:scim:schemas:core:2.0:User"],
-  "id":"2819c223-7f76-453a-919d-413861904646",
-  "externalId":"bjensen",
-  "meta":{
-    "resourceType":"User",
-    "created":"2011-08-01T18:29:49.793Z",
-    "lastModified":"2011-08-01T18:29:49.793Z",
-    "location":
-"https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646",
-    "version":"W\/\"f250dd84f0671c3\""
+  <span style="color: #007700">&quot;schemas&quot;</span>: [<span style="background-color: #fff0f0">&quot;urn:ietf:params:scim:schemas:core:2.0:User&quot;</span>],
+  <span style="color: #007700">&quot;id&quot;</span>:<span style="background-color: #fff0f0">&quot;2819c223-7f76-453a-919d-413861904646&quot;</span>,
+  <span style="color: #007700">&quot;externalId&quot;</span>:<span style="background-color: #fff0f0">&quot;bjensen&quot;</span>,
+  <span style="color: #007700">&quot;meta&quot;</span>:{
+    <span style="color: #007700">&quot;resourceType&quot;</span>: <span style="background-color: #fff0f0">&quot;User&quot;</span>,
+    <span style="color: #007700">&quot;created&quot;</span>:<span style="background-color: #fff0f0">&quot;2011-08-01T18:29:49.793Z&quot;</span>,
+    <span style="color: #007700">&quot;lastModified&quot;</span>:<span style="background-color: #fff0f0">&quot;2011-08-01T18:29:49.793Z&quot;</span>,
+    <span style="color: #007700">&quot;location&quot;</span>:<span style="background-color: #fff0f0">&quot;https://example.com/v2/Users/2819c223...&quot;</span>,
+    <span style="color: #007700">&quot;version&quot;</span>:<span style="background-color: #fff0f0">&quot;W\/\&quot;f250dd84f0671c3\&quot;&quot;</span>
   },
-  "name":{ ...</pre>
-
-
-            <h2>Filter Request</h2>
-            <p class="text">
-              In addition to getting single Resources it is possible to fetch
-              sets of Resources by querying the Resource end point without the
-              id of a specific Resource. Typically, a fetch request will include a
-              filter to be applied to the Resources. SCIM has support for the filter operations
-              equals, contains, starts with, and more. In addition to filtering the
-              response it is also possible to ask the service provider to sort the
-              Resources in the response.
-            </p>
-            <p class="text">
-              In addition to filtering the response it is also possible to ask the
-              service provider to sort the Resources in the response, return specific
-              attributes of the resources, and return only a subset of the resources.
-            </p>
-            <ul>
-              <li>https://example.com/{resource}?ﬁlter={attribute} {op} {value} & sortBy={attributeName}&sortOrder={ascending|descending}&attributes={attributes}</li>
-              <li>https://example.com/Users?ﬁlter=title pr and userType eq “Employee”&sortBy=title&sortOrder=ascending&attributes=title,username</li>
-            </ul>
-            <h2>Filter Response</h2>
-            <p class="text">
-              The response to a GET request is a list of matching resources:
-            </p>
-            <pre class="prettyprint">
-{
-  "schemas":["urn:ietf:params:scim:api:messages:2.0:ListResponse"],
-  "totalResults":2,
-  "Resources":[
+  <span style="color: #007700">&quot;name&quot;</span>:{
+    <span style="color: #007700">&quot;formatted&quot;</span>: <span style="background-color: #fff0f0">&quot;Ms. Barbara J Jensen, III&quot;</span>,
+    <span style="color: #007700">&quot;familyName&quot;</span>: <span style="background-color: #fff0f0">&quot;Jensen&quot;</span>,
+    <span style="color: #007700">&quot;givenName&quot;</span>: <span style="background-color: #fff0f0">&quot;Barbara&quot;</span>,
+    <span style="color: #007700">&quot;middleName&quot;</span>: <span style="background-color: #fff0f0">&quot;Jane&quot;</span>,
+    <span style="color: #007700">&quot;honorificPrefix&quot;</span>: <span style="background-color: #fff0f0">&quot;Ms.&quot;</span>,
+    <span style="color: #007700">&quot;honorificSuffix&quot;</span>: <span style="background-color: #fff0f0">&quot;III&quot;</span>
+  },
+  <span style="color: #007700">&quot;userName&quot;</span>:<span style="background-color: #fff0f0">&quot;bjensen&quot;</span>,
+  <span style="color: #007700">&quot;phoneNumbers&quot;</span>:[
     {
-      "id":"c3a26dd3-27a0-4dec-a2ac-ce211e105f97",
-      "title":"Assistant VP",
-      "userName":"bjensen"
-    },
+      <span style="color: #007700">&quot;value&quot;</span>:<span style="background-color: #fff0f0">&quot;555-555-8377&quot;</span>,
+      <span style="color: #007700">&quot;type&quot;</span>:<span style="background-color: #fff0f0">&quot;work&quot;</span>
+    }
+  ],
+  <span style="color: #007700">&quot;emails&quot;</span>:[
     {
-      "id":"a4a25dd3-17a0-4dac-a2ac-ce211e125f57",
-      "title":"VP",
-      "userName":"jsmith"
+      <span style="color: #007700">&quot;value&quot;</span>:<span style="background-color: #fff0f0">&quot;bjensen@example.com&quot;</span>,
+      <span style="color: #007700">&quot;type&quot;</span>:<span style="background-color: #fff0f0">&quot;work&quot;</span>,
+      <span style="color: #007700">&quot;primary&quot;</span>: <span style="color: #008800; font-weight: bold">true</span>
     }
   ]
-}</pre>
+}
+</pre></div>
+          <h5>Filter Request</h5>
+          <p>
+            In addition to getting single Resources it is possible to fetch
+            sets of Resources by querying the Resource end point without the
+            id of a specific Resource. Typically, a fetch request will include
+            a filter to be applied to the Resources. SCIM has support for the
+            filter operations equals, contains, starts with, and more. In
+            addition to filtering the response it is also possible to ask the
+            service provider to sort the Resources in the response.
+          </p>
+          <p>
+             In addition to filtering the response it is also possible to ask
+             the service provider to sort the Resources in the response, return
+             specific attributes of the resources, and return only a subset of
+             the resources.
+          </p>
+          <ul>
+            <li>https://example.com/{resource}?ﬁlter={attribute} {op} {value} &amp; sortBy={attributeName}&amp;sortOrder={ascending|descending}&amp;attributes={attributes}</li>
+            <li>https://example.com/Users?ﬁlter=title pr and userType eq “Employee”&amp;sortBy=title&amp;sortOrder=ascending&amp;attributes=title,username</li>
+          </ul>
+          <h5>Filter Response</h5>
+          <p>
+            The response to a GET request is a list of matching resources:
+          </p>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">{
+  <span style="color: #007700">&quot;schemas&quot;</span>:[<span style="background-color: #fff0f0">&quot;urn:ietf:params:scim:api:messages:2.0:ListResponse&quot;</span>],
+  <span style="color: #007700">&quot;totalResults&quot;</span>:<span style="color: #0000DD; font-weight: bold">2</span>,
+  <span style="color: #007700">&quot;Resources&quot;</span>:[
+    {
+      <span style="color: #007700">&quot;id&quot;</span>:<span style="background-color: #fff0f0">&quot;c3a26dd3-27a0-4dec-a2ac-ce211e105f97&quot;</span>,
+      <span style="color: #007700">&quot;title&quot;</span>:<span style="background-color: #fff0f0">&quot;Assistant VP&quot;</span>,
+      <span style="color: #007700">&quot;userName&quot;</span>:<span style="background-color: #fff0f0">&quot;bjensen&quot;</span>
+    },
+    {
+      <span style="color: #007700">&quot;id&quot;</span>:<span style="background-color: #fff0f0">&quot;a4a25dd3-17a0-4dac-a2ac-ce211e125f57&quot;</span>,
+      <span style="color: #007700">&quot;title&quot;</span>:<span style="background-color: #fff0f0">&quot;VP&quot;</span>,
+      <span style="color: #007700">&quot;userName&quot;</span>:<span style="background-color: #fff0f0">&quot;jsmith&quot;</span>
+    }
+  ]
+}
+</pre></div>
 
         </div>
-        <div class="tab-pane" id="specifications">
-          <div class="row-fluid">
-            <div class="span12">
-              <div class="well">
-                <span class="label label-success" style="float: right;">Active</span>
-                <h2>SCIM 2.0</h2>
-                <p class="text">
-                  SCIM 2.0 is released as RFC7642, RFC7643 and RFC7644 under <a href="http://tools.ietf.org/wg/scim/">IETF</a> in September 2015.
-                </p>
-                <ul>
-                  <li>
-                    <a href="https://tools.ietf.org/html/rfc7643">RFC7643 - SCIM: Core Schema</a>
-                    <p class="text">
-                      The Core Schema provides a platform-neutral schema and extension model for representing users and groups.
-                    </p>
-                  </li>
-                  <li>
-                    <a href="https://tools.ietf.org/html/rfc7644">RFC7644 - SCIM: Protocol</a>
-                    <p class="text">
-                      The SCIM Protocol is an application-level, REST protocol for provisioning and managing identity data on the web.
-                    </p>
-                  </li>
-                  <li>
-                    <a href="https://tools.ietf.org/html/rfc7642">RFC7642 - SCIM: Definitions, Overview, Concepts, and Requirements</a>
-                    <p class="text">
-                       This document lists the user scenarios and use cases of System for Cross-domain Identity Management (SCIM).
-                    </p>
-                  </li>
-                </ul>
-                <p class="text">
-                  Related documents and extensions.
-                </p>
-                <ul>
-                  <li>
-                    <a href="https://tools.ietf.org/id/draft-ansari-scim-soft-delete-00.txt">draft-ansari-scim-soft-delete</a>
-                    <p class="text">
-                       This document specifies a profile that handles soft deleates of Users on SCIM Service Providers.
-                    </p>
-                  </li>
-                  <li>
-                    <a href="https://tools.ietf.org/id/draft-hunt-scim-notify-00.txt">draft-hunt-scim-notify</a>
-                    <p class="text">
-                    	In a SCIM environment, changes to resources may be requested by multiple parties.  As time goes by an interested subscriber may wish to be informed about resource state changes that are occurring at the SCIM service provider.  This specification defines a hub notification service that can be used to publish and distribute events to interested registered subscribers.
-                    </p>
-                  </li>
-                  <li>
-                    <a href="https://tools.ietf.org/id/draft-hunt-scim-password-mgmt-00.txt">draft-hunt-scim-password-mgmt</a>
-                    <p class="text">
-						This specification defines a set of password and account status extensions for managing passwords and password usage (e.g. failures) and other related session data.  The specification defines new ResourceTypes that enable management of passwords and account recovery functions.
-                    </p>
-                  </li>
-                  <li>
-                    <a href="http://tools.ietf.org/id/draft-wahl-scim-jit-profile-00.txt">draft-wahl-scim-jit-profile</a>
-                    <p class="text">
-                       This document specifies a profile of the System for Cross-Domain Identity Management Protocol (SCIM) for use by servers which rely upon just-in-time provisioning patterns in a protocol (such as SAML) to create user accounts, and need an additional channel to be notified of changes to user accounts.
-                    </p>
-                  </li>
-                  <li>
-                    <a href="https://tools.ietf.org/id/draft-greevenbosch-scim-vcard-mapping-03.txt">SCIM and vCard mapping</a>
-                    <p class="text">
-                       This document defines a mapping between SCIM and vCard.
-                    </p>
-                  </li>
-                </ul>
-                <p class="text">
-                  Noteworthy blog post about SCIM 2.0.
-                </p>
-                <ul>
-                  <li>
-                    <a href="http://nordicapis.com/scim-building-the-identity-layer-for-the-internet/">Nordic API</a>
-                    <p class="text">
-                        SCIM 2.0: Building the Identity Layer for the Internet.
-                    </p>
-                  </li>
-                </ul>
-                <ul>
-                  <li>
-                    <a href="https://blogs.oracle.com/fusionmiddleware/entry/standards_corner">Oracle</a>
-                    <p class="text">
-                        Standards Corner: The IETF Publishes SCIM V2
-                    </p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="row-fluid">
-            <div class="span12">
-              <div class="well">
-                <span class="label label-success" style="float: right;">Active</span>
-                <h2>SCIM 1.1</h2>
-                <p class="text">
-                  Second official release of the SCIM specification, released in July 2012.
-                  Compatible with 1.0 and contains cleanups and clarifications on issues found during
-                  <a href="http://code.google.com/p/scim/wiki/FirstInteropEvent">interop testing</a>.
-                </p>
-                <ul>
-                  <li>
-                    <a href="specs/draft-scim-core-schema-01.html">Core Schema</a>
-                    <p class="text">
-                      The Core Schema provides a platform-neutral schema and extension model for representing users and groups in JSON and XML formats.
-                    </p>
-                  </li>
-                  <li>
-                    <a href="specs/draft-scim-api-01.html">REST API</a>
-                    <p class="text">
-                      The SCIM Protocol is an application-level, REST protocol for provisioning and managing identity data on the web.
-                    </p>
-                  </li>
-                </ul>
-              </div>
-            </div>
+      </div>
+      </section>
+      <br/>
 
+      <section id="Specification">
+        <div class="card">
+          <div class="card-header">
+            <h4>Specification</h4>
           </div>
-          <div class="row-fluid">
-            <div class="span12">
-              <div class="well">
-              <span class="label label-important" style="float: right;">Deprecated</span>
-              <h2>SCIM 1.0</h2>
-                <p class="text">
-                  First official release of the SCIM specification, released in December 2011.
+          <div class="card-body">
+            <h5>SCIM 2.0</h5>
+            <p>
+              SCIM 2.0 is released as RFC7642, RFC7643 and RFC7644 under
+              <a href="http://tools.ietf.org/wg/scim/" class="badge badge-primary">IETF</a> in September 2015.
+            </p>
+            <ul>
+                <li>
+                  <a href="https://tools.ietf.org/html/rfc7643" class="badge badge-primary">
+                    RFC7643 - SCIM: Core Schema
+                  </a>
+                  <p>
+                    The Core Schema provides a platform-neutral schema and
+                    extension model for representing users and groups.
+                  </p>
+                </li>
+                <li>
+                  <a href="https://tools.ietf.org/html/rfc7644" class="badge badge-primary">
+                    RFC7644 - SCIM: Protocol
+                  </a>
+                  <p>
+                    The SCIM Protocol is an application-level, REST protocol for
+                    provisioning and managing identity data on the web.
+                  </p>
+                </li>
+                <li>
+                  <a href="https://tools.ietf.org/html/rfc7642" class="badge badge-primary">
+                    RFC7642 - SCIM: Definitions, Overview, Concepts, and Requirements
+                  </a>
+                  <p>
+                     This document lists the user scenarios and use cases of
+                     System for Cross-domain Identity Management (SCIM).
+                  </p>
+                </li>
+              </ul>
+              <p>
+                Related documents and extensions.
+              </p>
+              <ul>
+                <li>
+                  <a href="https://tools.ietf.org/id/draft-ansari-scim-soft-delete-00.txt" class="badge badge-primary">
+                    draft-ansari-scim-soft-delete
+                  </a>
+                  <p>
+                     This document specifies a profile that handles soft deleates
+                     of Users on SCIM Service Providers.
+                  </p>
+                </li>
+                <li>
+                  <a href="https://tools.ietf.org/id/draft-hunt-scim-notify-00.txt" class="badge badge-primary">
+                    draft-hunt-scim-notify
+                  </a>
+                  <p>
+                  	In a SCIM environment, changes to resources may be requested
+                    by multiple parties.  As time goes by an interested subscriber
+                    may wish to be informed about resource state changes that
+                    are occurring at the SCIM service provider. This specification
+                    defines a hub notification service that can be used to publish
+                    and distribute events to interested registered subscribers.
+                  </p>
+                </li>
+                <li>
+                  <a href="https://tools.ietf.org/id/draft-hunt-scim-password-mgmt-00.txt" class="badge badge-primary">
+                    draft-hunt-scim-password-mgmt
+                  </a>
+                  <p>
+                    This specification defines a set of password and account
+                    status extensions for managing passwords and password usage
+                    (e.g. failures) and other related session data.
+                    The specification defines new ResourceTypes that enable
+                    management of passwords and account recovery functions.
+                  </p>
+                </li>
+                <li>
+                  <a href="http://tools.ietf.org/id/draft-wahl-scim-jit-profile-00.txt" class="badge badge-primary">
+                    draft-wahl-scim-jit-profile
+                  </a>
+                  <p class="text">
+                     This document specifies a profile of the System for
+                     Cross-Domain Identity Management Protocol (SCIM) for use by
+                     servers which rely upon just-in-time provisioning patterns
+                     in a protocol (such as SAML) to create user accounts, and
+                     need an additional channel to be notified of changes to
+                     user accounts.
+                  </p>
+                </li>
+                <li>
+                  <a href="https://tools.ietf.org/id/draft-greevenbosch-scim-vcard-mapping-03.txt" class="badge badge-primary">
+                    SCIM and vCard mapping
+                  </a>
+                  <p class="text">
+                     This document defines a mapping between SCIM and vCard.
+                  </p>
+                </li>
+              </ul>
+            <h5>SCIM 1.1</h5>
+            <p>
+               Second official release of the SCIM specification, released in
+               July 2012. Compatible with 1.0 and contains cleanups and
+               clarifications on issues found during interop testing.
+            </p>
+            <ul>
+              <li>
+                <a href="specs/draft-scim-core-schema-01.html" class="badge badge-primary">
+                  Core Schema
+                </a>
+                <p>
+                  The Core Schema provides a platform-neutral schema and
+                  extension model for representing users and groups in JSON and
+                  XML formats.
                 </p>
-                <ul>
-                  <li>
-                    <a href="/specs/draft-scim-scenarios-04.html">Scenarios Doc - draft 4</a>
-                    <p class="text">
-  					  The senario document was created to guide the development of the
-                        specification and is not normative.
-                    </p>
-                  </li>
-                  <li>
-                    <a href="/specs/draft-scim-core-schema-00.html">Core Schema</a>
-                    <p class="text">
-                        The Core Schema provides a platform-neutral schema and extension model for representing users and groups in JSON and XML formats.
-                    </p>
-                  </li>
-                  <li>
-                    <a href="/specs/draft-scim-api-00.html">REST API</a>
-                    <p class="text">
-                        The SCIM Protocol is an application-level, REST protocol for provisioning and managing identity data on the web.
-                    </p>
-                  </li>
-                  <li>
-                    <a href="/specs/draft-scim-saml2-binding-02.html">SAML 2.0 Binding - draft 1</a>
-                    <p class="text">
-                        Defines a binding of SCIM schema to SAML messages and assertions.
-                    </p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
+              </li>
+              <li>
+                <a href="specs/draft-scim-api-01.html" class="badge badge-primary">
+                  REST API
+                </a>
+                <p>
+                  The SCIM Protocol is an application-level, REST protocol for
+                  provisioning and managing identity data on the web.
+                </p>
+              </li>
+            </ul>
+            <h5>SCIM 1.0 - Depricated</h5>
+            <p class="card-text">
+               First official release of the SCIM specification, released in
+               December 2011.
+            </p>
+            <ul>
+              <li>
+                <a href="/specs/draft-scim-scenarios-04.html" class="badge badge-primary">
+                  Scenarios Doc - draft 4
+                </a>
+                <p>
+                  The senario document was created to guide the development of the
+                  specification and is not normative.
+                </p>
+              </li>
+              <li>
+                <a href="/specs/draft-scim-core-schema-00.html" class="badge badge-primary">
+                  Core Schema
+                </a>
+                <p>
+                  The Core Schema provides a platform-neutral schema and extension
+                  model for representing users and groups in JSON and XML formats.
+                </p>
+              </li>
+              <li>
+                <a href="/specs/draft-scim-api-00.html" class="badge badge-primary">
+                  REST API
+                </a>
+                <p>
+                  The SCIM Protocol is an application-level, REST protocol for
+                  provisioning and managing identity data on the web.
+                </p>
+              </li>
+              <li>
+                <a href="/specs/draft-scim-saml2-binding-02.html" class="badge badge-primary">
+                  SAML 2.0 Binding - draft 1
+                </a>
+                <p>
+                    Defines a binding of SCIM schema to SAML messages and
+                    assertions.
+                </p>
+              </li>
+            </ul>
           </div>
         </div>
-        <div class="tab-pane" id="resources">
-     		<div class="well">
+      </section>
 
-	            <h1>Resources</h1>
 
-	            <h3>Participate</h3>
-	            <p>
-	              SCIM 2.x is developed under the <a href="http://tools.ietf.org/wg/scim/">IETF</a>.
-	              To participate, discuss and ask questions regarding SCIM 2.x use <a href="http://www.ietf.org/mail-archive/web/scim/current/maillist.html">this</a>
-	              mailing list.
-	            </p>
-	            <h3>Presentations</h3>
-	            <p>
-	              An overview of SCIM was presented by Kelly Grizzle at IETF 84 it can be found <a href="http://tools.ietf.org/agenda/84/slides/slides-84-scim-1.pdf">here</a>.
-	            </p>
 
-	            <h3>Historical SCIM 1.x artifacts</h3>
-	            <p>
-	              SCIM 1.x is developed under the Open Web Foundation. Signed agreements can be found <a href="http://scim.googlecode.com/svn/trunk/owf/">here</a>.
-	            </p>
-	            <p>
-	              SCIM 1.x was developed on <a href="http://groups.google.com/group/cloud-directory">this</a>
-	              mailing list.
-	            </p>
-	            <p>
-	              The original development of the SCIM specification was done
-	              <a href="http://code.google.com/p/scim/">here</a>. This is where
-	              you can find the version tracking for the 1.x specification, and the outcomes of the interop events.
-	            </p>
-	            <p>
-	              For generating code and validating XML, SCIM 1.1 provides two XML Schemas. One for
-	              <a href="/specs/schema/scim-core.xsd">Core</a> and one for the
-	              <a href="/specs/schema/scim-enterprise.xsd">Enterprise extension</a>.
-	            </p>
-	        </div>
-	        <div class="well">
-	        	<h1>Logo</h1>
-	        	<p>
-		        	<ul>
-		        		<li><a href="img/logo/8.27.13_SCIM_Logo_Gang-up.eps">Logos in EPS format</a></li>
-		        	</ul>
-		        	<ul>
-		        		<li><a href="img/logo/SCIM_B-and-W_48x16.png">PNG 48x16px (Black and white)</a></li>
-		        		<li><a href="img/logo/SCIM_White_48x16.png">PNG 48x16px (White)</a></li>
-		        		<li><a href="img/logo/SCIM_Box_Version_B-and-W_68x24.png">PNG 68x24px (Boxed black and white)</a></li>
-		        		<li><a href="img/logo/SCIM_B-and-W_72x24.png">PNG 72x24px (Black and white)</a></li>
-		        		<li><a href="img/logo/SCIM_B-and-W_792x270.png">PNG 792x270px (Black and white)</a></li>
-		        	</ul>
-		        	<ul>
-		        		<li><a href="img/logo/SCIM_B-and-W_48x16.gif">GIF 48x16px (Black and white)</a></li>
-		        		<li><a href="img/logo/SCIM_White_48x16.gif">GIF 48x16px (White)</a></li>
-		        		<li><a href="img/logo/SCIM_Box_Version_B-and-W_68x24.gif">GIF 68x24px (Boxed black and white)</a></li>
-		        		<li><a href="img/logo/SCIM_B-and-W_72x24.gif">GIF 72x24px (Black and white)</a></li>
-		        	</ul>
-		        	<ul>
-		        		<li><a href="img/logo/SCIM_B-and-W_792x270.jpg">JPG 792x270px (Black and white)</a></li>
-		        	</ul>
-		        </p>
-	        	<p>
-	        		Designed by <a href="http://www.thomasduane.com/">Thomas Duane</a>.
-	        	</p>
-	        </div>
+      <section id="Resources">
+        <div class="card">
+          <div class="card-header">
+            <h4>Resources</h4>
+          </div>
+          <div class="card-body">
+            <h5>Logo</h5>
+            <ul>
+              <li><a href="img/logo/8.27.13_SCIM_Logo_Gang-up.eps" class="badge badge-primary">Logos in EPS format</a></li>
+            </ul>
+            <ul>
+              <li><a href="img/logo/SCIM_B-and-W_48x16.png" class="badge badge-primary">PNG 48x16px (Black and white)</a></li>
+              <li><a href="img/logo/SCIM_White_48x16.png" class="badge badge-primary">PNG 48x16px (White)</a></li>
+              <li><a href="img/logo/SCIM_Box_Version_B-and-W_68x24.png" class="badge badge-primary">PNG 68x24px (Boxed black and white)</a></li>
+              <li><a href="img/logo/SCIM_B-and-W_72x24.png" class="badge badge-primary">PNG 72x24px (Black and white)</a></li>
+              <li><a href="img/logo/SCIM_B-and-W_792x270.png" class="badge badge-primary">PNG 792x270px (Black and white)</a></li>
+            </ul>
+            <ul>
+              <li><a href="img/logo/SCIM_B-and-W_48x16.gif" class="badge badge-primary">GIF 48x16px (Black and white)</a></li>
+              <li><a href="img/logo/SCIM_White_48x16.gif" class="badge badge-primary">GIF 48x16px (White)</a></li>
+              <li><a href="img/logo/SCIM_Box_Version_B-and-W_68x24.gif" class="badge badge-primary">GIF 68x24px (Boxed black and white)</a></li>
+              <li><a href="img/logo/SCIM_B-and-W_72x24.gif" class="badge badge-primary">GIF 72x24px (Black and white)</a></li>
+            </ul>
+            <ul>
+              <li><a href="img/logo/SCIM_B-and-W_792x270.jpg" class="badge badge-primary">JPG 792x270px (Black and white)</a></li>
+            </ul>
+          </div>
         </div>
-        <div class="tab-pane" id="implementations">
-          <div class="well">
-            <div class="row-fluid" id="addImplementation">
+      </section>
 
+
+
+
+      <section id="Implementations2">
+        <div class="card">
+          <div class="card-header">
+            <h4>SCIM 2.0 Implementations</h4>
+          </div>
+          <div class="card-body">
             <p><b>Know of an implementation that should be listed?</b></p>
             <p>
               Submit a pull request to the <a href="https://github.com/erdtman/simplecloud.info">github repoository</a> or send an <a href="mailto:samuel@erdtman.se?subject=New%20scim%20implementation&body=Project%20name:%0D%0AClient:%0D%0AServer:%0D%0AOpen%20Source:%0D%0ALicense:%0D%0ADeveloper:%0D%0AURL:%0D%0ASCIM%20version:">email</a> with information about name, type, license, developer, URL and if it's a SCIM 1.1 or SCIM 2.0 implementation.
             </p>
-
-            </div>
+            <div class="table-responsive">
+            <table class="table table-striped" >
+              <thead>
+                <tr>
+                  <th scope="col">Project Name</th>
+                  <th scope="col">Client</th>
+                  <th scope="col">Server</th>
+                  <th scope="col">Open Source</th>
+                  <th scope="col">Developer</th>
+                  <th scope="col">Link</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+    							<td>
+    								Active Directory SCIM Provisioning
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Microsoft
+    							</td>
+    							<td>
+    								<a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-scim-provisioning/">https://azure.microsoft.com/en-us/documentation/articles/active-directory-scim-provisioning/</a>
+    							</td>
+    						</tr>
+                <tr>
+    							<td>
+    								AuthX
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Yes, MIT License
+    							</td>
+    							<td>
+    								The Control Group
+    							</td>
+    							<td>
+    								AuthX: <a href="https://github.com/the-control-group/authx">https://github.com/the-control-group/authx</a>
+    								<br>
+    								Filter Parser: <a href="https://github.com/the-control-group/scim-query-filter-parser-js">https://github.com/the-control-group/scim-query-filter-parser-js</a>
+    							</td>
+    						</tr>
+                <tr>
+    							<td>
+    								Centrify Identity Service
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Centrify Corporation
+    							</td>
+    							<td>
+    								<a href="http://www.centrify.com/products/identity-service/">http://www.centrify.com/products/identity-service/</a>
+    							</td>
+    						</tr>
+                <tr>
+    							<td>
+    								Curity Identity Server
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Curity
+    							</td>
+    							<td>
+    								<a href="https://curity.io">https://curity.io</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								django_scim
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes, MIT License
+    							</td>
+    							<td>
+    								Atlassian
+    							</td>
+    							<td>
+    								<a href="https://bitbucket.org/atlassian/django_scim">https://bitbucket.org/atlassian/django_scim</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								django-scim2
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes, MIT License
+    							</td>
+    							<td>
+    								Paul Logston @ 15Five
+    							</td>
+    							<td>
+    								<a href="https://github.com/15five/django-scim2">https://github.com/15five/django-scim2</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								eSCIMo
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes, ASL 2.0
+    							</td>
+    							<td>
+    								Apache Software Foundation
+    							</td>
+    							<td>
+    								<a href="http://svn.apache.org/viewvc/directory/escimo/trunk/">http://svn.apache.org/viewvc/directory/escimo/trunk/</a>
+    							</td>
+    						</tr>
+                <tr>
+                  <td>
+                    GARANCY Identity Manager
+                  </td>
+                  <td>
+                    Yes
+                  </td>
+                  <td>
+                    No
+                  </td>
+                  <td>
+                    No
+                  </td>
+                  <td>
+                    Beta Systems IAM Software
+                  </td>
+                  <td>
+                    <a href="https://www.betasystems-iam.com">https://www.betasystems-iam.com</a>
+                  </td>
+                </tr>
+    						<tr>
+    							<td>
+    								Gluu
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes, MIT License
+    							</td>
+    							<td>
+    								Gluu.org
+    							</td>
+    							<td>
+    								<a href="https://github.com/GluuFederation/SCIM-Client">https://github.com/GluuFederation/SCIM-Client (Client)</a>
+    								<br>
+    								<a href="https://github.com/GluuFederation/oxTrust">https://github.com/GluuFederation/oxTrust (Server)</a>
+    							</td>
+    						</tr>
+                <tr>
+    							<td>
+    								GoSCIM
+    							</td>
+    							<td>
+    								N/A
+    							</td>
+    							<td>
+    								Yes (openended building blocks + an example server implementation)
+    							</td>
+    							<td>
+    								Yes, MIT License
+    							</td>
+    							<td>
+    								Weinan Qiu
+    							</td>
+    							<td>
+                    <a href="https://github.com/davidiamyou/go-scim">https://github.com/davidiamyou/go-scim</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								Identity Broker
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								UNIFY Solutions
+    							</td>
+    							<td>
+      							<a href="https://unifysolutions.net/">https://unifysolutions.net/</a>
+      							<br>
+      							<a href="http://voice.unifysolutions.net/topics/3332-/">http://voice.unifysolutions.net/topics/3332-/</a>
+    							</td>
+    						</tr>
+                <tr>
+    							<td>
+    								Microsoft Identity Manager SCIMv2 Management Agent
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								 No, but with sample service provider and test tooling to simulate Microsoft Identity Manager
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+                    Traxion Development Services
+    							</td>
+    							<td>
+    								<a href="https://www.traxion.com/security-solutions/producten/iam-modules/">https://www.traxion.com/security-solutions/producten/iam-modules/</a>
+    							</td>
+    						</tr>
+              			  <tr>
+    							<td>
+    								Okta Provisioning
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Okta
+    							</td>
+    							<td>
+    								<a href="http://developer.okta.com/docs/guides/scim_guidance.html">http://developer.okta.com/docs/guides/scim_guidance.html</a>
+    							</td>
+    						</tr>
+                <tr>
+    							<td>
+    								One Identity -  Identity Manager
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								One Identity or Dell Software Group
+    							</td>
+    							<td>
+    								<a href="https://software.dell.com/products/identity-manager/">https://software.dell.com/products/identity-manager/</a>
+                  </td>
+                </tr>
+                <tr>
+    							<td>
+    								OneLogin Provisioning
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								OneLogin
+    							</td>
+    							<td>
+    								<a href="https://developers.onelogin.com/scim">https://developers.onelogin.com/scim</a>
+    							</td>
+    						</tr>
+              	<tr>
+    							<td>
+    								Oracle Identity Manager
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Oracle
+    							</td>
+    							<td>
+    								<a href="https://docs.oracle.com/cd/E52734_01/oim/OMDEV/scim.htm#OMDEV5526">https://docs.oracle.com/cd/E52734_01/oim/OMDEV/scim.htm#OMDEV5526</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								OSIAM
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes, MIT License
+    							</td>
+    							<td>
+    								osiam.org team
+    							</td>
+    							<td>
+    								<a href="http://osiam.org">http://osiam.org</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								Owin.Scim
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes, MIT License
+    							</td>
+    							<td>
+    								PowerDMS
+    							</td>
+    							<td>
+    								<a href="https://github.com/PowerDMS/Owin.Scim">https://github.com/PowerDMS/Owin.Scim</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								PingDataGovernance (formerly UnboundID Data Broker)
+    							</td>
+    							<td>
+    								Yes, SDK
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Client SDK Yes
+    							</td>
+    							<td>
+    								Ping Identity
+    							</td>
+    							<td>
+    								Server: <a href="https://www.pingidentity.com/en/products/pingdatagovernance-server.html">https://www.pingidentity.com/en/products/pingdatagovernance-server.html</a>
+    								<br>
+    								Client SDK: <a href="https://github.com/UnboundID/scim2">https://github.com/UnboundID/scim2</a>
+    							</td>
+    						</tr>
+                <tr>
+    							<td>
+    								RadiantOne FID
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Radiant Logic
+    							</td>
+    							<td>
+    								<a href="http://www.radiantlogic.com">www.radiantlogic.com</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								SailPoint IdentityIQ
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								SailPoint
+    							</td>
+    							<td>
+    								<a href="http://www.sailpoint.com/">http://www.sailpoint.com/</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								SimpleIdentityServer
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Habart Thierry
+    							</td>
+    							<td>
+    								<a href="https://github.com/thabart/SimpleIdentityServer">https://github.com/thabart/SimpleIdentityServer</a>
+    							</td>
+    						</tr>
+      					<tr>
+      						<td>
+    								SOFFID IAM
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								www.soffid.com
+    							</td>
+    							<td>
+    								<a href="http://confluence.soffid.org/display/SOF/SCIM">http://confluence.soffid.org/display/SOF/SCIM</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								Syncope
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes, ASL 2.0
+    							</td>
+    							<td>
+    								Apache Software Foundation
+    							</td>
+    							<td>
+    								<a href="http://syncope.apache.org">http://syncope.apache.org/</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								Trello
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Trello
+    							</td>
+    							<td>
+      							<a href="https://developers.trello.com/advanced-reference/scim">https://developers.trello.com/advanced-reference/scim</a>
+    							</td>
+    						</tr>
+                <tr>
+    							<td>
+    								WSO2 Charon
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Apache 2.0 License
+    							</td>
+    							<td>
+    								WSO2 Inc
+    							</td>
+    							<td>
+    								<a href="https://github.com/wso2/charon">https://github.com/wso2/charon</a>
+    							</td>
+    						</tr>
+    					</tbody>
+            </table>
           </div>
-
-
-        	<div class="well">
-	            <h1>SCIM 2.0 implementations</h1>
-	            <br/>
-				<table class="table table-bordered">
-					<thead>
-						<tr>
-							<td>
-								<b>Project Name</b>
-							</td>
-							<td>
-								<b>Client</b>
-							</td>
-							<td>
-								<b>Server</b>
-							</td>
-							<td>
-								<b>Open Source</b>
-							</td>
-							<td>
-								<b>Developer</b>
-							</td>
-							<td>
-								<b>URL</b>
-							</td>
-						</tr>
-					</thead>
-					<tbody>
-            <tr>
-							<td>
-								Active Directory SCIM Provisioning
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Microsoft
-							</td>
-							<td>
-								<a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-scim-provisioning/">https://azure.microsoft.com/en-us/documentation/articles/active-directory-scim-provisioning/</a>
-							</td>
-						</tr>
-            <tr>
-							<td>
-								AuthX
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Yes, MIT License
-							</td>
-							<td>
-								The Control Group
-							</td>
-							<td>
-								AuthX: <a href="https://github.com/the-control-group/authx">https://github.com/the-control-group/authx</a>
-								<br />
-								Filter Parser: <a href="https://github.com/the-control-group/scim-query-filter-parser-js">https://github.com/the-control-group/scim-query-filter-parser-js</a>
-							</td>
-						</tr>
-            <tr>
-							<td>
-								Centrify Identity Service
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Centrify Corporation
-							</td>
-							<td>
-								<a href="http://www.centrify.com/products/identity-service/">http://www.centrify.com/products/identity-service/</a>
-							</td>
-						</tr>
-            <tr>
-							<td>
-								Curity Identity Server
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Curity
-							</td>
-							<td>
-								<a href="https://curity.io">https://curity.io</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								django_scim
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes, MIT License
-							</td>
-							<td>
-								Atlassian
-							</td>
-							<td>
-								<a href="https://bitbucket.org/atlassian/django_scim">https://bitbucket.org/atlassian/django_scim</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								django-scim2
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes, MIT License
-							</td>
-							<td>
-								Paul Logston @ 15Five
-							</td>
-							<td>
-								<a href="https://github.com/15five/django-scim2">https://github.com/15five/django-scim2</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								eSCIMo
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes, ASL 2.0
-							</td>
-							<td>
-								Apache Software Foundation
-							</td>
-							<td>
-								<a href="http://svn.apache.org/viewvc/directory/escimo/trunk/">http://svn.apache.org/viewvc/directory/escimo/trunk/</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								Gluu
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes, MIT License
-							</td>
-							<td>
-								Gluu.org
-							</td>
-							<td>
-								<a href="https://github.com/GluuFederation/SCIM-Client">https://github.com/GluuFederation/SCIM-Client (Client)</a>
-								<br/>
-								<a href="https://github.com/GluuFederation/oxTrust">https://github.com/GluuFederation/oxTrust (Server)</a>
-							</td>
-						</tr>
-            <tr>
-							<td>
-								GoSCIM
-							</td>
-							<td>
-								N/A
-							</td>
-							<td>
-								Yes (openended building blocks + an example server implementation)
-							</td>
-							<td>
-								Yes, MIT License
-							</td>
-							<td>
-								Weinan Qiu
-							</td>
-							<td>
-                <a href="https://github.com/davidiamyou/go-scim">https://github.com/davidiamyou/go-scim</a>
-							</td>
-						</tr>
-            <tr>
-							<td>
-								Microsoft Identity Manager SCIMv2 Management Agent
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								 No, but with sample service provider and test tooling to simulate Microsoft Identity Manager
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-                Traxion Development Services
-							</td>
-							<td>
-								<a href="https://www.traxion.com/security-solutions/producten/iam-modules/">https://www.traxion.com/security-solutions/producten/iam-modules/</a>
-							</td>
-						</tr>
-          			  <tr>
-							<td>
-								Okta Provisioning
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Okta
-							</td>
-							<td>
-								<a href="http://developer.okta.com/docs/guides/scim_guidance.html">http://developer.okta.com/docs/guides/scim_guidance.html</a>
-							</td>
-						</tr>
-            <tr>
-							<td>
-								One Identity -  Identity Manager
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								One Identity or Dell Software Group
-							</td>
-							<td>
-								<a href="https://software.dell.com/products/identity-manager/">https://software.dell.com/products/identity-manager/</a>
-              </td>
-            </tr>
-            <tr>
-							<td>
-								OneLogin Provisioning
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								OneLogin
-							</td>
-							<td>
-								<a href="https://developers.onelogin.com/scim">https://developers.onelogin.com/scim</a>
-							</td>
-						</tr>
-          	<tr>
-							<td>
-								Oracle Identity Manager
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Oracle
-							</td>
-							<td>
-								<a href="https://docs.oracle.com/cd/E52734_01/oim/OMDEV/scim.htm#OMDEV5526">https://docs.oracle.com/cd/E52734_01/oim/OMDEV/scim.htm#OMDEV5526</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								OSIAM
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes, MIT License
-							</td>
-							<td>
-								osiam.org team
-							</td>
-							<td>
-								<a href="http://osiam.org">http://osiam.org</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								Owin.Scim
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes, MIT License
-							</td>
-							<td>
-								PowerDMS
-							</td>
-							<td>
-								<a href="https://github.com/PowerDMS/Owin.Scim">https://github.com/PowerDMS/Owin.Scim</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								PingDataGovernance (formerly UnboundID Data Broker)
-							</td>
-							<td>
-								Yes, SDK
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Client SDK Yes
-							</td>
-							<td>
-								Ping Identity
-							</td>
-							<td>
-								Server: <a href="https://www.pingidentity.com/en/products/pingdatagovernance-server.html">https://www.pingidentity.com/en/products/pingdatagovernance-server.html</a>
-								<br />
-								Client SDK: <a href="https://github.com/UnboundID/scim2">https://github.com/UnboundID/scim2</a>
-							</td>
-						</tr>
-            <tr>
-							<td>
-								RadiantOne FID
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Radiant Logic
-							</td>
-							<td>
-								<a href="http://www.radiantlogic.com">www.radiantlogic.com</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								SailPoint IdentityIQ
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								SailPoint
-							</td>
-							<td>
-								<a href="http://www.sailpoint.com/">http://www.sailpoint.com/</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								SimpleIdentityServer
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes, Apache Software Foundation
-							</td>
-							<td>
-								Habart Thierry
-							</td>
-							<td>
-								<a href="https://github.com/thabart/SimpleIdentityServer">https://github.com/thabart/SimpleIdentityServer</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								Trello
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Trello
-							</td>
-							<td>
-  							<a href="https://developers.trello.com/advanced-reference/scim">https://developers.trello.com/advanced-reference/scim</a>
-							</td>
-						</tr>
-            <tr>
-							<td>
-								WSO2 Charon
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Apache 2.0 License
-							</td>
-							<td>
-								WSO2 Inc
-							</td>
-							<td>
-								<a href="https://github.com/wso2/charon">https://github.com/wso2/charon</a>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-
-	        <div class="well">
-	            <h1>SCIM 1.1 implementations</h1>
-	            <br/>
-				<table class="table table-bordered">
-					<thead>
-						<tr>
-							<td>
-								<b>Project Name</b>
-							</td>
-							<td>
-								<b>Client</b>
-							</td>
-							<td>
-								<b>Server</b>
-							</td>
-							<td>
-								<b>Open Source</b>
-							</td>
-							<td>
-								<b>Developer</b>
-							</td>
-							<td>
-								<b>URL</b>
-							</td>
-						</tr>
-					</thead>
-					<tbody>
-
-							<td>
-								CA Directory
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								CA Technologies
-							</td>
-							<td>
-								<a href="https://wiki.ca.com/display/CAD1216/Deploy+the+CA+Directory+SCIM+Server">https://wiki.ca.com/display/CAD1216/Deploy+the+CA+Directory+SCIM+Server</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								CA Identity Manager
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								CA Technologies
-							</td>
-							<td>
-								<a href="ftp://ftp.ca.com/pub/IdentityManager/guides/Connect%20to%20a%20SCIM%20Endpoint.pdf">ftp://ftp.ca.com/pub/IdentityManager/guides/Connect%20to%20a%20SCIM%20Endpoint.pdf</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								Cisco
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Cisco
-							</td>
-							<td>
-								<a href="http://www.cisco.com/">http://www.cisco.com/</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								CloudFoundry UAA
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes, Apache 2.0
-							</td>
-							<td>
-								Pivotal
-							</td>
-							<td>
-								<a href="https://github.com/cloudfoundry/uaa">https://github.com/cloudfoundry/uaa</a>
-								<br/>
-								<a href="https://github.com/cloudfoundry/cf-uaa-lib">https://github.com/cloudfoundry/cf-uaa-lib</a>
-								<br/>
-								<a href=" https://github.com/cloudfoundry/cf-uaac">https://github.com/cloudfoundry/cf-uaac</a>
-							</td>
-						</tr>
-            <tr>
-							<td>
-								ConnId / Polygon
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Yes, Apache 2.0
-							</td>
-							<td>
-								Evolveum
-							</td>
-							<td>
-								<a href="https://github.com/Evolveum/connector-scim1">https://github.com/Evolveum/connector-scim1</a>
-							</td>
-						</tr>
-            <tr>
-							<td>
-								Curity Identity Server
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Curity
-							</td>
-							<td>
-								<a href="https://curity.io">https://curity.io</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								Gluu
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes, MIT License
-							</td>
-							<td>
-								Gluu.org
-							</td>
-							<td>
-								<a href="http://www.gluu.org/">http://www.gluu.org/</a>
-							</td>
-						</tr>
-            <tr>
-              <td>
-                Grouper
-              </td>
-              <td>
-                Yes
-              </td>
-              <td>
-                No
-              </td>
-              <td>
-                Yes, Apache 2.2
-              </td>
-              <td>
-                Internet 2
-              </td>
-              <td>
-                <a href="http://www.internet2.edu/products-services/trust-identity-middleware/grouper/">http://www.internet2.edu/products-services/trust-identity-middleware/grouper/</a>
-              </td>
-            </tr>
-						<tr>
-							<td>
-								IBM Security Directory Integrator
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								IBM
-							</td>
-							<td>
-								<a href="http://www-01.ibm.com/support/knowledgecenter/SSCQGF_7.2.0/com.ibm.IBMDI.doc_7.2/scim.html?lang=en">http://www-01.ibm.com/support/knowledgecenter/SSCQGF_7.2.0/com.ibm.IBMDI.doc_7.2/scim.html?lang=en</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								Ingy dot Net
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes, MIT
-							</td>
-							<td>
-								Ingy döt Net
-							</td>
-							<td>
-								<a href="https://github.com/ingydotnet/scim-query-filter-parser-rb#readme">https://github.com/ingydotnet/scim-query-filter-parser-rb#readme/</a>
-								<a href="http://rubygems.org/gems/scim-query-filter-parser">http://rubygems.org/gems/scim-query-filter-parser</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								McAfee Provisioning Service
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								McAfee
-							</td>
-							<td>
-								<a href="http://www.mcafee.com">http://www.mcafee.com</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								neXus Hybrid Access Manager
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								neXus
-							</td>
-							<td>
-								<a href="http://www.nexusgroup.com/">http://www.nexusgroup.com/</a>
-							</td>
-						</tr>
-          			  <tr>
-							<td>
-								Okta Provisioning
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Okta
-							</td>
-							<td>
-								<a href="http://developer.okta.com/docs/guides/scim_guidance.html">http://developer.okta.com/docs/guides/scim_guidance.html</a>
-							</td>
-						</tr>
-            <tr>
-             <td>
-               OneLogin Provisioning
-             </td>
-             <td>
-               Yes
-             </td>
-             <td>
-               No
-             </td>
-             <td>
-               No
-             </td>
-             <td>
-               OneLogin
-             </td>
-             <td>
-               <a href="https://developers.onelogin.com/scim">https://developers.onelogin.com/scim</a>
-             </td>
-            <tr>
-						<tr>
-							<td>
-								OpenSCIM
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes, GPL V3
-							</td>
-							<td>
-								Google Code
-							</td>
-							<td>
-								<a href="http://code.google.com/p/openscim/">http://code.google.com/p/openscim/</a>
-							</td>
-						</tr>
-            <tr>
-							<td>
-								PhenixID User Provisioning Module
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								PhenixID
-							</td>
-							<td>
-								<a href="http://www.phenixid.net/">http://www.phenixid.net/</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								PingFederate
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Ping Identity
-							</td>
-							<td>
-								<a href="https://www.pingidentity.com/products/pingfederate/">https://www.pingidentity.com/products/pingfederate/</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								PingOne
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Ping Identity
-							</td>
-							<td>
-								<a href="https://www.pingone.com/">https://www.pingone.com/</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								python-scim
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Yes, MIT License
-							</td>
-							<td>
-								Concordus Applications
-							</td>
-							<td>
-								<a href="https://github.com/concordusapps/python-scim">https://github.com/concordusapps/python-scim</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								RadiantOne VDS
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Radiant Logic
-							</td>
-							<td>
-								<a href="http://www.radiantlogic.com">http://www.radiantlogic.com</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								SailPoint IdentityIQ
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								SailPoint
-							</td>
-							<td>
-								<a href="http://www.sailpoint.com/">http://www.sailpoint.com/</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								SailPoint IdentityNow
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								SailPoint
-							</td>
-							<td>
-								<a href="http://www.sailpoint.com/">http://www.sailpoint.com/</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								Salesforce
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Salesforce
-							</td>
-							<td>
-								<a href="http://www.salesforce.com/">http://www.salesforce.com/</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								SCIM Easy
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes, Apache-2.0
-							</td>
-							<td>
-								Eugene Zhukov
-							</td>
-							<td>
-								<a href="http://ee.dy.fi/scim">http://ee.dy.fi/scim</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								SCIM Proxy
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes, MIT License
-							</td>
-							<td>
-								neXus
-							</td>
-							<td>
-								<a href="http://code.google.com/p/scimproxy/">http://code.google.com/p/scimproxy/</a>
-							</td>
-						</tr>
-            <tr>
-							<td>
-								Slack
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Slack Technologies
-							</td>
-							<td>
-								<a href="https://slack.zendesk.com/hc/en-us/articles/212572638-Managing-team-members-with-provisioning">https://slack.zendesk.com/hc/en-us/articles/212572638-Managing-team-members-with-provisioning</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								Switch Identity Governance
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Switch Identity Governance Ltd
-							</td>
-							<td>
-								<a href="http://www.switchresearch.com">http://www.switchresearch.com</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								UnboundID Reference SDK
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes. GPL, LGPL, or UnboundID Free License.
-							</td>
-							<td>
-								UnboundID
-							</td>
-							<td>
-								<a href="https://github.com/UnboundID/scim">https://github.com/UnboundID/scim</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								PingDirectory and PingDataSync (formerly UnboundID Data Store and Sync Server)
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								Ping Identity (acquirer of UnboundID)
-							</td>
-							<td>
-								PingDirectory: <a href="https://www.pingidentity.com/en/products/pingdirectory-and-data-server.html">https://www.pingidentity.com/en/products/pingdirectory-and-data-server.html</a>
-                <br />
-                PingDataSync: <a href=" https://www.pingidentity.com/en/products/pingdatasync-server.html"> https://www.pingidentity.com/en/products/pingdatasync-server.html</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								VMware Identity Manager
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								No
-							</td>
-							<td>
-								VMWare
-							</td>
-							<td>
-								<a href="https://www.vmware.com/products/identity-manager">https://www.vmware.com/products/identity-manager</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								WSO2 Charon
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Yes
-							</td>
-							<td>
-								Apache 2.0 License
-							</td>
-							<td>
-								WSO2 Inc
-							</td>
-							<td>
-								<a href="https://github.com/wso2/charon">https://github.com/wso2/charon</a>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-
-
-        </div>
-        <div class="tab-pane" id="complianceTest">
-
-			<div class="well">
-              <div class="row-fluid">
-                <div class="span12">
-                  <span class="label label-important" style="float: right;">Beta</span>
-                  <h1>Compliance Test</h1>
-                  <p>
-                  	Run test suite against an internet facing SCIM 1.1 server. Work on SCIM 2.0 tests is under development and there are currently no support for the enterprise extension.
-                  </p>
-  				  <form class="form-search">
-  					<input type="text" placeholder="https://scim-server" id="complianceUrl" class="input span5">
-    		        <button type="submit" class="btn btn-primary" id="sendCompliance">Go!</button>
-  				  </form>
-                </div>
-              </div>
-              <div class="row-fluid">
-                <div class="span12">
-                  <span class="label label float-right clickable" index="settings" id="toggleSettings">Settings <i id="settingsArrow" class="icon-chevron-right icon-white arrow"></i></span>
-                </div>
-              </div>
-              <div class="row-fluid hide" id="settings">
-                <div class="span6">
-                  <h3>Authentication</h3>
-                  <div class="alert alert-error hide" id="authenticationAlert">
-                    Authentication required!
-                  </div>
-                  <form class="form-horizontal well">
-                    <div class="control-group">
-                      <label class="control-label" for="basicUsername">Method</label>
-                      <div class="controls" id="authMethodContainer">
-                        <select id="authMethod">
-                          <option value="basicAuth">HTTP-Basic</option>
-                          <option value="oauthAuth">OAuth 2.0 (password grant)</option>
-                          <option value="rawAuth">Raw Authorization header</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div id="basicAuth" class="authMethod basicAuth oauthAuth">
-                      <div class="control-group">
-                        <label class="control-label" for="username">Username</label>
-                        <div class="controls">
-                          <input id="username" type="text">
-                        </div>
-                      </div>
-                      <div class="control-group">
-                        <label class="control-label" for="password">Password</label>
-                        <div class="controls">
-                          <input  id="password" type="password">
-                        </div>
-                      </div>
-                    </div>
-                    <div id="oauthAuth" class="authMethod oauthAuth">
-                      <div class="control-group">
-                        <label class="control-label" for="oauthClientId">ClientId</label>
-                        <div class="controls">
-                          <input  id="oauthClientId" type="text">
-                        </div>
-                      </div>
-                      <div class="control-group">
-                        <label class="control-label" for="oauthClientSecret">Client Secret</label>
-                        <div class="controls">
-                          <input  id="oauthClientSecret" type="text">
-                        </div>
-                      </div>
-                      <div class="control-group">
-                        <label class="control-label" for="oauthAuthorizationServer">Authorization Server</label>
-                        <div class="controls">
-                          <input  id="oauthAuthorizationServer" type="text">
-                        </div>
-                      </div>
-                    </div>
-                    <div id="rawAuth" class="authMethod rawAuth">
-                      <div class="control-group">
-                        <label class="control-label" for="rawAuthorizationHeader">Authorization Header</label>
-                        <div class="controls">
-                          <input id="rawAuthorizationHeader" type="text">
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-                <div class="span6">
-                  <h3>Configure attributes</h3>
-                  <form class="form-inline well">
-                    <p>Under Construction!</p>
-                  <!--
-                    <input type="text" class="input-small" placeholder="attribute">
-                    <input type="text" class="input-small" placeholder="value">
-                   -->
-                  </form>
-                </div>
-
-              </div>
-			</div>
-
-            <div class="wrapper"><div class="content" id="spinner-container" ></div></div>
-
-            <div class="hide" id="result-container">
-              <div class="well" >
-                <div class="row-fluid">
-                  <div class="span6"><div id="compliance-chart"></div></div>
-                  <div class="span6">
-                    <h2>Results</h2>
-                    <div id="compliance-statistics-text"></div>
-                  </div>
-                </div>
-              </div>
-    		  <div class="well" id="compliance-result-container"></div>
-            </div>
-
-  			<div id="compliance-error-container" class="alert alert-error hide">
-  				<div id="compliance-error"></div>
-  			</div>
         </div>
       </div>
+      </section>
+
+
+
+
+
+
+
+
+
+      <section id="Implementations1">
+        <div class="card">
+          <div class="card-header">
+            <h4>SCIM 1.1 Implementations</h4>
+          </div>
+          <div class="card-body">
+            <p><b>Know of an implementation that should be listed?</b></p>
+            <p>
+              Submit a pull request to the <a href="https://github.com/erdtman/simplecloud.info">github repoository</a> or send an <a href="mailto:samuel@erdtman.se?subject=New%20scim%20implementation&body=Project%20name:%0D%0AClient:%0D%0AServer:%0D%0AOpen%20Source:%0D%0ALicense:%0D%0ADeveloper:%0D%0AURL:%0D%0ASCIM%20version:">email</a> with information about name, type, license, developer, URL and if it's a SCIM 1.1 or SCIM 2.0 implementation.
+            </p>
+            <div class="table-responsive">
+            <table class="table table-striped" >
+              <thead>
+                <tr>
+                  <th scope="col">Project Name</th>
+                  <th scope="col">Client</th>
+                  <th scope="col">Server</th>
+                  <th scope="col">Open Source</th>
+                  <th scope="col">Developer</th>
+                  <th scope="col">Link</th>
+                </tr>
+              </thead>
+    					<tbody>
+    							<tr><td>
+    								CA Directory
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								CA Technologies
+    							</td>
+    							<td>
+    								<a href="https://wiki.ca.com/display/CAD1216/Deploy+the+CA+Directory+SCIM+Server">https://wiki.ca.com/display/CAD1216/Deploy+the+CA+Directory+SCIM+Server</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								CA Identity Manager
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								CA Technologies
+    							</td>
+    							<td>
+    								<a href="ftp://ftp.ca.com/pub/IdentityManager/guides/Connect%20to%20a%20SCIM%20Endpoint.pdf">ftp://ftp.ca.com/pub/IdentityManager/guides/Connect%20to%20a%20SCIM%20Endpoint.pdf</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								Cisco
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Cisco
+    							</td>
+    							<td>
+    								<a href="http://www.cisco.com/">http://www.cisco.com/</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								CloudFoundry UAA
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes, Apache 2.0
+    							</td>
+    							<td>
+    								Pivotal
+    							</td>
+    							<td>
+    								<a href="https://github.com/cloudfoundry/uaa">https://github.com/cloudfoundry/uaa</a>
+    								<br>
+    								<a href="https://github.com/cloudfoundry/cf-uaa-lib">https://github.com/cloudfoundry/cf-uaa-lib</a>
+    								<br>
+    								<a href=" https://github.com/cloudfoundry/cf-uaac">https://github.com/cloudfoundry/cf-uaac</a>
+    							</td>
+    						</tr>
+                <tr>
+    							<td>
+    								ConnId / Polygon
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Yes, Apache 2.0
+    							</td>
+    							<td>
+    								Evolveum
+    							</td>
+    							<td>
+    								<a href="https://github.com/Evolveum/connector-scim1">https://github.com/Evolveum/connector-scim1</a>
+    							</td>
+    						</tr>
+                <tr>
+    							<td>
+    								Curity Identity Server
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Curity
+    							</td>
+    							<td>
+    								<a href="https://curity.io">https://curity.io</a>
+    							</td>
+    						</tr>
+                <tr>
+                  <td>
+                    GARANCY Identity Manager
+                  </td>
+                  <td>
+                    Yes
+                  </td>
+                  <td>
+                    No
+                  </td>
+                  <td>
+                    No
+                  </td>
+                  <td>
+                    Beta Systems IAM Software
+                  </td>
+                  <td>
+                    <a href="https://www.betasystems-iam.com">https://www.betasystems-iam.com</a>
+                  </td>
+                </tr>
+    						<tr>
+    							<td>
+    								Gluu
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes, MIT License
+    							</td>
+    							<td>
+    								Gluu.org
+    							</td>
+    							<td>
+    								<a href="http://www.gluu.org/">http://www.gluu.org/</a>
+    							</td>
+    						</tr>
+                <tr>
+                  <td>
+                    Grouper
+                  </td>
+                  <td>
+                    Yes
+                  </td>
+                  <td>
+                    No
+                  </td>
+                  <td>
+                    Yes, Apache 2.2
+                  </td>
+                  <td>
+                    Internet 2
+                  </td>
+                  <td>
+                    <a href="http://www.internet2.edu/products-services/trust-identity-middleware/grouper/">http://www.internet2.edu/products-services/trust-identity-middleware/grouper/</a>
+                  </td>
+                </tr>
+    						<tr>
+    							<td>
+    								IBM Security Directory Integrator
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								IBM
+    							</td>
+    							<td>
+    								<a href="http://www-01.ibm.com/support/knowledgecenter/SSCQGF_7.2.0/com.ibm.IBMDI.doc_7.2/scim.html?lang=en">http://www-01.ibm.com/support/knowledgecenter/SSCQGF_7.2.0/com.ibm.IBMDI.doc_7.2/scim.html?lang=en</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								Ingy dot Net
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes, MIT
+    							</td>
+    							<td>
+    								Ingy döt Net
+    							</td>
+    							<td>
+    								<a href="https://github.com/ingydotnet/scim-query-filter-parser-rb#readme">https://github.com/ingydotnet/scim-query-filter-parser-rb#readme/</a>
+    								<a href="http://rubygems.org/gems/scim-query-filter-parser">http://rubygems.org/gems/scim-query-filter-parser</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								McAfee Provisioning Service
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								McAfee
+    							</td>
+    							<td>
+    								<a href="http://www.mcafee.com">http://www.mcafee.com</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								neXus Hybrid Access Manager
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								neXus
+    							</td>
+    							<td>
+    								<a href="http://www.nexusgroup.com/">http://www.nexusgroup.com/</a>
+    							</td>
+    						</tr>
+              			  <tr>
+    							<td>
+    								Okta Provisioning
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Okta
+    							</td>
+    							<td>
+    								<a href="http://developer.okta.com/docs/guides/scim_guidance.html">http://developer.okta.com/docs/guides/scim_guidance.html</a>
+    							</td>
+    						</tr>
+                <tr>
+                 <td>
+                   OneLogin Provisioning
+                 </td>
+                 <td>
+                   Yes
+                 </td>
+                 <td>
+                   No
+                 </td>
+                 <td>
+                   No
+                 </td>
+                 <td>
+                   OneLogin
+                 </td>
+                 <td>
+                   <a href="https://developers.onelogin.com/scim">https://developers.onelogin.com/scim</a>
+                 </td>
+                </tr><tr>
+    						</tr><tr>
+    							<td>
+    								OpenSCIM
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes, GPL V3
+    							</td>
+    							<td>
+    								Google Code
+    							</td>
+    							<td>
+    								<a href="http://code.google.com/p/openscim/">http://code.google.com/p/openscim/</a>
+    							</td>
+    						</tr>
+                <tr>
+    							<td>
+    								PhenixID User Provisioning Module
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								PhenixID
+    							</td>
+    							<td>
+    								<a href="http://www.phenixid.net/">http://www.phenixid.net/</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								PingFederate
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Ping Identity
+    							</td>
+    							<td>
+    								<a href="https://www.pingidentity.com/products/pingfederate/">https://www.pingidentity.com/products/pingfederate/</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								PingOne
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Ping Identity
+    							</td>
+    							<td>
+    								<a href="https://www.pingone.com/">https://www.pingone.com/</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								python-scim
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Yes, MIT License
+    							</td>
+    							<td>
+    								Concordus Applications
+    							</td>
+    							<td>
+    								<a href="https://github.com/concordusapps/python-scim">https://github.com/concordusapps/python-scim</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								RadiantOne VDS
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Radiant Logic
+    							</td>
+    							<td>
+    								<a href="http://www.radiantlogic.com">http://www.radiantlogic.com</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								SailPoint IdentityIQ
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								SailPoint
+    							</td>
+    							<td>
+    								<a href="http://www.sailpoint.com/">http://www.sailpoint.com/</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								SailPoint IdentityNow
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								SailPoint
+    							</td>
+    							<td>
+    								<a href="http://www.sailpoint.com/">http://www.sailpoint.com/</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								Salesforce
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Salesforce
+    							</td>
+    							<td>
+    								<a href="http://www.salesforce.com/">http://www.salesforce.com/</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								SCIM Easy
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes, Apache-2.0
+    							</td>
+    							<td>
+    								Eugene Zhukov
+    							</td>
+    							<td>
+    								<a href="http://ee.dy.fi/scim">http://ee.dy.fi/scim</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								SCIM Proxy
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes, MIT License
+    							</td>
+    							<td>
+    								neXus
+    							</td>
+    							<td>
+    								<a href="http://code.google.com/p/scimproxy/">http://code.google.com/p/scimproxy/</a>
+    							</td>
+    						</tr>
+                <tr>
+    							<td>
+    								Slack
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Slack Technologies
+    							</td>
+    							<td>
+    								<a href="https://slack.zendesk.com/hc/en-us/articles/212572638-Managing-team-members-with-provisioning">https://slack.zendesk.com/hc/en-us/articles/212572638-Managing-team-members-with-provisioning</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								Switch Identity Governance
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Switch Identity Governance Ltd
+    							</td>
+    							<td>
+    								<a href="http://www.switchresearch.com">http://www.switchresearch.com</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								UnboundID Reference SDK
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes. GPL, LGPL, or UnboundID Free License.
+    							</td>
+    							<td>
+    								UnboundID
+    							</td>
+    							<td>
+    								<a href="https://github.com/UnboundID/scim">https://github.com/UnboundID/scim</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								PingDirectory and PingDataSync (formerly UnboundID Data Store and Sync Server)
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								Ping Identity (acquirer of UnboundID)
+    							</td>
+    							<td>
+    								PingDirectory: <a href="https://www.pingidentity.com/en/products/pingdirectory-and-data-server.html">https://www.pingidentity.com/en/products/pingdirectory-and-data-server.html</a>
+                    <br>
+                    PingDataSync: <a href=" https://www.pingidentity.com/en/products/pingdatasync-server.html"> https://www.pingidentity.com/en/products/pingdatasync-server.html</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								VMware Identity Manager
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								No
+    							</td>
+    							<td>
+    								VMWare
+    							</td>
+    							<td>
+    								<a href="https://www.vmware.com/products/identity-manager">https://www.vmware.com/products/identity-manager</a>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								WSO2 Charon
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Yes
+    							</td>
+    							<td>
+    								Apache 2.0 License
+    							</td>
+    							<td>
+    								WSO2 Inc
+    							</td>
+    							<td>
+    								<a href="https://github.com/wso2/charon">https://github.com/wso2/charon</a>
+    							</td>
+    						</tr>
+    					</tbody>
+    				</table>
+          </div>
+          </div>
+        </div>
+      </section>
     </div>
-    <hr>
-    <footer>
-      <p>SCIM is developed under the <a href="https://www.ietf.org/">IETF</a></p>
-    </footer>
-  </div>
-
-  <script id="testTemplate" type="text/template">
-  {{#results}}
-  <div class="row-fluid my-row {{color}}">
-    <div class="row-fluid result-row">
-      <div class="span10">
-        <strong>{{name}}</strong>
-      </div>
-      <div class="span1">
-        <span class="label {{status_label}}" rel="tooltip" title="{{message}}">{{status_text}}</span>
-      </div>
-      <div class="span1">
-        <span index="{{index}}" class="label label-info float-right clickable">Wire <i class="icon-chevron-right icon-white arrow"></i></span>
-      </div>
     </div>
-	<div class="row-fluid hidden" id="{{index}}">
-      <div class="row-fluid">
-        <div class="span12">
-          <h6>to server &gt;&gt;</h6>
-          <pre class="prettyprint">{{wire.to_server}}</pre>
-        </div>
-      </div>
-      <div class="row-fluid">
-        <div class="span12">
-          <h6>&lt;&lt; from server</h6>
-          <pre class="prettyprint">{{wire.from_server}}</pre>
-        </div>
-      </div>
-    </div>
-  </div>
-  {{/results}}
-  </script>
 
-  <script id="statisticsTemplate" type="text/template">
-  <div class="alert alert-tests">Tests: {{total}} </div>
-  <div class="alert alert-success">Success: {{success}}</div>
-  <div class="alert alert-error">Failed: {{failed}}</div>
-  <div class="alert alert-info">Skipped: {{skipped}}</div>
-  </script>
-
-  <script id="authMethodTemplate" type="text/template">
-  {{#authMethods}}
-  <option value="{{value}}">{{name}}</option>
-  {{/authMethods}}
-  </script>
-
-  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-  <script type="text/javascript" src="js/jquery.js"></script>
-  <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
-  <script type="text/javascript" src="bootstrap/js/bootstrap-tab.js"></script>
-  <script type="text/javascript" src="bootstrap/js/bootstrap-popover.js"></script>
-  <script type="text/javascript" src="bootstrap/js/bootstrap-collapse.js"></script>
-  <script type="text/javascript" src="prettify/prettify.js"></script>
-  <script type="text/javascript" src="js/compliance.js"></script>
-  <script type="text/javascript" src="spin/spin.min.js"></script>
-  <script type="text/javascript" src="spin/jquery.spin.js"></script>
-  <script type="text/javascript" src="mustache/mustache.js"></script>
-  <script type="text/javascript">
-  	prettyPrint();
-    google.load('visualization', '1', {packages: ['corechart']});
-  </script>
-</body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+  </body>
 </html>
