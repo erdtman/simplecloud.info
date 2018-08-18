@@ -1,0 +1,292 @@
+const scim_v1_implementations = {
+  "implementations": [
+    {
+      "project_name": "CADirectory",
+      "client": "No",
+      "server": "Yes",
+      "open_source": "No",
+      "developer": "CATechnologies",
+      "link": "https://wiki.ca.com/display/CAD1216/Deploy+the+CA+Directory+SCIM+Server"
+    },
+    {
+      "project_name": "CAIdentityManager",
+      "client": "Yes",
+      "server": "No",
+      "open_source": "No",
+      "developer": "CATechnologies",
+      "link": "ftp://ftp.ca.com/pub/IdentityManager/guides/Connect%20to%20a%20SCIM%20Endpoint.pdf"
+    },
+    {
+      "project_name": "Cisco",
+      "client": "No",
+      "server": "Yes",
+      "open_source": "No",
+      "developer": "Cisco",
+      "link": "http://www.cisco.com/"
+    },
+    {
+      "project_name": "CloudFoundryUAA",
+      "client": "Yes",
+      "server": "Yes",
+      "open_source": "Yes, Apache2.0",
+      "developer": "Pivotal",
+      "link": "https://github.com/cloudfoundry/uaa"
+    },
+    {
+      "project_name": "ConnId",
+      "client": "Yes",
+      "server": "No",
+      "open_source": "Yes, Apache2.0",
+      "developer": "Tirasa",
+      "link": "https://github.com/Tirasa/ConnIdSCIMv11Bundle"
+    },
+    {
+      "project_name": "ConnId/Polygon",
+      "client": "Yes",
+      "server": "No",
+      "open_source": "Yes,Apache2.0",
+      "developer": "Evolveum",
+      "link": "https://github.com/Evolveum/connector-scim1"
+    },
+    {
+      "project_name": "CurityIdentityServer",
+      "client": "Yes",
+      "server": "No",
+      "open_source": "No",
+      "developer": "Curity",
+      "link": "https://curity.io"
+    },
+    {
+      "project_name": "ForgeRockIdentityManagement(IDM)",
+      "client": "Yes",
+      "server": "No",
+      "open_source": "Partial(delayed release), MIT, et.al",
+      "developer": "ForgeRock",
+      "link": "https://www.forgerock.com/platform/identity-management/"
+    },
+    {
+      "project_name": "GARANCYIdentityManager",
+      "client": "Yes",
+      "server": "No",
+      "open_source": "No",
+      "developer": "BetaSystemsIAMSoftware",
+      "link": "https://www.betasystems-iam.com"
+    },
+    {
+      "project_name": "Gluu",
+      "client": "Yes",
+      "server": "Yes",
+      "open_source": "Yes, MITLicense",
+      "developer": "Gluu.org",
+      "link": "http://www.gluu.org/"
+    },
+    {
+      "project_name": "Grouper",
+      "client": "Yes",
+      "server": "No",
+      "open_source": "Yes, Apache2.2",
+      "developer": "Internet2",
+      "link": "http://www.internet2.edu/products-services/trust-identity-middleware/grouper/"
+    },
+    {
+      "project_name": "IBMSecurityDirectoryIntegrator",
+      "client": "Yes",
+      "server": "Yes",
+      "open_source": "No",
+      "developer": "IBM",
+      "link": "http://www-01.ibm.com/support/knowledgecenter/SSCQGF_7.2.0/com.ibm.IBMDI.doc_7.2/scim.html?lang=en"
+    },
+    {
+      "project_name": "IngydotNet",
+      "client": "No",
+      "server": "Yes",
+      "open_source": "Yes, MIT",
+      "developer": "IngydötNet",
+      "link": "https://github.com/ingydotnet/scim-query-filter-parser-rb#readme"
+    },
+    {
+      "project_name": "Kudos",
+      "client": "No",
+      "server": "Yes",
+      "open_source": "No",
+      "developer": "KudosInc.",
+      "link": "https://www.kudosnow.com"
+    },
+    {
+      "project_name": "McAfeeProvisioningService",
+      "client": "Yes",
+      "server": "No",
+      "open_source": "No",
+      "developer": "McAfee",
+      "link": "http://www.mcafee.com"
+    },
+    {
+      "project_name": "neXusHybridAccessManager",
+      "client": "Yes",
+      "server": "No",
+      "open_source": "No",
+      "developer": "neXus",
+      "link": "http://www.nexusgroup.com/"
+    },
+    {
+      "project_name": "OktaProvisioning",
+      "client": "Yes",
+      "server": "No",
+      "open_source": "No",
+      "developer": "Okta",
+      "link": "http://developer.okta.com/docs/guides/scim_guidance.html"
+    },
+    {
+      "project_name": "OneLoginProvisioning",
+      "client": "Yes",
+      "server": "No",
+      "open_source": "No",
+      "developer": "OneLogin",
+      "link": "https://developers.onelogin.com/scim"
+    },
+    {
+      "project_name": "OpenSCIM",
+      "client": "Yes",
+      "server": "Yes",
+      "open_source": "Yes, GPLV3",
+      "developer": "Google Code",
+      "link": "http://code.google.com/p/openscim/"
+    },
+    {
+      "project_name": "PhenixIDUserProvisioningModule",
+      "client": "Yes",
+      "server": "No",
+      "open_source": "No",
+      "developer": "PhenixID",
+      "link": "http://www.phenixid.net/"
+    },
+    {
+      "project_name": "Ping DataSync (formerly UnboundID SyncServer)",
+      "client": "Yes",
+      "server": "No",
+      "open_source": "No",
+      "developer": "PingIdentity(acquirerofUnboundID)",
+      "link": "https://www.pingidentity.com/en/products/pingdirectory-and-data-server.html"
+    },
+    {
+      "project_name": "Ping Directory (formerly UnboundIDDataStore)",
+      "client": "No",
+      "server": "Yes",
+      "open_source": "No",
+      "developer": "PingIdentity (acquirer of UnboundID)",
+      "link": "https://www.pingidentity.com/en/products/pingdatasync-server.html"
+    },
+    {
+      "project_name": "PingFederate",
+      "client": "Yes",
+      "server": "Yes",
+      "open_source": "No",
+      "developer": "PingIdentity",
+      "link": "https://www.pingidentity.com/products/pingfederate/"
+    },
+    {
+      "project_name": "PingOne",
+      "client": "Yes",
+      "server": "Yes",
+      "open_source": "No",
+      "developer": "PingIdentity",
+      "link": "https://www.pingone.com/"
+    },
+    {
+      "project_name": "python-scim",
+      "client": "No",
+      "server": "No",
+      "open_source": "Yes,MITLicense",
+      "developer": "ConcordusApplications",
+      "link": "https://github.com/concordusapps/python-scim"
+    },
+    {
+      "project_name": "RadiantOneVDS",
+      "client": "Yes",
+      "server": "Yes",
+      "open_source": "No",
+      "developer": "RadiantLogic",
+      "link": "http://www.radiantlogic.com"
+    },
+    {
+      "project_name": "SailPointIdentityIQ",
+      "client": "Yes",
+      "server": "No",
+      "open_source": "No",
+      "developer": "SailPoint",
+      "link": "http://www.sailpoint.com/"
+    },
+    {
+      "project_name": "SailPointIdentityNow",
+      "client": "Yes",
+      "server": "No",
+      "open_source": "No",
+      "developer": "SailPoint",
+      "link": "http://www.sailpoint.com/"
+    },
+    {
+      "project_name": "Salesforce",
+      "client": "No",
+      "server": "Yes",
+      "open_source": "No",
+      "developer": "Salesforce",
+      "link": "http://www.salesforce.com/"
+    },
+    {
+      "project_name": "SCIMEasy",
+      "client": "No",
+      "server": "Yes",
+      "open_source": "Yes,Apache-2.0",
+      "developer": "EugeneZhukov",
+      "link": "http://ee.dy.fi/scim"
+    },
+    {
+      "project_name": "SCIMProxy",
+      "client": "Yes",
+      "server": "Yes",
+      "open_source": "Yes,MITLicense",
+      "developer": "neXus",
+      "link": "http://code.google.com/p/scimproxy/"
+    },
+    {
+      "project_name": "Slack",
+      "client": "No",
+      "server": "Yes",
+      "open_source": "No",
+      "developer": "SlackTechnologies",
+      "link": "https://slack.zendesk.com/hc/en-us/articles/212572638-Managing-team-members-with-provisioning"
+    },
+    {
+      "project_name": "SwitchIdentityGovernance",
+      "client": "Yes",
+      "server": "Yes",
+      "open_source": "No",
+      "developer": "SwitchIdentityGovernanceLtd",
+      "link": "http://www.switchresearch.com"
+    },
+    {
+      "project_name": "UnboundIDSCIM1.1SDKforJava",
+      "client": "Yes",
+      "server": "Yes",
+      "open_source": "Yes, GPL, LGPL, orUnboundIDFreeLicense.",
+      "developer": "PingIdentity(acquirerofUnboundID)",
+      "link": "https://github.com/pingidentity/scim"
+    },
+    {
+      "project_name": "VMwareIdentityManager",
+      "client": "Yes",
+      "server": "Yes",
+      "open_source": "No",
+      "developer": "VMWare",
+      "link": "https://www.vmware.com/products/identity-manager"
+    },
+    {
+      "project_name": "WSO2Charon",
+      "client": "Yes",
+      "server": "Yes",
+      "open_source": "Yes, Apache 2.0 License",
+      "developer": "WSO2Inc",
+      "link": "https://github.com/wso2/charon"
+    }
+  ]
+};

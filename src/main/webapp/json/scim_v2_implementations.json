@@ -1,0 +1,284 @@
+const scim_v2_implementations = {
+    "implementations": [
+        {
+            "project_name": "Active Directory SCIM Provisioning",
+            "client": "Yes",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "Microsoft",
+            "link": "https://azure.microsoft.com/en-us/documentation/articles/active-directory-scim-provisioning/",
+        },
+        {
+            "project_name": "AuthX",
+            "client": "Yes",
+            "server": "No",
+            "open_source": "Yes, MIT License",
+            "developer": "The Control Group",
+            "link": "https://github.com/the-control-group",
+        },
+        {
+            "project_name": "Centrify Identity Service",
+            "client": "Yes",
+            "server": "No",
+            "open_source": "No",
+            "developer": "Centrify Corporation",
+            "link": "http://www.centrify.com/products/identity-service/"
+        },
+        {
+            "project_name": "Curity Identity Server",
+            "client": "Yes",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "Curity",
+            "link": "https://curity.io"
+        },
+        {
+            "project_name": "CzechIdM SCIM module",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "Yes, MIT License",
+            "developer": "BCV solutions",
+            "link": "https://czechidm.com"
+        },
+        {
+            "project_name": "django_scim",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "Yes, MIT License",
+            "developer": "Atlassian",
+            "link": "https://bitbucket.org/atlassian/django_scim"
+        },
+        {
+            "project_name": "django-scim2",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "Yes, MIT License",
+            "developer": "Paul Logston @ 15Five",
+            "link": "https://github.com/15five/django-scim2"
+        },
+        {
+            "project_name": "eSCIMo",
+            "client": "Yes",
+            "server": "Yes",
+            "open_source": "Yes, ASL 2.0",
+            "developer": "Apache Software Foundation",
+            "link": "http://svn.apache.org/viewvc/directory/escimo/trunk/"
+        },
+        {
+            "project_name": "Federated Directory",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "Fed Blokes",
+            "link": "https://help.federated.directory/developer/users-api"
+        },
+        {
+            "project_name": "GARANCY Identity Manager",
+            "client": "Yes",
+            "server": "No",
+            "open_source": "No",
+            "developer": "Beta Systems IAM Software",
+            "link": "https://www.betasystems-iam.com"
+        },
+        {
+            "project_name": "GitHub Business SAML SSO with SCIM Provisioning",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "GitHub, Inc",
+            "link": "https://help.github.com/articles/about-scim/"
+        },
+        {
+            "project_name": "Gluu",
+            "client": "Yes",
+            "server": "Yes",
+            "open_source": "Yes, MIT License",
+            "developer": "Gluu.org",
+            "link": "https://github.com/GluuFederation",
+        },
+        {
+            "project_name": "GoSCIM",
+            "client": "No",
+            "server": "Yes (openended building blocks + an example server implementation)",
+            "open_source": "Yes, MIT License",
+            "developer": "Weinan Qiu",
+            "link": "https://github.com/davidiamyou/go-scim"
+        },
+        {
+            "project_name": "Identity Broker",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "UNIFY Solutions",
+            "link": "https://unifysolutions.net/",
+        },
+        {
+            "project_name": "Microsoft Identity Manager SCIMv2 Management Agent",
+            "client": "Yes",
+            "server": "No, but with sample service provider and test tooling to simulate Microsoft Identity Manager",
+            "open_source": "No",
+            "developer": "Traxion Development Services",
+            "link": "https://www.traxion.com/security-solutions/producten/iam-modules/"
+        },
+        {
+            "project_name": "Okta Provisioning",
+            "client": "Yes",
+            "server": "No",
+            "open_source": "No",
+            "developer": "Okta",
+            "link": "http://developer.okta.com/docs/guides/scim_guidance.html"
+        },
+        {
+            "project_name": "Omada Identity Suite",
+            "client": "Yes",
+            "server": "No",
+            "open_source": "No",
+            "developer": "Omada",
+            "link": "https://www.omada.net/"
+        },
+        {
+            "project_name": "One Identity - Identity Manager",
+            "client": "Yes",
+            "server": "No",
+            "open_source": "No",
+            "developer": "One Identity",
+            "link": "https://www.oneidentity.com/products/identity-manager/"
+        },
+        {
+            "project_name": "OneLogin Provisioning",
+            "client": "Yes",
+            "server": "No",
+            "open_source": "No",
+            "developer": "OneLogin",
+            "link": "https://developers.onelogin.com/scim"
+        },
+        {
+            "project_name": "The OptimalCloud",
+            "client": "Yes",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "Optimal IdM",
+            "link": "https://optimalidm.com/products/hosted/optimalcloud/"
+        },
+        {
+            "project_name": "Oracle Identity Manager",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "Oracle",
+            "link": "https://docs.oracle.com/cd/E52734_01/oim/OMDEV/scim.htm#OMDEV5526"
+        },
+        {
+            "project_name": "OSIAM",
+            "client": "Yes",
+            "server": "Yes",
+            "open_source": "Yes, MIT License",
+            "developer": "osiam.org team",
+            "link": "http://osiam.org"
+        },
+        {
+            "project_name": "Owin.Scim",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "Yes, MIT License",
+            "developer": "PowerDMS",
+            "link": "https://github.com/PowerDMS/Owin.Scim"
+        },
+        {
+            "project_name": "Peakon",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "Peakon",
+            "link": "https://help.peakon.com/administering-your-account/technical-information-and-language-support/scim-api-integration-guide"
+        },
+        {
+            "project_name": "PhenixID Identity Provisioning",
+            "client": "Yes",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "PhenixID",
+            "link": "https://www.phenixid.se/product/identity-provisioning/#overview"
+        },
+        {
+            "project_name": "PingDataGovernance (formerly UnboundID Data Broker)",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "Ping Identity",
+            "link": "https://www.pingidentity.com/en/products/pingdatagovernance-server.html"
+        },
+        {
+            "project_name": "RadiantOne FID",
+            "client": "Yes",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "Radiant Logic",
+            "link": "http://www.radiantlogic.com"
+        },
+        {
+            "project_name": "SailPoint IdentityIQ",
+            "client": "Yes",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "SailPoint",
+            "link": "http://www.sailpoint.com/"
+        },
+        {
+            "project_name": "SailPoint IdentityNow",
+            "client": "Yes",
+            "server": "No",
+            "open_source": "No",
+            "developer": "SailPoint",
+            "link": "http://www.sailpoint.com/"
+        },
+        {
+            "project_name": "SimpleIdentityServer",
+            "client": "Yes",
+            "server": "Yes",
+            "open_source": "Yes",
+            "developer": "Habart Thierry",
+            "link": "https://github.com/thabart/SimpleIdentityServer"
+        },
+        {
+            "project_name": "SOFFID IAM",
+            "client": "Yes",
+            "server": "Yes",
+            "open_source": "Yes",
+            "developer": "www.soffid.com",
+            "link": "http://confluence.soffid.org/display/SOF/SCIM"
+        },
+        {
+            "project_name": "Syncope",
+            "client": "Yes",
+            "server": "Yes",
+            "open_source": "Yes, ASL 2.0",
+            "developer": "Apache Software Foundation",
+            "link": "http://syncope.apache.org"
+        },
+        {
+            "project_name": "Trello",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "Trello",
+            "link": "https://developers.trello.com/advanced-reference/scim"
+        },
+        {
+            "project_name": "UnboundID SCIM 2 SDK for Java",
+            "client": "Yes",
+            "server": "Yes",
+            "open_source": "Yes. GPL, LGPL, or UnboundID Free License.",
+            "developer": "Ping Identity (acquirer of UnboundID)",
+            "link": "https://github.com/pingidentity/scim2"
+        },
+        {
+            "project_name": "WSO2 Charon",
+            "client": "Yes",
+            "server": "Yes",
+            "open_source": "Apache 2.0 License",
+            "developer": "WSO2 Inc",
+            "link": "https://github.com/wso2/charon"
+        },
+    ]
+};
