@@ -105,6 +105,14 @@ const scim_v2_implementations = {
             "link": "https://github.com/davidiamyou/go-scim"
         },
         {
+            "project_name": "hscim",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "Yes, AGPL License",
+            "developer": "Wire Swiss GmbH",
+            "link": "https://github.com/wireapp/hscim"
+        },
+        {
             "project_name": "Identity Broker",
             "client": "No",
             "server": "Yes",
