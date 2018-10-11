@@ -170,7 +170,7 @@ const scim_v2_implementations = {
         },
         {
             "project_name": "Oracle Identity Cloud Service",
-            "client": "No",
+            "client": "Yes",
             "server": "Yes",
             "open_source": "No",
             "developer": "Oracle",
