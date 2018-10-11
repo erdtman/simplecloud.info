@@ -169,6 +169,14 @@ const scim_v2_implementations = {
             "link": "https://optimalidm.com/products/hosted/optimalcloud/"
         },
         {
+            "project_name": "Oracle Identity Cloud Service",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "Oracle",
+            "link": "https://docs.oracle.com/en/cloud/paas/identity-cloud/rest-api/index.html"
+        },
+        {
             "project_name": "Oracle Identity Manager",
             "client": "No",
             "server": "Yes",
