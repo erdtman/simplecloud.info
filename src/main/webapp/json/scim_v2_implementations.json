@@ -296,5 +296,13 @@ const scim_v2_implementations = {
             "developer": "WSO2 Inc",
             "link": "https://github.com/wso2/charon"
         },
+        {
+          "project_name": "Reward Gateway",
+          "client": "No",
+          "server": "Yes",
+          "open_source": "No",
+          "developer": "Reward Gateway",
+          "link": "https://success.rewardgateway.com/provisioning/scim-api"
+        }
     ]
 };
