@@ -249,6 +249,14 @@ const scim_v2_implementations = {
             "link": "http://www.sailpoint.com/"
         },
         {
+          "project_name": "Salesforce",
+          "client": "No",
+          "server": "Yes",
+          "open_source": "No",
+          "developer": "Salesforce",
+          "link": "https://releasenotes.docs.salesforce.com/en-us/winter19/release-notes/rn_identity_scim_2_0.htm"
+        },
+        {
             "project_name": "SimpleIdentityServer",
             "client": "Yes",
             "server": "Yes",
