@@ -257,6 +257,14 @@ const scim_v2_implementations = {
           "link": "https://releasenotes.docs.salesforce.com/en-us/winter19/release-notes/rn_identity_scim_2_0.htm"
         },
         {
+            "project_name": "scim",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "Yes, MIT License",
+            "developer": "Elimity",
+            "link": "https://github.com/elimity-com/scim"
+        },
+        {
             "project_name": "SimpleIdentityServer",
             "client": "Yes",
             "server": "Yes",
