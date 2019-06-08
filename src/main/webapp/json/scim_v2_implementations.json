@@ -17,6 +17,14 @@ const scim_v2_implementations = {
             "link": "https://github.com/the-control-group",
         },
         {
+            "project_name": "Centrify Privileged Access Security",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "Centrify Corporation",
+            "link": "https://developer.centrify.com/"
+        },
+        {
             "project_name": "Idaptive",
             "client": "Yes",
             "server": "Yes",
