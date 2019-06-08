@@ -17,12 +17,12 @@ const scim_v2_implementations = {
             "link": "https://github.com/the-control-group",
         },
         {
-            "project_name": "Centrify Identity Service",
+            "project_name": "Idaptive",
             "client": "Yes",
-            "server": "No",
+            "server": "Yes",
             "open_source": "No",
-            "developer": "Centrify Corporation",
-            "link": "http://www.centrify.com/products/identity-service/"
+            "developer": "Idaptive",
+            "link": "https://www.idaptive.com/"
         },
         {
             "project_name": "Curity Identity Server",
