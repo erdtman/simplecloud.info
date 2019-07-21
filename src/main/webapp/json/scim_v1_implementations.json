@@ -1,7 +1,7 @@
 const scim_v1_implementations = {
   "implementations": [
     {
-      "project_name": "CADirectory",
+      "project_name": "CA Directory",
       "client": "No",
       "server": "Yes",
       "open_source": "No",
@@ -9,7 +9,7 @@ const scim_v1_implementations = {
       "link": "https://wiki.ca.com/display/CAD1216/Deploy+the+CA+Directory+SCIM+Server"
     },
     {
-      "project_name": "CAIdentityManager",
+      "project_name": "CA Identity Manager",
       "client": "Yes",
       "server": "No",
       "open_source": "No",
@@ -25,7 +25,7 @@ const scim_v1_implementations = {
       "link": "http://www.cisco.com/"
     },
     {
-      "project_name": "CloudFoundryUAA",
+      "project_name": "Cloud Foundry UAA",
       "client": "Yes",
       "server": "Yes",
       "open_source": "Yes, Apache2.0",
@@ -49,7 +49,7 @@ const scim_v1_implementations = {
       "link": "https://github.com/Evolveum/connector-scim1"
     },
     {
-      "project_name": "CurityIdentityServer",
+      "project_name": "Curity Identity Server",
       "client": "Yes",
       "server": "No",
       "open_source": "No",
@@ -57,7 +57,7 @@ const scim_v1_implementations = {
       "link": "https://curity.io"
     },
     {
-      "project_name": "ForgeRockIdentityManagement(IDM)",
+      "project_name": "ForgeRock Identity Management(IDM)",
       "client": "Yes",
       "server": "No",
       "open_source": "Partial(delayed release), MIT, et.al",
@@ -65,7 +65,7 @@ const scim_v1_implementations = {
       "link": "https://www.forgerock.com/platform/identity-management/"
     },
     {
-      "project_name": "GARANCYIdentityManager",
+      "project_name": "GARANCY Identity Manager",
       "client": "Yes",
       "server": "No",
       "open_source": "No",
@@ -89,7 +89,7 @@ const scim_v1_implementations = {
       "link": "http://www.internet2.edu/products-services/trust-identity-middleware/grouper/"
     },
     {
-      "project_name": "IBMSecurityDirectoryIntegrator",
+      "project_name": "IBM Security Directory Integrator",
       "client": "Yes",
       "server": "Yes",
       "open_source": "No",
@@ -113,7 +113,7 @@ const scim_v1_implementations = {
       "link": "https://www.kudosnow.com"
     },
     {
-      "project_name": "McAfeeProvisioningService",
+      "project_name": "McAfee Provisioning Service",
       "client": "Yes",
       "server": "No",
       "open_source": "No",
@@ -121,7 +121,7 @@ const scim_v1_implementations = {
       "link": "http://www.mcafee.com"
     },
     {
-      "project_name": "neXusHybridAccessManager",
+      "project_name": "neXus Hybrid Access Manager",
       "client": "Yes",
       "server": "No",
       "open_source": "No",
@@ -129,7 +129,7 @@ const scim_v1_implementations = {
       "link": "http://www.nexusgroup.com/"
     },
     {
-      "project_name": "OktaProvisioning",
+      "project_name": "Okta Provisioning",
       "client": "Yes",
       "server": "No",
       "open_source": "No",
@@ -137,7 +137,7 @@ const scim_v1_implementations = {
       "link": "http://developer.okta.com/docs/guides/scim_guidance.html"
     },
     {
-      "project_name": "OneLoginProvisioning",
+      "project_name": "One Login Provisioning",
       "client": "Yes",
       "server": "No",
       "open_source": "No",
@@ -145,7 +145,7 @@ const scim_v1_implementations = {
       "link": "https://developers.onelogin.com/scim"
     },
     {
-      "project_name": "OpenSCIM",
+      "project_name": "Open SCIM",
       "client": "Yes",
       "server": "Yes",
       "open_source": "Yes, GPLV3",
@@ -153,7 +153,7 @@ const scim_v1_implementations = {
       "link": "http://code.google.com/p/openscim/"
     },
     {
-      "project_name": "PhenixIDUserProvisioningModule",
+      "project_name": "PhenixID User Provisioning Module",
       "client": "Yes",
       "server": "No",
       "open_source": "No",
@@ -201,7 +201,7 @@ const scim_v1_implementations = {
       "link": "https://github.com/concordusapps/python-scim"
     },
     {
-      "project_name": "RadiantOneVDS",
+      "project_name": "Radiant One VDS",
       "client": "Yes",
       "server": "Yes",
       "open_source": "No",
@@ -209,7 +209,7 @@ const scim_v1_implementations = {
       "link": "http://www.radiantlogic.com"
     },
     {
-      "project_name": "SailPointIdentityIQ",
+      "project_name": "SailPoint Identity IQ",
       "client": "Yes",
       "server": "No",
       "open_source": "No",
@@ -217,7 +217,7 @@ const scim_v1_implementations = {
       "link": "http://www.sailpoint.com/"
     },
     {
-      "project_name": "SailPointIdentityNow",
+      "project_name": "SailPoint Identity Now",
       "client": "Yes",
       "server": "No",
       "open_source": "No",
@@ -257,7 +257,7 @@ const scim_v1_implementations = {
       "link": "https://slack.zendesk.com/hc/en-us/articles/212572638-Managing-team-members-with-provisioning"
     },
     {
-      "project_name": "SwitchIdentityGovernance",
+      "project_name": "Switch Identity Governance",
       "client": "Yes",
       "server": "Yes",
       "open_source": "No",
@@ -265,7 +265,7 @@ const scim_v1_implementations = {
       "link": "http://www.switchresearch.com"
     },
     {
-      "project_name": "UnboundIDSCIM1.1SDKforJava",
+      "project_name": "UnboundID SCIM1.1 SDK for Java",
       "client": "Yes",
       "server": "Yes",
       "open_source": "Yes, GPL, LGPL, orUnboundIDFreeLicense.",
@@ -273,7 +273,7 @@ const scim_v1_implementations = {
       "link": "https://github.com/pingidentity/scim"
     },
     {
-      "project_name": "VMwareIdentityManager",
+      "project_name": "VMware Identity Manager",
       "client": "Yes",
       "server": "Yes",
       "open_source": "No",
