@@ -129,6 +129,14 @@ const scim_v2_implementations = {
             "link": "https://unifysolutions.net/",
         },
         {
+            "project_name": "Keycloak",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "Yes, ASL 2.0",
+            "developer": "Red Hat",
+            "link": "https://www.keycloak.org/",
+        },
+        {
             "project_name": "Microsoft Identity Manager SCIMv2 Management Agent",
             "client": "Yes",
             "server": "No, but with sample service provider and test tooling to simulate Microsoft Identity Manager",
