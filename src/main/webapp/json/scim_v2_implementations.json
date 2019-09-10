@@ -257,12 +257,12 @@ const scim_v2_implementations = {
             "link": "http://www.sailpoint.com/"
         },
         {
-          "project_name": "Salesforce",
-          "client": "No",
-          "server": "Yes",
-          "open_source": "No",
-          "developer": "Salesforce",
-          "link": "https://releasenotes.docs.salesforce.com/en-us/winter19/release-notes/rn_identity_scim_2_0.htm"
+            "project_name": "Salesforce",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "Salesforce",
+            "link": "https://releasenotes.docs.salesforce.com/en-us/winter19/release-notes/rn_identity_scim_2_0.htm"
         },
         {
             "project_name": "scim",
@@ -321,20 +321,28 @@ const scim_v2_implementations = {
             "link": "https://github.com/wso2/charon"
         },
         {
-          "project_name": "Reward Gateway",
-          "client": "No",
-          "server": "Yes",
-          "open_source": "No",
-          "developer": "Reward Gateway",
-          "link": "https://success.rewardgateway.com/provisioning/scim-api"
+            "project_name": "Reward Gateway",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "Reward Gateway",
+            "link": "https://success.rewardgateway.com/provisioning/scim-api"
         },
-         {
-          "project_name": "CircleHD",
-          "client": "No",
-          "server": "Yes",
-          "open_source": "No",
-          "developer": "CircleHD Inc.",
-          "link": "https://help.circlehd.com/developers-sdk/scim"
-        }
+        {
+            "project_name": "CircleHD",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "CircleHD Inc.",
+            "link": "https://help.circlehd.com/developers-sdk/scim"
+        },
+        {
+            "project_name": "personify scim server",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "Yes MIT License",
+            "developer": "personify.be",
+            "link": "https://bitbucket.org/wouter29/personify-scim-server/",
+        },
     ]
 };
