@@ -26,7 +26,7 @@ const scim_v1_implementations = {
     },
     {
       "project_name": "Cloud Foundry UAA",
-      "client": "Yes",
+      "client": "No",
       "server": "Yes",
       "open_source": "Yes, Apache2.0",
       "developer": "Pivotal",
