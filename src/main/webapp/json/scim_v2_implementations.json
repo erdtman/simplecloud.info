@@ -344,5 +344,13 @@ const scim_v2_implementations = {
             "developer": "personify.be",
             "link": "https://bitbucket.org/wouter29/personify-scim-server/",
         },
+        {
+            "project_name": "Aquera SCIM Gateway",
+            "client": "Yes",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "Aquera",
+            "link": "https://aquera.com",
+        },
     ]
 };
