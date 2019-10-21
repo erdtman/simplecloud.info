@@ -70,7 +70,7 @@ const scim_v2_implementations = {
             "server": "Yes",
             "open_source": "Yes, ASL 2.0",
             "developer": "Apache Software Foundation",
-            "link": "http://svn.apache.org/viewvc/directory/escimo/trunk/"
+            "link": "https://svn.apache.org/viewvc/directory/escimo/trunk/"
         },
         {
             "project_name": "Federated Directory",
@@ -150,7 +150,7 @@ const scim_v2_implementations = {
             "server": "No",
             "open_source": "No",
             "developer": "Okta",
-            "link": "http://developer.okta.com/docs/guides/scim_guidance.html"
+            "link": "https://developer.okta.com/docs/reference/scim/"
         },
         {
             "project_name": "Omada Identity Suite",
@@ -238,7 +238,7 @@ const scim_v2_implementations = {
             "server": "Yes",
             "open_source": "No",
             "developer": "Radiant Logic",
-            "link": "http://www.radiantlogic.com"
+            "link": "https://www.radiantlogic.com"
         },
         {
             "project_name": "SailPoint IdentityIQ",
@@ -246,7 +246,7 @@ const scim_v2_implementations = {
             "server": "Yes",
             "open_source": "No",
             "developer": "SailPoint",
-            "link": "http://www.sailpoint.com/"
+            "link": "https://www.sailpoint.com/"
         },
         {
             "project_name": "SailPoint IdentityNow",
@@ -254,7 +254,7 @@ const scim_v2_implementations = {
             "server": "No",
             "open_source": "No",
             "developer": "SailPoint",
-            "link": "http://www.sailpoint.com/"
+            "link": "https://www.sailpoint.com/"
         },
         {
             "project_name": "Salesforce",
@@ -294,7 +294,7 @@ const scim_v2_implementations = {
             "server": "Yes",
             "open_source": "Yes, ASL 2.0",
             "developer": "Apache Software Foundation",
-            "link": "http://syncope.apache.org"
+            "link": "https://syncope.apache.org"
         },
         {
             "project_name": "Trello",
