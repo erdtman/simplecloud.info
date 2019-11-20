@@ -344,5 +344,13 @@ const scim_v2_implementations = {
             "developer": "Aquera",
             "link": "https://aquera.com",
         },
+        {
+            "project_name": "SCIM-SDK",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "Yes, BSD-3-Clause",
+            "developer": "Pascal Knüppel",
+            "link": "https://github.com/Captain-P-Goldfish/SCIM-SDK",
+        },
     ]
 };
