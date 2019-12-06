@@ -352,5 +352,13 @@ const scim_v2_implementations = {
             "developer": "Pascal Knüppel",
             "link": "https://github.com/Captain-P-Goldfish/SCIM-SDK",
         },
+        {
+            "project_name": "idaas.nl",
+            "client": "Yes",
+            "server": "Yes",
+            "open_source": "Yes, MIT License",
+            "developer": "Arie Timmerman",
+            "link": "https://www.idaas.nl/guide/scim.html",
+        },
     ]
 };
