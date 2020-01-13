@@ -346,7 +346,7 @@ const scim_v2_implementations = {
         },
         {
             "project_name": "SCIM-SDK",
-            "client": "No",
+            "client": "Yes",
             "server": "Yes",
             "open_source": "Yes, BSD-3-Clause",
             "developer": "Pascal Knüppel",
