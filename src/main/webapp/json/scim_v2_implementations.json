@@ -360,5 +360,13 @@ const scim_v2_implementations = {
             "developer": "Arie Timmerman",
             "link": "https://www.idaas.nl/guide/scim.html",
         },
+        {
+            "project_name": "scim-patch",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "Yes, Unlicense",
+            "developer": "Thomas Poignant",
+            "link": "https://github.com/thomaspoignant/scim-patch",
+        },
     ]
 };
