@@ -129,12 +129,12 @@ const scim_v2_implementations = {
             "link": "https://unifysolutions.net/",
         },
         {
-            "project_name": "Microsoft Identity Manager SCIMv2 Management Agent",
+            "project_name": "Microsoft Identity Manager (MIM) - SCIMv2 Management Agent",
             "client": "Yes",
-            "server": "No, but with sample service provider and test tooling to simulate Microsoft Identity Manager",
+            "server": "No",
             "open_source": "No",
-            "developer": "Traxion Development Services",
-            "link": "https://www.traxion.com/security-solutions/producten/iam-modules/"
+            "developer": "Traxion",
+            "link": "https://www.traxion.com/producten/iam-integration/"
         },
         {
             "project_name": "Okta Provisioning",
