@@ -368,5 +368,13 @@ const scim_v2_implementations = {
             "developer": "Thomas Poignant",
             "link": "https://github.com/thomaspoignant/scim-patch",
         },
+        {
+            "project_name": "Eletive",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "Np",
+            "developer": "Eletive",
+            "link": "https://eletive.com/",
+        },
     ]
 };
