@@ -372,7 +372,7 @@ const scim_v2_implementations = {
             "project_name": "Eletive",
             "client": "No",
             "server": "Yes",
-            "open_source": "Np",
+            "open_source": "No",
             "developer": "Eletive",
             "link": "https://eletive.com/",
         },
