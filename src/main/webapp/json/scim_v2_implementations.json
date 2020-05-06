@@ -9,6 +9,14 @@ const scim_v2_implementations = {
             "link": "https://azure.microsoft.com/en-us/documentation/articles/active-directory-scim-provisioning/",
         },
         {
+            "project_name": "G-Suite SCIM Provisioning",
+            "client": "Yes",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "Google",
+            "link": "https://developers.google.com/admin-sdk",
+        },
+        {
             "project_name": "AuthX",
             "client": "Yes",
             "server": "No",
