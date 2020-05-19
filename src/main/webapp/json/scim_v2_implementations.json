@@ -376,5 +376,13 @@ const scim_v2_implementations = {
             "developer": "Eletive",
             "link": "https://eletive.com/",
         },
+        {
+            "project_name": "CrossID",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "CrossID",
+            "link": "https://crossid.io/",
+        },
     ]
 };
