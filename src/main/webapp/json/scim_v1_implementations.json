@@ -105,6 +105,14 @@ const scim_v1_implementations = {
       "link": "https://github.com/ingydotnet/scim-query-filter-parser-rb#readme"
     },
     {
+      "project_name": "JumpCloud",
+      "client": "Yes",
+      "server": "No",
+      "open_source": "No",
+      "developer": "JumpCloud",
+      "link": "https://jumpcloud.com/product/single-sign-on"
+    },
+    {
       "project_name": "Kudos",
       "client": "No",
       "server": "Yes",
