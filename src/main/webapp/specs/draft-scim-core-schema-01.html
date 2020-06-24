@@ -498,8 +498,8 @@ Multi-valued Attributes</h3>
 </dd><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
 {
   "emails": [
-    {"value":"bjensen@example.com"},
-    {"value":"babs@example.com"}
+    {"value":"dschrute@example.com"},
+    {"value":"recyclops@example.com"}
   ]
 }
 </pre></div>
@@ -507,7 +507,7 @@ Multi-valued Attributes</h3>
 <dd>May also be represented as:
 </dd><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
 {
-  "emails": ["bjensen@example.com","babs@example.com"]
+  "emails": ["dschrute@example.com","recyclops@example.com"]
 }
 
 </pre></div>
@@ -679,32 +679,32 @@ Singular Attributes</h3>
 <dt>formatted</dt>
 <dd>The full name, including all middle
                 names, titles, and suffixes as appropriate, formatted for
-                display (e.g. Ms. Barbara Jane Jensen, III.).
+                display (e.g. Mr. Dwight Kurt Schrute, III.).
 </dd>
 <dt>familyName</dt>
 <dd>The family name of the User, or "Last
-                Name" in most Western languages (e.g. Jensen given the full
-                name Ms. Barbara Jane Jensen, III.).
+                Name" in most Western languages (e.g. Schrute given the full
+                name Mr. Dwight Kurt Schrute, III.).
 </dd>
 <dt>givenName</dt>
 <dd>The given name of the User, or "First
-                Name" in most Western languages (e.g. Barbara given the full
-                name Ms. Barbara Jane Jensen, III.).
+                Name" in most Western languages (e.g. Dwight given the full
+                name Mr. Dwight Kurt Schrute, III.).
 </dd>
 <dt>middleName</dt>
 <dd>The middle name(s) of the User (e.g.
-                Jane given the full name Ms. Barbara Jane Jensen, III.).
+                Kurt given the full name Mr. Dwight Kurt Schrute, III.).
                 
 </dd>
 <dt>honorificPrefix</dt>
 <dd>The honorific prefix(es) of the
-                User, or "Title" in most Western languages (e.g. Ms. given the
-                full name Ms. Barbara Jane Jensen, III.).
+                User, or "Title" in most Western languages (e.g. Mr. given the
+                full name Mr. Dwight Kurt Schrute, III.).
 </dd>
 <dt>honorificSuffix</dt>
 <dd>The honorific suffix(es) of the
                 User, or "Suffix" in most Western languages (e.g. III. given
-                the full name Ms. Barbara Jane Jensen, III.).
+                the full name Mr. Dwight Kurt Schrute, III.).
 </dd>
 </dl></blockquote>
 </dd>
@@ -712,17 +712,17 @@ Singular Attributes</h3>
 <dd>The name of the User, suitable for
             display to end-users. Each User returned MAY include a non-empty
             displayName value. The name SHOULD be the full name of the User
-            being described if known (e.g. Babs Jensen or Ms. Barbara J
-            Jensen, III), but MAY be a username or handle, if that is all that
-            is available (e.g. bjensen). The value provided SHOULD be the
+            being described if known (e.g. Dwight Schrute or Mr. Dwight J
+            Schrute, III), but MAY be a username or handle, if that is all that
+            is available (e.g. dschrute). The value provided SHOULD be the
             primary textual label by which this User is normally displayed by
             the Service Provider when presenting it to end-users.
 </dd>
 <dt>nickName</dt>
 <dd>The casual way to address the user in real
             life, e.g. "Bob" or "Bobby" instead of "Robert". This attribute
-            SHOULD NOT be used to represent a User's username (e.g. bjensen or
-            mpepperidge).
+            SHOULD NOT be used to represent a User's username (e.g. dschrute or
+            jhalpert).
 </dd>
 <dt>profileUrl</dt>
 <dd>A fully qualified URL to a page representing the User's
@@ -786,7 +786,7 @@ Multi-valued Attributes</h3>
 <dt>emails</dt>
 <dd>E-mail addresses for the User. The value
             SHOULD be canonicalized by the Service Provider, e.g.
-            bjensen@example.com instead of bjensen@EXAMPLE.COM. Canonical Type
+            dschrute@example.com instead of dschrute@EXAMPLE.COM. Canonical Type
             values of work, home, and other.
 </dd>
 <dt>phoneNumbers</dt>
@@ -1268,7 +1268,7 @@ Minimal User Representation</h3>
 {
   "schemas": ["urn:scim:schemas:core:1.0"],
   "id": "2819c223-7f76-453a-919d-413861904646",
-  "userName": "bjensen@example.com"
+  "userName": "dschrute@example.com"
 }
 
 </pre></div>
@@ -1285,26 +1285,26 @@ Full User Representation</h3>
   "schemas": ["urn:scim:schemas:core:1.0"],
   "id": "2819c223-7f76-453a-919d-413861904646",
   "externalId": "701984",
-  "userName": "bjensen@example.com",
+  "userName": "dschrute@example.com",
   "name": {
-    "formatted": "Ms. Barbara J Jensen III",
-    "familyName": "Jensen",
-    "givenName": "Barbara",
-    "middleName": "Jane",
-    "honorificPrefix": "Ms.",
+    "formatted": "Mr. Dwight Kurt Schrute III",
+    "familyName": "Schrute",
+    "givenName": "Dwight",
+    "middleName": "Kurt",
+    "honorificPrefix": "Mr.",
     "honorificSuffix": "III"
   },
-  "displayName": "Babs Jensen",
-  "nickName": "Babs",
-  "profileUrl": "https://login.example.com/bjensen",
+  "displayName": "Dwight Schrute",
+  "nickName": "Recyclops",
+  "profileUrl": "https://login.example.com/dschrute",
   "emails": [
     {
-      "value": "bjensen@example.com",
+      "value": "dschrute@example.com",
       "type": "work",
       "primary": true
     },
     {
-      "value": "babs@jensen.org",
+      "value": "dwight@schrute.org",
       "type": "home"
     }
   ],
@@ -1356,7 +1356,7 @@ Full User Representation</h3>
     }
   ],
   "userType": "Employee",
-  "title": "Tour Guide",
+  "title": "Sales Rep",
   "preferredLanguage":"en_US",
   "locale": "en_US",
   "timezone": "America/Los_Angeles",
@@ -1364,7 +1364,7 @@ Full User Representation</h3>
   "password":"t1meMa$heen",
   "groups": [
     {
-      "display": "Tour Guides",
+      "display": "Sales Reps",
       "value": "00300000005N2Y6AA"
     },
     {
@@ -1419,26 +1419,26 @@ Enterprise User Extension Representation</h3>
   "schemas": ["urn:scim:schemas:core:1.0", "urn:scim:schemas:extension:enterprise:1.0"],
   "id": "2819c223-7f76-453a-919d-413861904646",
   "externalId": "701984",
-  "userName": "bjensen@example.com",
+  "userName": "dschrute@example.com",
   "name": {
-    "formatted": "Ms. Barbara J Jensen III",
-    "familyName": "Jensen",
-    "givenName": "Barbara",
-    "middleName": "Jane",
-    "honorificPrefix": "Ms.",
+    "formatted": "Mr. Dwight Kurt Schrute III",
+    "familyName": "Schrute",
+    "givenName": "Dwight",
+    "middleName": "Kurt",
+    "honorificPrefix": "Mr.",
     "honorificSuffix": "III"
   },
-  "displayName": "Babs Jensen",
-  "nickName": "Babs",
-  "profileUrl": "https://login.example.com/bjensen",
+  "displayName": "Dwight Schrute",
+  "nickName": "Recyclops",
+  "profileUrl": "https://login.example.com/dschrute",
   "emails": [
     {
-      "value": "bjensen@example.com",
+      "value": "dschrute@example.com",
       "type": "work",
       "primary": true
     },
     {
-      "value": "babs@jensen.org",
+      "value": "dwight@schrute.org",
       "type": "home"
     }
   ],
@@ -1490,7 +1490,7 @@ Enterprise User Extension Representation</h3>
     }
   ],
   "userType": "Employee",
-  "title": "Tour Guide",
+  "title": "Sales Rep",
   "preferredLanguage":"en_US",
   "locale": "en_US",
   "timezone": "America/Los_Angeles",
@@ -1499,7 +1499,7 @@ Enterprise User Extension Representation</h3>
   "groups": [
     {
       "value": "e9e30dba-f08f-4109-8486-d5c6a331660a",
-      "display": "Tour Guides"
+      "display": "Sales Reps"
     },
     {
       "value": "fc348aa8-3835-40eb-a20b-c726e15c55b5",
@@ -1537,7 +1537,7 @@ Enterprise User Extension Representation</h3>
     "costCenter": "4130",
     "organization": "Universal Studios",
     "division": "Theme Park",
-    "department": "Tour Operations",
+    "department": "Sales Operations",
     "manager": {
       "managerId": "26118915-6090-4610-87e4-49d8ca9f808d",
       "displayName": "John Smith"
@@ -1564,15 +1564,15 @@ Group Representation</h3>
 {
   "schemas": ["urn:scim:schemas:core:1.0"],
   "id": "e9e30dba-f08f-4109-8486-d5c6a331660a",
-  "displayName": "Tour Guides",
+  "displayName": "Sales Reps",
   "members": [
     {
       "value": "2819c223-7f76-453a-919d-413861904646",
-      "display": "Babs Jensen"
+      "display": "Dwight Schrute"
     },
     {
       "value": "902c246b-6245-4190-8e05-00816be7344a",
-      "display": "Mandy Pepperidge"
+      "display": "Jim Halpert"
     }
   ]
 }
@@ -1672,7 +1672,7 @@ Resource Schema Representation</h3>
           "name":"formatted",
           "type":"string",
           "multiValued":false,
-          "description":"The full name, including all middle names, titles, and suffixes as appropriate, formatted for display (e.g. Ms. Barbara J Jensen, III.)." ,
+          "description":"The full name, including all middle names, titles, and suffixes as appropriate, formatted for display (e.g. Mr. Dwight K Schrute, III.)." ,
           "readOnly":false,
           "required":false,
           "caseExact":false
@@ -1681,7 +1681,7 @@ Resource Schema Representation</h3>
           "name":"familyName",
           "type":"string",
           "multiValued":false,
-          "description":"The family name of the User, or Last Name in most Western languages (e.g. Jensen given the full name Ms. Barbara J Jensen, III.).",
+          "description":"The family name of the User, or Last Name in most Western languages (e.g. Schrute given the full name Mr. Dwight K Schrute, III.).",
           "readOnly":false,
           "required":false,
           "caseExact":false
@@ -1690,7 +1690,7 @@ Resource Schema Representation</h3>
           "name":"givenName",
           "type":"string",
           "multiValued":false,
-          "description":"The given name of the User, or First Name in most Western languages (e.g. Barbara given the full name Ms. Barbara J Jensen, III.).",
+          "description":"The given name of the User, or First Name in most Western languages (e.g. Dwight given the full name Mr. Dwight K Schrute, III.).",
           "readOnly":false,
           "required":false,
           "caseExact":false
@@ -1699,7 +1699,7 @@ Resource Schema Representation</h3>
           "name":"middleName",
           "type":"string",
           "multiValued":false,
-          "description":"The middle name(s) of the User (e.g. Robert given the full name Ms. Barbara J Jensen, III.).",
+          "description":"The middle name(s) of the User (e.g. Robert given the full name Mr. Dwight K Schrute, III.).",
           "readOnly":false,
           "required":false,
           "caseExact":false
@@ -1708,7 +1708,7 @@ Resource Schema Representation</h3>
           "name":"honorificPrefix",
           "type":"string",
           "multiValued":false,
-          "description":"The honorific prefix(es) of the User, or Title in most Western languages (e.g. Ms. given the full name Ms. Barbara J Jensen, III.).",
+          "description":"The honorific prefix(es) of the User, or Title in most Western languages (e.g. Mr. given the full name Mr. Dwight K Schrute, III.).",
           "readOnly":false,
           "required":false,
           "caseExact":false
@@ -1717,7 +1717,7 @@ Resource Schema Representation</h3>
           "name":"honorificSuffix",
           "type":"string",
           "multiValued":false,
-          "description":"The honorific suffix(es) of the User, or Suffix in most Western languages (e.g. III. given the full name Ms. Barbara J Jensen, III.).",
+          "description":"The honorific suffix(es) of the User, or Suffix in most Western languages (e.g. III. given the full name Mr. Dwight K Schrute, III.).",
           "readOnly":false,
           "required":false,
           "caseExact":false
@@ -1729,7 +1729,7 @@ Resource Schema Representation</h3>
        "type":"complex",
        "multiValued":true,
        "multiValuedAttributeChildName":"email",
-       "description":"E-mail addresses for the user. The value SHOULD be canonicalized by the Service Provider, e.g. bjensen@example.com instead of bjensen@EXAMPLE.COM. Canonical Type values of work, home, and other.",
+       "description":"E-mail addresses for the user. The value SHOULD be canonicalized by the Service Provider, e.g. dschrute@example.com instead of dschrute@EXAMPLE.COM. Canonical Type values of work, home, and other.",
        "schema":"urn:scim:schemas:core:1.0",
        "readOnly":false,
        "required":false,
@@ -1739,7 +1739,7 @@ Resource Schema Representation</h3>
            "name":"value",
            "type":"string",
            "multiValued":false,
-           "description":"E-mail addresses for the user. The value SHOULD be canonicalized by the Service Provider, e.g. bjensen@example.com instead of bjensen@EXAMPLE.COM. Canonical Type values of work, home, and other.",
+           "description":"E-mail addresses for the user. The value SHOULD be canonicalized by the Service Provider, e.g. dschrute@example.com instead of dschrute@EXAMPLE.COM. Canonical Type values of work, home, and other.",
            "readOnly":false,
            "required":false,
            "caseExact":false
@@ -1880,7 +1880,7 @@ Minimal Representation</h3>
 
 &lt;User xmlns="urn:scim:schemas:core:1.0"&gt;
   &lt;id&gt;2819c223-7f76-453a-919d-413861904646&lt;/id&gt;
-  &lt;userName&gt;bjensen@example.com&lt;/userName&gt;
+  &lt;userName&gt;dschrute@example.com&lt;/userName&gt;
 &lt;/User&gt;
 
 </pre></div>
@@ -1896,26 +1896,26 @@ Full Representation</h3>
 &lt;User xmlns="urn:scim:schemas:core:1.0"&gt;
   &lt;id&gt;2819c223-7f76-453a-919d-413861904646&lt;/id&gt;
   &lt;externalId&gt;701984&lt;/externalId&gt;
-  &lt;userName&gt;bjensen@example.com&lt;/userName&gt;
+  &lt;userName&gt;dschrute@example.com&lt;/userName&gt;
   &lt;name&gt;
-    &lt;formatted&gt;Ms. Babs J Jensen III&lt;/formatted&gt;
-    &lt;familyName&gt;Jensen&lt;/familyName&gt;
-    &lt;givenName&gt;Barbara&lt;/givenName&gt;
-    &lt;middleName&gt;Jane&lt;/middleName&gt;
-    &lt;honorificPrefix&gt;Ms.&lt;/honorificPrefix&gt;
+    &lt;formatted&gt;Mr. Dwight K Schrute III&lt;/formatted&gt;
+    &lt;familyName&gt;Schrute&lt;/familyName&gt;
+    &lt;givenName&gt;Dwight&lt;/givenName&gt;
+    &lt;middleName&gt;Kurt&lt;/middleName&gt;
+    &lt;honorificPrefix&gt;Mr.&lt;/honorificPrefix&gt;
     &lt;honorificSuffix&gt;III&lt;/honorificSuffix&gt;
   &lt;/name&gt;
-  &lt;displayName&gt;Babs Jensen&lt;/displayName&gt;
-  &lt;nickName&gt;Babs&lt;/nickName&gt;
-  &lt;profileUrl&gt;https://login.example.com/bjensen&lt;/profileUrl&gt;
+  &lt;displayName&gt;Dwight Schrute&lt;/displayName&gt;
+  &lt;nickName&gt;Recyclops&lt;/nickName&gt;
+  &lt;profileUrl&gt;https://login.example.com/dschrute&lt;/profileUrl&gt;
   &lt;emails&gt;
     &lt;email&gt;
-      &lt;value&gt;bjensen@example.com&lt;/value&gt;
+      &lt;value&gt;dschrute@example.com&lt;/value&gt;
       &lt;type&gt;work&lt;/type&gt;
       &lt;primary&gt;true&lt;/primary&gt;
     &lt;/email&gt;
     &lt;email&gt;
-      &lt;value&gt;babs@jensen.com&lt;/value&gt;
+      &lt;value&gt;dwight@schrute.org&lt;/value&gt;
       &lt;type&gt;home&lt;/type&gt;
     &lt;/email&gt;
   &lt;/emails&gt;
@@ -1967,7 +1967,7 @@ Full Representation</h3>
     &lt;/photo&gt;
   &lt;/photos&gt;
   &lt;userType&gt;Employee&lt;/userType&gt;
-  &lt;title&gt;Tour Guide&lt;/title&gt;
+  &lt;title&gt;Sales Rep&lt;/title&gt;
   &lt;preferredLanguage&gt;en_US&lt;/preferredLanguage&gt;
   &lt;locale&gt;en_US&lt;/locale&gt;
   &lt;timezone&gt;America/Los_Angeles&lt;/timezone&gt;
@@ -1976,7 +1976,7 @@ Full Representation</h3>
   &lt;groups&gt;
     &lt;group&gt;
       &lt;value&gt;e9e30dba-f08f-4109-8486-d5c6a331660a&lt;/value&gt;
-      &lt;display&gt;Tour Guides&lt;/display&gt;
+      &lt;display&gt;Sales Reps&lt;/display&gt;
     &lt;/group&gt;
     &lt;group&gt;
       &lt;value&gt;6d1a1088-3a56-4371-8e3b-6d48d67493ec&lt;/value&gt;
@@ -2042,19 +2042,19 @@ Enterprise User Extension Representation</h3>
 &lt;User xmlns="urn:scim:schemas:core:1.0" xmlns:enterprise="urn:scim:schemas:extension:enterprise:1.0"&gt;
   &lt;id&gt;2819c223-7f76-453a-919d-413861904646&lt;/id&gt;
   &lt;externalId&gt;701984&lt;/externalId&gt;
-  &lt;userName&gt;bjensen@example.com&lt;/userName&gt;
+  &lt;userName&gt;dschrute@example.com&lt;/userName&gt;
   &lt;name&gt;
-    &lt;formatted&gt;Ms. Babs J Jensen III&lt;/formatted&gt;
-    &lt;familyName&gt;Jensen&lt;/familyName&gt;
-    &lt;givenName&gt;Barbara&lt;/givenName&gt;
-    &lt;middleName&gt;Jane&lt;/middleName&gt;
-    &lt;honorificPrefix&gt;Ms.&lt;/honorificPrefix&gt;
+    &lt;formatted&gt;Mr. Dwight K Schrute III&lt;/formatted&gt;
+    &lt;familyName&gt;Schrute&lt;/familyName&gt;
+    &lt;givenName&gt;Dwight&lt;/givenName&gt;
+    &lt;middleName&gt;Kurt&lt;/middleName&gt;
+    &lt;honorificPrefix&gt;Mr.&lt;/honorificPrefix&gt;
     &lt;honorificSuffix&gt;III&lt;/honorificSuffix&gt;
   &lt;/name&gt;
-  &lt;displayName&gt;Babs Jensen&lt;/displayName&gt;
-  &lt;nickName&gt;Babs&lt;/nickName&gt;
-  &lt;profileUrl&gt;https://login.example.com/bjensen&lt;/profileUrl&gt;
-  &lt;title&gt;Tour Guide&lt;/title&gt;
+  &lt;displayName&gt;Dwight Schrute&lt;/displayName&gt;
+  &lt;nickName&gt;Recyclops&lt;/nickName&gt;
+  &lt;profileUrl&gt;https://login.example.com/dschrute&lt;/profileUrl&gt;
+  &lt;title&gt;Sales Rep&lt;/title&gt;
   &lt;userType&gt;Employee&lt;/userType&gt;
   &lt;preferredLanguage&gt;en_US&lt;/preferredLanguage&gt;
   &lt;locale&gt;en_US&lt;/locale&gt;
@@ -2063,12 +2063,12 @@ Enterprise User Extension Representation</h3>
   &lt;password&gt;t1meMa$heen&lt;/password&gt;
   &lt;emails&gt;
     &lt;email&gt;
-      &lt;value&gt;bjensen@example.com&lt;/value&gt;
+      &lt;value&gt;dschrute@example.com&lt;/value&gt;
       &lt;type&gt;work&lt;/type&gt;
       &lt;primary&gt;true&lt;/primary&gt;
     &lt;/email&gt;
     &lt;email&gt;
-      &lt;value&gt;babs@jensen.com/value&gt;
+      &lt;value&gt;dwight@schrute.org/value&gt;
       &lt;type&gt;home&lt;/type&gt;
     &lt;/email&gt;
   &lt;/emails&gt;
@@ -2121,7 +2121,7 @@ Enterprise User Extension Representation</h3>
   &lt;/photos&gt;
   &lt;groups&gt;
     &lt;group&gt;
-      &lt;display&gt;Tour Guides&lt;/display&gt;
+      &lt;display&gt;Sales Reps&lt;/display&gt;
       &lt;value&gt;00300000005N2Y6AA&lt;/value&gt;
     &lt;/group&gt;
     &lt;group&gt;
@@ -2170,12 +2170,12 @@ Enterprise User Extension Representation</h3>
   &lt;enterprise:employeeNumber&gt;701984&lt;/enterprise:employeeNumber&gt;
   &lt;enterprise:manager&gt;
    &lt;enterprise:managerId&gt;902c246b-6245-4190-8e05-00816be7344a&lt;/enterprise:managerId&gt;
-   &lt;enterprise:displayName&gt;Mandy Pepperidge&lt;/enterprise:displayName&gt;
+   &lt;enterprise:displayName&gt;Jim Halpert&lt;/enterprise:displayName&gt;
   &lt;/enterprise:manager&gt;
   &lt;enterprise:costCenter&gt;4130&lt;/enterprise:costCenter&gt;
   &lt;enterprise:organization&gt;Universal Studios&lt;/enterprise:organization&gt;
   &lt;enterprise:division&gt;Theme Park&lt;/enterprise:division&gt;
-  &lt;enterprise:department&gt;Tour Operations&lt;/enterprise:department&gt;
+  &lt;enterprise:department&gt;Sales Operations&lt;/enterprise:department&gt;
   &lt;meta&gt;
     &lt;created&gt;2010-01-23T04:56:22Z&lt;/created&gt;
     &lt;lastModified&gt;2011-05-13T04:42:34Z&lt;/lastModified&gt;
@@ -2196,15 +2196,15 @@ Group Representation</h3>
 
 &lt;Group xmlns="urn:scim:schemas:core:1.0"&gt;
   &lt;id&gt;2819c223-7f76-453a-919d-413861904646&lt;/id&gt;
-  &lt;displayName&gt;Tour Guides&lt;/displayName&gt;
+  &lt;displayName&gt;Sales Reps&lt;/displayName&gt;
   &lt;members&gt;
     &lt;member&gt;
      &lt;value&gt;902c246b-6245-4190-8e05-00816be7344a&lt;/value&gt;
-     &lt;display&gt;Babs Jensen&lt;/display&gt;
+     &lt;display&gt;Dwight Schrute&lt;/display&gt;
     &lt;/member&gt;
     &lt;member&gt;
       &lt;value&gt;902c246b-6245-4190-8e05-00816be7344a&lt;/value&gt;
-      &lt;display&gt;Mandy Pepperidge&lt;/display&gt;
+      &lt;display&gt;Jim Halpert&lt;/display&gt;
     &lt;/member&gt;
   &lt;/members&gt;
 &lt;/Group&gt;
