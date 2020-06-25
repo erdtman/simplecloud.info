@@ -461,12 +461,12 @@ Content-Length: ...
 
 {
   "schemas":["urn:scim:schemas:core:1.0"],
-  "userName":"bjensen",
-  "externalId":"bjensen",
+  "userName":"dschrute",
+  "externalId":"dschrute",
   "name":{
-    "formatted":"Ms. Barbara J Jensen III",
-    "familyName":"Jensen",
-    "givenName":"Barbara"
+    "formatted":"Mr. Dwight Kurt Schrute III",
+    "familyName":"Schrute",
+    "givenName":"Dwight"
   }
 }
 
@@ -484,7 +484,7 @@ ETag: W/"e180ee84f0671b1"
 {
   "schemas":["urn:scim:schemas:core:1.0"],
   "id":"2819c223-7f76-453a-919d-413861904646",
-  "externalId":"bjensen",
+  "externalId":"dschrute",
   "meta":{
     "created":"2011-08-01T21:32:44.882Z",
     "lastModified":"2011-08-01T21:32:44.882Z",
@@ -492,11 +492,11 @@ ETag: W/"e180ee84f0671b1"
     "version":"W\/\"e180ee84f0671b1\""
   },
   "name":{
-    "formatted":"Ms. Barbara J Jensen III",
-    "familyName":"Jensen",
-    "givenName":"Barbara"
+    "formatted":"Mr. Dwight Kurt Schrute III",
+    "familyName":"Schrute",
+    "givenName":"Dwight"
   },
-  "userName":"bjensen"
+  "userName":"dschrute"
 }
 </pre></div>
 <a name="get-resources-ops"></a><br /><hr />
@@ -547,7 +547,7 @@ ETag: W/"f250dd84f0671c3"
 {
   "schemas":["urn:scim:schemas:core:1.0"],
   "id":"2819c223-7f76-453a-919d-413861904646,
-  "externalId":"bjensen",
+  "externalId":"dschrute",
   "meta":{
     "created":"2011-08-01T18:29:49.793Z",
     "lastModified":"2011-08-01T18:29:49.793Z",
@@ -555,11 +555,11 @@ ETag: W/"f250dd84f0671c3"
     "version":"W\/\"f250dd84f0671c3\""
   },
   "name":{
-    "formatted":"Ms. Barbara J Jensen III",
-    "familyName":"Jensen",
-    "givenName":"Barbara"
+    "formatted":"Mr. Dwight Kurt Schrute III",
+    "familyName":"Schrute",
+    "givenName":"Dwight"
   },
-  "userName":"bjensen",
+  "userName":"dschrute",
   "phoneNumbers":[
     {
       "value":"555-555-8377",
@@ -568,7 +568,7 @@ ETag: W/"f250dd84f0671c3"
   ],
   "emails":[
     {
-      "value":"bjensen@example.com",
+      "value":"dschrute@example.com",
       "type":"work"
     }
   ]
@@ -606,7 +606,7 @@ Content-Type: application/json
   "schemas":["urn:scim:schemas:core:1.0"],
   "Resources":[
     {
-      "userName":"bjensen"
+      "userName":"dschrute"
     },
     {
       "userName":"jsmith"
@@ -806,7 +806,7 @@ filter=Username eq "john"
 <p>Examples:
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
 
-filter=userName eq "bjensen"
+filter=userName eq "dschrute"
 
 filter=name.familyName co "O'Malley"
 
@@ -1022,20 +1022,20 @@ If-Match: W/"a330bc54f0671c9"
 {
   "schemas":["urn:scim:schemas:core:1.0"],
   "id":"2819c223-7f76-453a-919d-413861904646",
-  "userName":"bjensen",
-  "externalId":"bjensen",
+  "userName":"dschrute",
+  "externalId":"dschrute",
   "name":{
-    "formatted":"Ms. Barbara J Jensen III",
-    "familyName":"Jensen",
-    "givenName":"Barbara",
-    "middleName":"Jane"
+    "formatted":"Mr. Dwight Kurt Schrute III",
+    "familyName":"Schrute",
+    "givenName":"Dwight",
+    "middleName":"Kurt"
   },
   "emails":[
     {
-        "value":"bjensen@example.com"
+        "value":"dschrute@example.com"
     },
     {
-        "value":"babs@jensen.org"
+        "value":"dwight@schrute.org"
     }
   ]
 }
@@ -1054,20 +1054,20 @@ Location:"https://example.com/v1/Users/2819c223-7f76-453a-919d-413861904646"
 {
   "schemas":["urn:scim:schemas:core:1.0"],
   "id":"2819c223-7f76-453a-919d-413861904646",
-  "userName":"bjensen",
-  "externalId":"bjensen",
+  "userName":"dschrute",
+  "externalId":"dschrute",
   "name":{
-    "formatted":"Ms. Barbara J Jensen III",
-    "familyName":"Jensen",
-    "givenName":"Barbara",
-    "middleName":"Jane"
+    "formatted":"Mr. Dwight Kurt Schrute III",
+    "familyName":"Schrute",
+    "givenName":"Dwight",
+    "middleName":"Kurt"
   },
   "emails":[
     {
-        "value":"bjensen@example.com"
+        "value":"dschrute@example.com"
     },
     {
-        "value":"babs@jensen.org"
+        "value":"dwight@schrute.org"
     }
   ],
   "meta": {
@@ -1165,7 +1165,7 @@ If-Match: W/"a330bc54f0671c9"
   "schemas": ["urn:scim:schemas:core:1.0"],
   "members": [
     {
-      "display": "Babs Jensen",
+      "display": "Dwight Schrute",
       "value": "2819c223-7f76-453a-919d-413861904646"
     }
   ]
@@ -1206,7 +1206,7 @@ If-Match: W/"a330bc54f0671c9"
   "schemas": ["urn:scim:schemas:core:1.0"],
   "members": [
     {
-      "display": "Babs Jensen",
+      "display": "Dwight Schrute",
       "value": "2819c223-7f76-453a-919d-413861904646"
       "operation": "delete"
     }
@@ -1253,7 +1253,7 @@ If-Match: W/"a330bc54f0671c9"
   },
   "members": [
     {
-      "display": "Babs Jensen",
+      "display": "Dwight Schrute",
       "value": "2819c223-7f76-453a-919d-413861904646"
     },
     {
@@ -1278,7 +1278,7 @@ If-Match: W/"a330bc54f0671c9"
   "schemas": ["urn:scim:schemas:core:1.0"],
   "members": [
     {
-      "display": "Babs Jensen",
+      "display": "Dwight Schrute",
       "value": "2819c223-7f76-453a-919d-413861904646"
       "operation": "delete"
     },
@@ -1307,7 +1307,7 @@ If-Match: W/"a330bc54f0671c9"
   "schemas": ["urn:scim:schemas:core:1.0"],
   "emails": [
     {
-      "value": "bjensen@example.com",
+      "value": "dschrute@example.com",
       "primary": true
     }
   ]
@@ -1402,8 +1402,8 @@ If-Match: W/"a330bc54f0671c9"
 {
   "schemas": ["urn:scim:schemas:core:1.0"],
   "name": {
-    "formatted": "Ms. Barbara J Jensen III",
-    "familyName": "Jensen"
+    "formatted": "Mr. Dwight Kurt Schrute III",
+    "familyName": "Schrute"
   }
 }
 </pre></div>
@@ -1840,7 +1840,7 @@ Content-Type: application/json
 </p>
 <p>
                     The following example creates a User with the userName 'Alice' and a Group
-                    with the displayName 'Tour Guides' with Alice as a member.
+                    with the displayName 'Sales Reps' with Alice as a member.
                 
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
 
@@ -1875,7 +1875,7 @@ Content-Length: ...
         "schemas": [
           "urn:scim:schemas:core:1.0"
         ],
-        "displayName": "Tour Guides",
+        "displayName": "Sales Reps",
         "members": [
           {
             "type": "user",
@@ -1920,7 +1920,7 @@ Content-Type: application/json
   ]
 }</pre></div>
 <p>
-                    A subsequent request for the 'Tour Guides' Group ('e9e30dba-f08f-4109-8486-d5c6a331660a') returns the following:
+                    A subsequent request for the 'Sales Reps' Group ('e9e30dba-f08f-4109-8486-d5c6a331660a') returns the following:
                 
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
 
@@ -1938,7 +1938,7 @@ ETag: W/"lha5bbazU3fNvfe5"
 {
   "schemas":["urn:scim:schemas:core:1.0"],
   "id": "e9e30dba-f08f-4109-8486-d5c6a331660a",
-  "displayName": "Tour Guides",
+  "displayName": "Sales Reps",
   "meta": {
     "created":"2011-08-01T18:29:49.793Z",
     "lastModified":"2011-08-01T20:31:02.315Z",
@@ -2260,7 +2260,7 @@ ETag: W/"a330bc54f0671c9"
 {
   "schemas":["urn:scim:schemas:core:1.0"],
   "id":"2819c223-7f76-453a-919d-413861904646",
-  "userName":"bjensen",
+  "userName":"dschrute",
   "meta":{
     "created":"2011-08-01T18:29:49.793Z",
     "lastModified":"2011-08-01T18:29:49.793Z",
@@ -2417,12 +2417,12 @@ Content-Length: ...
 
 {
   "schemas":["urn:scim:schemas:core:1.0"],
-  "userName":"bjensen",
-  "externalId":"bjensen",
+  "userName":"dschrute",
+  "externalId":"dschrute",
   "name":{
-    "formatted":"Ms. Barbara J Jensen III",
-    "familyName":"Jensen",
-    "givenName":"Barbara"
+    "formatted":"Mr. Dwight Kurt Schrute III",
+    "familyName":"Schrute",
+    "givenName":"Dwight"
   }
 }
 </pre></div>
@@ -2445,11 +2445,11 @@ ETag: W/"e180ee84f0671b1"
     "version":"W\/\"e180ee84f0671b1\""
   },
   "name":{
-    "formatted":"Ms. Barbara J Jensen III",
-    "familyName":"Jensen",
-    "givenName":"Barbara"
+    "formatted":"Mr. Dwight Kurt Schrute III",
+    "familyName":"Schrute",
+    "givenName":"Dwight"
   },
-  "userName":"bjensen"
+  "userName":"dschrute"
 }
 </pre></div>
 <p>With the returned ETag, Consumers MAY choose to retrieve the Resource
