@@ -384,5 +384,13 @@ const scim_v2_implementations = {
             "developer": "CrossID",
             "link": "https://crossid.io/",
         },
+        {
+            "project_name": "Symantec Directory",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "Broadcom",
+            "link": "https://www.broadcom.com/products/cyber-security/identity/directory",
+        },
     ]
 };
