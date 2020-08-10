@@ -129,6 +129,14 @@ const scim_v2_implementations = {
             "link": "https://unifysolutions.net/",
         },
         {
+            "project_name": "JumpCloud",
+            "client": "Yes",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "JumpCloud",
+            "link": "https://jumpcloud.com"
+        },
+        {
             "project_name": "Microsoft Identity Manager (MIM) - SCIMv2 Management Agent",
             "client": "Yes",
             "server": "No",
