@@ -400,5 +400,13 @@ const scim_v2_implementations = {
             "developer": "Broadcom",
             "link": "https://www.broadcom.com/products/cyber-security/identity/directory",
         },
+        {
+            "project_name": "NetIQ Identity Manager",
+            "client": "Yes",
+            "server": "No",
+            "open_source": "No",
+            "developer": "Micro Focus",
+            "link": "https://www.netiq.com/documentation/identity-manager-48-drivers/scim_driver/data/driver-for-scim.html",
+        },
     ]
 };
