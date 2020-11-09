@@ -142,7 +142,15 @@ const scim_v2_implementations = {
             "server": "No",
             "open_source": "No",
             "developer": "Traxion",
-            "link": "https://www.traxion.com/producten/iam-integration/"
+            "link": "https://www.traxion.com/en/products/iam-integration/scim-connector/"
+        },
+        {
+            "project_name": "SCIM Gateway",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "Traxion",
+            "link": "https://www.traxion.com/en/products/iam-integration/scim-gateway/"
         },
         {
             "project_name": "Okta Provisioning",
