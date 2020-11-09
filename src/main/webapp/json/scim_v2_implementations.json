@@ -410,8 +410,8 @@ const scim_v2_implementations = {
         },
         {
             "project_name": "Blink",
-            "client": "Yes",
-            "server": "No",
+            "client": "No",
+            "server": "Yes",
             "open_source": "No",
             "developer": "Blink",
             "link": "https://developer.joinblink.com/reference#user",
