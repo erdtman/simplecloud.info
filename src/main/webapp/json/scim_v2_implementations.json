@@ -408,5 +408,13 @@ const scim_v2_implementations = {
             "developer": "Micro Focus",
             "link": "https://www.netiq.com/documentation/identity-manager-48-drivers/scim_driver/data/driver-for-scim.html",
         },
+        {
+            "project_name": "Blink",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "Blink",
+            "link": "https://developer.joinblink.com/reference#user",
+        },
     ]
 };
