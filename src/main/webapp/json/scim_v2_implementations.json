@@ -1,6 +1,14 @@
 const scim_v2_implementations = {
     "implementations": [
         {
+            "project_name": "IAM Adapta",
+            "client": "Yes",
+            "server": "No",
+            "open_source": "No",
+            "developer": "Adapta",
+            "link": "https://www.adapta.nl/"
+        },
+        {
             "project_name": "Active Directory SCIM Provisioning",
             "client": "Yes",
             "server": "Yes",
