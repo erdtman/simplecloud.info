@@ -295,6 +295,14 @@ const scim_v1_implementations = {
       "open_source": "Yes, Apache 2.0 License",
       "developer": "WSO2Inc",
       "link": "https://github.com/wso2/charon"
+    },
+    {
+      "project_name": "ideiio",
+      "client": "Yes",
+      "server": "Yes",
+      "open_source": "No",
+      "developer": "ideiio",
+      "link": "https://ideiio.com/"
     }
   ]
 };

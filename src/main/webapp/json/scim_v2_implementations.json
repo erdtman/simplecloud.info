@@ -448,5 +448,13 @@ const scim_v2_implementations = {
             "developer": "Gatekeeper Community",
             "link": "https://gatekeeper.page",
         },
+        {
+          "project_name": "ideiio",
+          "client": "Yes",
+          "server": "Yes",
+          "open_source": "No",
+          "developer": "ideiio",
+          "link": "https://ideiio.com/"
+        }
     ]
 };
