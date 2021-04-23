@@ -455,6 +455,14 @@ const scim_v2_implementations = {
           "open_source": "No",
           "developer": "ideiio",
           "link": "https://ideiio.com/"
+        },
+        {
+          "project_name": "AlexisHR Provisioning",
+          "client": "Yes",
+          "server": "Yes",
+          "open_source": "No",
+          "developer": "AlexisHR AB",
+          "link": "https://docs.alexishr.com"
         }
     ]
 };
