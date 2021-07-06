@@ -1,6 +1,14 @@
 const scim_v2_implementations = {
     "implementations": [
         {
+            "project_name": "i2scim",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "Yes, Apache 2.0 License",
+            "developer": "Independent Identity Inc",
+            "link": "https://i2scim.io"
+        },
+        {
             "project_name": "IAM Adapta",
             "client": "Yes",
             "server": "No",
