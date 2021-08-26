@@ -2,7 +2,7 @@ const scim_v2_implementations = {
     "implementations": [
         {
             "project_name": "i2scim",
-            "client": "No",
+            "client": "Yes",
             "server": "Yes",
             "open_source": "Yes, Apache 2.0 License",
             "developer": "Independent Identity Inc",
