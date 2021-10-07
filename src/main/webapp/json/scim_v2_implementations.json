@@ -161,6 +161,14 @@ const scim_v2_implementations = {
             "link": "https://www.traxion.com/en/products/iam-integration/scim-connector/"
         },
         {
+            "project_name": "Monokee",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "Monokee",
+            "link": "https://www.monokee.com/docs/scim/"
+        },
+        {
             "project_name": "SCIM Gateway",
             "client": "No",
             "server": "Yes",
