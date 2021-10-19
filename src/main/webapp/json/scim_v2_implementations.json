@@ -1,6 +1,14 @@
 const scim_v2_implementations = {
     "implementations": [
         {
+            "project_name": "AWS SSO",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "Amazon Web Services",
+            "link": "https://docs.aws.amazon.com/singlesignon/latest/developerguide/what-is-scim.html"
+        },
+        {
             "project_name": "i2scim",
             "client": "Yes",
             "server": "Yes",
