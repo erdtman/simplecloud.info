@@ -321,6 +321,14 @@ const scim_v2_implementations = {
             "link": "https://github.com/elimity-com/scim"
         },
         {
+            "project_name": "scimterface",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "Yes, MIT License",
+            "developer": "Will-Low",
+            "link": "https://github.com/Will-Low/scimterface"
+        },
+        {
             "project_name": "SimpleIdentityServer",
             "client": "Yes",
             "server": "Yes",
