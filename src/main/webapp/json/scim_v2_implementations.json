@@ -503,6 +503,14 @@ const scim_v2_implementations = {
           "open_source": "No",
           "developer": "AlexisHR AB",
           "link": "https://docs.alexishr.com"
+        },
+        {
+          "project_name": "Calendly",
+          "client": "Yes",
+          "server": "No",
+          "open_source": "No",
+          "developer": "Calendly",
+          "link": "https://help.calendly.com/hc/en-us/articles/4403422473751-How-to-set-up-SCIM-with-your-identity-provider"
         }
     ]
 };
