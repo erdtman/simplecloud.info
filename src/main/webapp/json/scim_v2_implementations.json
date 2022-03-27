@@ -1,5 +1,13 @@
 const scim_v2_implementations = {
     "implementations": [
+	    {
+            "project_name": "Anaplan SCIM API",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "Anaplan, Inc.",
+            "link": "https://scimapi.docs.apiary.io"
+        },
         {
             "project_name": "AWS SSO",
             "client": "No",
