@@ -513,6 +513,14 @@ const scim_v2_implementations = {
           "link": "https://docs.alexishr.com"
         },
         {
+            "project_name": "FusionAuth SCIM",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "FusionAuth",
+            "link": "https://fusionauth.io/docs/v1/tech/core-concepts/scim"
+        },
+        {
           "project_name": "Calendly",
           "client": "No",
           "server": "Yes",
