@@ -1,6 +1,14 @@
 const scim_v2_implementations = {
     "implementations": [
 	{
+            "project_name": "Vector Flow",
+            "client": "No",
+            "server": "Yes",
+            "open_source": "No",
+            "developer": "Vector Flow",
+            "link": "https://vectorflow.com/"
+        },
+	{
             "project_name": "Anaplan SCIM API",
             "client": "No",
             "server": "Yes",
