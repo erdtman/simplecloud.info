@@ -497,14 +497,6 @@ const scim_v2_implementations = {
             "link": "https://www.gong.io",
         },
         {
-            "project_name": "Gatekeeper",
-            "client": "Yes",
-            "server": "No",
-            "open_source": "Yes, AGPL License",
-            "developer": "Gatekeeper Community",
-            "link": "https://gatekeeper.page",
-        },
-        {
           "project_name": "ideiio",
           "client": "Yes",
           "server": "Yes",
