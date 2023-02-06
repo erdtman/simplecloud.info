@@ -41,7 +41,7 @@ const scim_v2_implementations = {
             "link": "https://www.adapta.nl/"
         },
         {
-            "project_name": "Active Directory SCIM Provisioning",
+            "project_name": "Azure Active Directory SCIM Provisioning",
             "client": "Yes",
             "server": "Yes",
             "open_source": "No",
