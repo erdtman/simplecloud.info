@@ -32,6 +32,14 @@ const scim_v2_implementations = {
             "developer": "Axiad",
             "link": "https://www.axiad.com/axiad-cloud/"
         },
+	{
+            "project_name": "ConnId",
+            "client": "Yes",
+            "server": "No",
+            "open_source": "Yes, Apache2.0",
+            "developer": "Tirasa",
+            "link": "https://github.com/Tirasa/ConnIdSCIMBundle"
+        },
         {
             "project_name": "i2scim",
             "client": "Yes",
