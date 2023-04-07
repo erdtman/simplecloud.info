@@ -38,7 +38,7 @@ const scim_v1_implementations = {
       "server": "No",
       "open_source": "Yes, Apache2.0",
       "developer": "Tirasa",
-      "link": "https://github.com/Tirasa/ConnIdSCIMv11Bundle"
+      "link": "https://github.com/Tirasa/ConnIdSCIMBundle"
     },
     {
       "project_name": "ConnId/Polygon",
