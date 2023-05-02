@@ -551,6 +551,14 @@ const scim_v2_implementations = {
           "open_source": "No",
           "developer": "Saviynt",
           "link": "https://saviynt.com/integrations"
+        },
+	{
+          "project_name": "Slack SCIM",
+          "client": "No",
+          "server": "Yes",
+          "open_source": "No",
+          "developer": "Slack Technologies",
+          "link": "https://api.slack.com/admins/scim2"
         }
     ]
 };
