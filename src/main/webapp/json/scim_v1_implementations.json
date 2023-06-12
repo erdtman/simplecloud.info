@@ -245,8 +245,8 @@ const scim_v1_implementations = {
       "client": "No",
       "server": "Yes",
       "open_source": "Yes,Apache-2.0",
-      "developer": "EugeneZhukov",
-      "link": "http://ee.dy.fi/scim"
+      "developer": "Eugene Zhukov",
+      "link": "https://github.com/ezhukov/scim-sample"
     },
     {
       "project_name": "SCIMProxy",
