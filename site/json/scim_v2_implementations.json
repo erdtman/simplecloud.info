@@ -73,7 +73,7 @@ const scim_v2_implementations = {
             "link": "https://github.com/the-control-group",
         },
         {
-            "project_name": "Delinea Privileged Access Service",
+            "project_name": "Delinea Secret Server",
             "client": "No",
             "server": "Yes",
             "open_source": "No",
