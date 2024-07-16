@@ -449,12 +449,12 @@ const scim_v2_implementations = {
             "link": "https://github.com/Captain-P-Goldfish/SCIM-SDK",
         },
         {
-            "project_name": "idaas.nl",
+            "project_name": "The SCIM Playground",
             "client": "Yes",
             "server": "Yes",
             "open_source": "Yes, MIT License",
             "developer": "Arie Timmerman",
-            "link": "https://www.idaas.nl/guide/scim.html",
+            "link": "https://scim.dev",
         },
         {
             "project_name": "scim-patch",
