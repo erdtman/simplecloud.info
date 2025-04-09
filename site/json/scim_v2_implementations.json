@@ -25,12 +25,12 @@ const scim_v2_implementations = {
             "link": "https://docs.aws.amazon.com/singlesignon/latest/developerguide/what-is-scim.html"
         },
         {
-            "project_name": "Axiad Cloud",
+            "project_name": "Axiad Conductor",
             "client": "No",
             "server": "Yes",
             "open_source": "No",
             "developer": "Axiad",
-            "link": "https://www.axiad.com/axiad-cloud/"
+            "link": "https://www.axiad.com/axiad-conductor"
         },
 	{
             "project_name": "ConnId",
